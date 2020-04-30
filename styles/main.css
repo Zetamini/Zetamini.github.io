@@ -2128,11 +2128,15 @@ body {
     .next-md-body a:hover, .friends-box a:hover {
       color: #222;
       border-bottom-color: #222;
-    }
-      .nav-item a {
-        color:  #555;
+    }.nav-item a {
+        color: #555;
+      }
+      .nav-item-active a {
+        color: #555;
+        border-bottom: 1px solid #555 !important;
       }.nav-item a:hover {
         color: #222;
+        border-bottom: 1px solid #222 !important;
       }.nav-item-active {
       background: #f9f9f9fe;
     }
@@ -2149,14 +2153,15 @@ body {
       transition-property: all;
       transition-duration: 59s;
       transition-timing-function: cubic-bezier(.34,0,.84,1);
-    }.pisces .blog-header, .gemini .blog-header {
-        right: 0;
+    }.muse .sidebar, .mist .sidebar {
+        right: 0 !important;
+        left: auto !important;
       }
-      .pisces .section-layout-wrapper, .gemini .section-layout-wrapper {
-        flex-direction: row-reverse !important;
-      }.pisces .sidebar, .gemini .sidebar {
-        right: 0;
-      }.markdownIt-TOC a {
+      .drawer-box {
+        right: 30px !important;
+        left: auto !important;
+      }
+      .markdownIt-TOC a {
       color: #eee;
       border-bottom-color: #eee;
     }.markdownIt-TOC a:hover {
