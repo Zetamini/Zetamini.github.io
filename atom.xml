@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zetamini.github.io/</id>
+    <id>https://zetamini.github.io</id>
     <title>Zeta</title>
-    <updated>2020-04-26T13:40:38.764Z</updated>
+    <updated>2020-04-30T16:14:43.920Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zetamini.github.io/"/>
+    <link rel="alternate" href="https://zetamini.github.io"/>
     <link rel="self" href="https://zetamini.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://zetamini.github.io/images/avatar.png</logo>
