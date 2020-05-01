@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T16:56:34.335Z</updated>
+    <updated>2020-05-01T17:02:02.965Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
