@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T16:17:16.809Z</updated>
+    <updated>2020-05-01T16:38:59.795Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -154,7 +154,7 @@ nohup github-webhook -b [shell脚本路径] -s [github webhook设置的密码] &
 # 定向日志输出
 nohup github-webhook -b ~/webhook.sh -s sopsopsop &gt;&gt; ~/webhook.log 2&gt;&amp;1 &amp;
 </code></pre>
-<h5 id="3webhooksh脚本">(3)webhook.sh脚本</h5>
+<h5 id="3webhooksh">(3)webhook.sh</h5>
 <pre><code>#! /bin/bash
 SITE_PATH='/var/www/html'
 USER='www-data'
@@ -195,8 +195,76 @@ chown -R $USER:$USERGROUP $SITE_PATH
 <td style="text-align:left">接收请求的URL</td>
 <td style="text-align:left">https://www.qq.com/webhook.php</td>
 </tr>
+<tr>
+<td style="text-align:left">项目部署目录</td>
+<td style="text-align:left">/var/www/html</td>
+</tr>
+<tr>
+<td style="text-align:left">webhook.sh路径</td>
+<td style="text-align:left">~/webhook.sh</td>
+</tr>
+<tr>
+<td style="text-align:left">webhook.php</td>
+<td style="text-align:left">/var/www/html/webhook.php</td>
+</tr>
+<tr>
+<td style="text-align:left">环境</td>
+<td style="text-align:left">nginx php</td>
+</tr>
+<tr>
+<td style="text-align:left">用户组</td>
+<td style="text-align:left">www-data</td>
+</tr>
 </tbody>
 </table>
+<h3 id="git-config">Git config</h3>
+<p>Git 项目需要使用 SSH 地址，如 git@github.com:xxx/xxx.git 。如果之前采用了 HTTPS 链接，需要修改 .git/config 文件里的 url 字段：</p>
+<pre><code>vi .git/config
+</code></pre>
+<pre><code>[remote &quot;origin&quot;]
+    url = git@github.com:xxx/xxx.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+</code></pre>
+<h3 id="部署-ssh-无密码登录">部署 SSH 无密码登录</h3>
+<p>首先需要生成 SSH key</p>
+<pre><code>sudo  -u www-data ssh-keygen -t rsa -C &quot;nginx&quot;
+</code></pre>
+<p>然后复制你的 public key，粘贴到项目的“SSH 公钥”设置里</p>
+<pre><code>cat /var/www/.ssh/id_rsa.pub
+</code></pre>
+<p>Github仓库中 <code>Settings -&gt; Deploy keys</code> 选择 Add deploy key<br>
+<img src="https://zeta.im/post-images/1588350517937.png" alt="" loading="lazy"><br>
+添加完毕后，可以运行 <code>ssh -T git@github.com</code> 来验证是否设置成功。首次运行时会看到一条 RSA key 指纹的连接确认信息，输入 yes 回车即可</p>
+<pre><code>Hi username! You've successfully authenticated, but GitHub does not
+provide shell access.
+</code></pre>
+<h3 id="webhookphp">webhook.php</h3>
+<p>webhook.php 用来接收 webhook 请求，一般要做以下操作：</p>
+<ul>
+<li>监测请求来源合法性。检查方法：密码，AES等。</li>
+<li>检查是否为特定分支，如 master 分支。</li>
+<li>启动自动部署脚本，如完成拉取最新代码，重新设置目录权限等</li>
+</ul>
+<pre><code>&lt;?php
+$raw_data = file_get_contents(&quot;php://input&quot;);
+$pay_load = json_decode($raw_data,true);
+//监测请求来源合法性，
+if($pay_load['password'] != 'pass'){
+    exit('ok 400');
+}
+//检查是否为master分支
+if($pay_load[&quot;ref&quot;] != &quot;refs/heads/master&quot;){
+    exit('ok 401');
+}
+
+exec('sh ~/webhook.sh');
+</code></pre>
+<h3 id="webhooksh">webhook.sh</h3>
+<p>webhook.sh和github-webhook中脚本一样</p>
+<h1 id="三-参考文章">三、参考文章</h1>
+<p>1.百里江山的博客，《github-webhook工具实现github自动构建》，https://sgfoot.com/2020/04/24/github-webhook.html<br>
+2.David's world，《Git webhook 实现自动部署教程》，https://blog.text.wiki/2017/10/31/git-webhooks-for-php.html<br>
+3.Segmentfault，《在gitlab 中使用webhook 实现php 自动部署git 代码》，https://segmentfault.com/a/1190000009866784</p>
 ]]></content>
     </entry>
     <entry>
