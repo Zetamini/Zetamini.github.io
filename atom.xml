@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T15:20:56.202Z</updated>
+    <updated>2020-05-01T15:25:40.201Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -16,6 +16,36 @@
         <link href="https://zeta.im/Automatic-deployment-with-git-webhook/">
         </link>
         <updated>2020-05-01T14:26:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
+<h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
+<p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
+<h2 id="一本地-hook">（一）本地 hook</h2>
+<p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：</p>
+<pre><code>$ hooks git:(master) ls
+applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample
+commit-msg.sample         update.sample
+post-update.sample        pre-push.sample
+pre-applypatch.sample     pre-rebase.sample
+</code></pre>
+<p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
+本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
+<ul>
+<li>pre-commit<br>
+提交之前的代码检查，包括是否通过单元测试，静态代码分析</li>
+<li>prepare-commit-msg<br>
+提交信息之前，可用来生成默认的提交信息</li>
+<li>commit-msg<br>
+提交信息之后，可用来检查提交信息是否符合特定的格式</li>
+<li>post-commit<br>
+提交代码之后，一般用来通知代码已提交。</li>
+<li>post-checkout<br>
+checkout 代码之后，可用来设置工作目录、生成文档、生成静态资源等工作</li>
+<li>post-merge<br>
+合并代码之后，可用来保存 merge 操作中，git 没有保存的信息。</li>
+<li>pre-push<br>
+push 代码之前，可用来检查本次 push 的 commits 是否符合特定的标准。</li>
+</ul>
+]]></summary>
         <content type="html"><![CDATA[<p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
 <h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
 <p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
@@ -29,6 +59,33 @@ pre-applypatch.sample     pre-rebase.sample
 </code></pre>
 <p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
 本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
+<ul>
+<li>pre-commit<br>
+提交之前的代码检查，包括是否通过单元测试，静态代码分析</li>
+<li>prepare-commit-msg<br>
+提交信息之前，可用来生成默认的提交信息</li>
+<li>commit-msg<br>
+提交信息之后，可用来检查提交信息是否符合特定的格式</li>
+<li>post-commit<br>
+提交代码之后，一般用来通知代码已提交。</li>
+<li>post-checkout<br>
+checkout 代码之后，可用来设置工作目录、生成文档、生成静态资源等工作</li>
+<li>post-merge<br>
+合并代码之后，可用来保存 merge 操作中，git 没有保存的信息。</li>
+<li>pre-push<br>
+push 代码之前，可用来检查本次 push 的 commits 是否符合特定的标准。</li>
+</ul>
+<!-- more -->
+<h2 id="二服务器-hook">（二）服务器 hook</h2>
+<p>服务器 hook 指代码传输到服务器时，在服务器端所做的一系列操作。</p>
+<ul>
+<li>pre-receive<br>
+处理 push 操作之前，可以检查本次 push 的 commits 和文件是否符合特定的标准。</li>
+<li>update<br>
+update 与 pre-receive 操作类似，不同的是 pre-receive 只执行一次，而 update 可能执行多次。</li>
+<li>post-receive<br>
+整个提交过程完成之后，可用于更新其它服务或通知用户，比如发邮件告诉开发人员已提交代码，通知持续集成 (Continuous Integration) 服务器部署代码</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
