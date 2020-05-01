@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Zeta</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1588312376228">
+<link rel="shortcut icon" href="/favicon.ico?v=1588312604538">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
 
@@ -238,7 +238,53 @@
               </ul>
             </div>
             
-  
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('https://upimage.alexhchu.com/2020/04/21/47eda59424daa.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'Jn0Tb1wlpGGI5uipQHHHqgDr-MdYXbMMI',
+    appKey: 'AS7hkQ9BKY0v5kQRHF8Kzv5M',
+    avatar: '',
+    placeholder: '~',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
 
           </section>
         </div>
