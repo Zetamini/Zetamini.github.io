@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T16:38:59.795Z</updated>
+    <updated>2020-05-01T16:50:30.322Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -261,10 +261,10 @@ exec('sh ~/webhook.sh');
 </code></pre>
 <h3 id="webhooksh">webhook.sh</h3>
 <p>webhook.sh和github-webhook中脚本一样</p>
-<h1 id="三-参考文章">三、参考文章</h1>
-<p>1.百里江山的博客，《github-webhook工具实现github自动构建》，https://sgfoot.com/2020/04/24/github-webhook.html<br>
-2.David's world，《Git webhook 实现自动部署教程》，https://blog.text.wiki/2017/10/31/git-webhooks-for-php.html<br>
-3.Segmentfault，《在gitlab 中使用webhook 实现php 自动部署git 代码》，https://segmentfault.com/a/1190000009866784</p>
+<h1 id="三-声明">三、声明</h1>
+<p>本文所有内容，包括文字、图片等来源以下地址，版权归原作者所有。<br>
+1.百里江山的博客，《github-webhook工具实现github自动构建》，https://sgfoot.com/2020/04/24/github-webhook.html<br>
+2.David's world，《Git webhook 实现自动部署教程》，https://blog.text.wiki/2017/10/31/git-webhooks-for-php.html</p>
 ]]></content>
     </entry>
     <entry>
