@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T15:59:18.360Z</updated>
+    <updated>2020-05-01T16:17:16.809Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -91,9 +91,10 @@ update 与 pre-receive 操作类似，不同的是 pre-receive 只执行一次�
 webhook 本质上属于服务器 hook，因为发送通知的方式是网络请求，因此得名。使用 webhook 的步骤如下：<br>
 1.设置用于接收请求的 URL。<br>
 2.服务器收到 push、pull request、merge、tag 等操作时，会将相应信息发送给步骤 1 里的 URL。<br>
-3.URL 对应的程序收到网络请求后，执行自动部署、邮件通知等操作。<br>
-<img src="https://zeta.im/post-images/1588347043167.png" alt="" loading="lazy"></p>
+3.URL 对应的程序收到网络请求后，执行自动部署、邮件通知等操作。</p>
+<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588347043167.png" alt="" loading="lazy"></figure>
 <h1 id="二-部署-webhook">二、部署 webhook</h1>
+<p>部署webhook有很多方式，本文仅讲解使用github-webhook工具和在nginx+php环境下部署webhook的两种方式</p>
 <h2 id="一github-webhook工具">（一）github-webhook工具</h2>
 <h3 id="github-webhook-文档">github-webhook 文档</h3>
 <ul>
@@ -151,15 +152,51 @@ github-webhook -b [shell脚本路径] -s [github webhook设置的密码]
 nohup github-webhook -b [shell脚本路径] -s [github webhook设置的密码] &amp; 
 
 # 定向日志输出
-nohup github-webhook -b ~/sh/hugo2www.sh -s qweqwe &gt;&gt; ~/logs/webhook.log 2&gt;&amp;1 &amp;
+nohup github-webhook -b ~/webhook.sh -s sopsopsop &gt;&gt; ~/webhook.log 2&gt;&amp;1 &amp;
 </code></pre>
-<h4 id="4配置github-webhook">4.配置github webhook</h4>
+<h5 id="3webhooksh脚本">(3)webhook.sh脚本</h5>
+<pre><code>#! /bin/bash
+SITE_PATH='/var/www/html'
+USER='www-data'
+USERGROUP='www-data'
+cd $SITE_PATH
+git reset --hard origin/master
+git clean -f
+git pull
+git checkout master
+chown -R $USER:$USERGROUP $SITE_PATH
+</code></pre>
+<p>赋予webhook.sh可执行权限</p>
+<pre><code>chmod +x webhook.sh
+</code></pre>
+<p>这样每次在客户端 push 代码，服务器会发请求给 github-webhook，github-webhook检查通过后，启动 <code>webhook.sh</code> 进行自动部署。</p>
+<h3 id="配置github-webhook">配置github webhook</h3>
 <ul>
 <li>填写你服务器的地址, http://ip:2020/web-hook</li>
 <li>设置的密码必须与服务器运行github-webhook -s 设置的密码一致<br>
 <img src="https://zeta.im/post-images/1588348742453.png" alt="" loading="lazy"><br>
 <img src="https://zeta.im/post-images/1588348750655.png" alt="" loading="lazy"></li>
 </ul>
+<h2 id="二nginxphp环境下部署webhook">（二）nginx+php环境下部署webhook</h2>
+<h3 id="环境">环境</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Item</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">域名</td>
+<td style="text-align:left">www.qq.com</td>
+</tr>
+<tr>
+<td style="text-align:left">接收请求的URL</td>
+<td style="text-align:left">https://www.qq.com/webhook.php</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     <entry>
