@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T15:20:09.457Z</updated>
+    <updated>2020-05-01T15:20:56.202Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -26,14 +26,9 @@ applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sampl
 commit-msg.sample         update.sample
 post-update.sample        pre-push.sample
 pre-applypatch.sample     pre-rebase.sample
-默认情况下，这些脚本不会生效。使用时，只需将 `.sample` 后缀去掉，然后赋予脚本执行权限即可。
-本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。
-
-
-
-
-
 </code></pre>
+<p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
+本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
 ]]></content>
     </entry>
     <entry>
