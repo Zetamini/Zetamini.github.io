@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T15:07:19.682Z</updated>
+    <updated>2020-05-01T15:09:26.094Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -21,13 +21,13 @@
 <p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
 <h2 id="本地-hook">本地 hook</h2>
 <p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：<br>
-·<br>
+···<br>
 $ hooks git:(master) ls<br>
-applypatch-msg.sample     pre-commit.sample           prepare-commit-msg.sample<br>
+applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample<br>
 commit-msg.sample         update.sample<br>
 post-update.sample        pre-push.sample<br>
 pre-applypatch.sample     pre-rebase.sample<br>
-·</p>
+···</p>
 ]]></content>
     </entry>
     <entry>
