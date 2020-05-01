@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-01T15:17:40.722Z</updated>
+    <updated>2020-05-01T15:20:09.457Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -17,15 +17,18 @@
         </link>
         <updated>2020-05-01T14:26:33.000Z</updated>
         <content type="html"><![CDATA[<p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
-<h1 id="什么是git-webhook">什么是Git webhook</h1>
+<h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
 <p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
-<h2 id="本地-hook">本地 hook</h2>
+<h2 id="一本地-hook">（一）本地 hook</h2>
 <p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：</p>
 <pre><code>$ hooks git:(master) ls
 applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample
 commit-msg.sample         update.sample
 post-update.sample        pre-push.sample
 pre-applypatch.sample     pre-rebase.sample
+默认情况下，这些脚本不会生效。使用时，只需将 `.sample` 后缀去掉，然后赋予脚本执行权限即可。
+本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。
+
 
 
 
