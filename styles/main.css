@@ -2072,12 +2072,12 @@ body {
     .nav-toggle .line {
       background-color: #eee !important;
     }.header {
-        width: 1440px;
+        width: 80%;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 1440px;
+        width: 80%;
         margin: 0 auto;
       }
     body {
