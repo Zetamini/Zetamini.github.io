@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>webhook 实现自动部署 | Zeta</title>
+<title>RouterOS电信移动聚合 | Zeta</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1588397608682">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="webhook 实现自动部署" />
-  <meta name="keywords" content="Git,Webhook,Github,Gridea" />
+  <meta name="description" content="RouterOS电信移动聚合" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -216,52 +216,13 @@
   <div class="toc-wrapper auto-number auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%80-%E4%BB%80%E4%B9%88%E6%98%AFgit-webhook">一、什么是Git webhook</a>
+<li><a href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81">前情提要</a></li>
+<li><a href="#routeros%E9%85%8D%E7%BD%AE">RouterOS配置</a>
 <ul>
-<li><a href="#%E4%B8%80%E6%9C%AC%E5%9C%B0-hook">（一）本地 hook</a></li>
-<li><a href="#%E4%BA%8C%E6%9C%8D%E5%8A%A1%E5%99%A8-hook">（二）服务器 hook</a></li>
-<li><a href="#%E4%B8%89webhook">（三）webhook</a></li>
+<li><a href="#1%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1.准备工作</a></li>
+<li><a href="#2%E5%BB%BA%E7%AB%8Bpppoe%E6%8B%A8%E5%8F%B7">2.建立pppoe拨号</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BA%8C-%E9%83%A8%E7%BD%B2-webhook">二、部署 webhook</a>
-<ul>
-<li><a href="#%E4%B8%80github-webhook%E5%B7%A5%E5%85%B7">（一）github-webhook工具</a>
-<ul>
-<li><a href="#github-webhook-%E6%96%87%E6%A1%A3">github-webhook 文档</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8github-webhook">使用github-webhook</a>
-<ul>
-<li><a href="#1go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">1.Go环境搭建</a>
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85sudo-curl-wget-git-vim">安装Sudo、Curl、Wget、Git、Vim</a></li>
-<li><a href="#1%E4%B8%8B%E8%BD%BDgo%E5%B9%B6%E8%A7%A3%E5%8E%8B">(1)下载GO并解压</a></li>
-<li><a href="#2%E8%AE%BE%E7%BD%AEgo%E8%B7%AF%E5%BE%84">(2)设置Go路径</a></li>
-</ul>
-</li>
-<li><a href="#2%E4%B8%8B%E8%BD%BDgithub-webhook%E5%B7%A5%E5%85%B7">2.下载github-webhook工具</a></li>
-<li><a href="#3%E8%BF%90%E8%A1%8Cgithub-webhook">3.运行github-webhook</a>
-<ul>
-<li><a href="#1%E5%AE%89%E8%A3%85">(1)安装</a></li>
-<li><a href="#2%E8%BF%90%E8%A1%8C">(2)运行</a></li>
-<li><a href="#3webhooksh">(3)webhook.sh</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E9%85%8D%E7%BD%AEgithub-webhook">配置github webhook</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8Cnginxphp%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2webhook">（二）nginx+php环境下部署webhook</a>
-<ul>
-<li><a href="#%E7%8E%AF%E5%A2%83">环境</a></li>
-<li><a href="#git-config">Git config</a></li>
-<li><a href="#%E9%83%A8%E7%BD%B2-ssh-%E6%97%A0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95">部署 SSH 无密码登录</a></li>
-<li><a href="#webhookphp">webhook.php</a></li>
-<li><a href="#webhooksh">webhook.sh</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E4%B8%89-%E5%A3%B0%E6%98%8E">三、声明</a></li>
 </ul>
 
   </div>
@@ -527,8 +488,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/Automatic-deployment-with-webhook/">
-      webhook 实现自动部署
+    <a class="post-title-link" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">
+      RouterOS电信移动聚合
     </a>
   </h1>
   <div class="post-meta">
@@ -536,54 +497,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-05-01</span>
+      <span>2020-05-02</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zeta.im/git/">
-        <span>Git</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/webhook/">
-        <span>Webhook</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/github/">
-        <span>Github</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/IXfk_eLpt/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
+      <span>9分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1756<span class="pc-show">字数</span></span>
+      <span>1542<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/Automatic-deployment-with-webhook/" data-flag-title="webhook 实现自动部署" class="meta-item pc-show leancloud_visitors">
+    <span id="/Using-Routeros-PCC-CT-and-CM/" data-flag-title="RouterOS电信移动聚合" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -592,225 +522,155 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
-<h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
-<p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
-<h2 id="一本地-hook">（一）本地 hook</h2>
-<p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：</p>
-<pre><code>$ hooks git:(master) ls
-applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample
-commit-msg.sample         update.sample
-post-update.sample        pre-push.sample
-pre-applypatch.sample     pre-rebase.sample
-</code></pre>
-<p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
-本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
+              <h1 id="前情提要">前情提要</h1>
 <ul>
-<li>pre-commit<br>
-提交之前的代码检查，包括是否通过单元测试，静态代码分析</li>
-<li>prepare-commit-msg<br>
-提交信息之前，可用来生成默认的提交信息</li>
-<li>commit-msg<br>
-提交信息之后，可用来检查提交信息是否符合特定的格式</li>
-<li>post-commit<br>
-提交代码之后，一般用来通知代码已提交。</li>
-<li>post-checkout<br>
-checkout 代码之后，可用来设置工作目录、生成文档、生成静态资源等工作</li>
-<li>post-merge<br>
-合并代码之后，可用来保存 merge 操作中，git 没有保存的信息。</li>
-<li>pre-push<br>
-push 代码之前，可用来检查本次 push 的 commits 是否符合特定的标准。</li>
-</ul>
-<!-- more -->
-<h2 id="二服务器-hook">（二）服务器 hook</h2>
-<p>服务器 hook 指代码传输到服务器时，在服务器端所做的一系列操作。</p>
+<li>
+<p>购入3865U工控软路由一台，6口千兆。</p>
+</li>
+<li>
+<p>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</p>
+</li>
+<li>
+<p>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</p>
+<h1 id="routeros配置">RouterOS配置</h1>
+<h2 id="1准备工作">1.准备工作</h2>
 <ul>
-<li>pre-receive<br>
-处理 push 操作之前，可以检查本次 push 的 commits 和文件是否符合特定的标准。</li>
-<li>update<br>
-update 与 pre-receive 操作类似，不同的是 pre-receive 只执行一次，而 update 可能执行多次。</li>
-<li>post-receive<br>
-整个提交过程完成之后，可用于更新其它服务或通知用户，比如发邮件告诉开发人员已提交代码，通知持续集成 (Continuous Integration) 服务器部署代码</li>
+<li>直通网口2-6，网口1-lan1管理。</li>
+<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
+<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
 </ul>
-<h2 id="三webhook">（三）webhook</h2>
-<p>如果 Git 服务部署在自己的服务器上，如用 GitLab 搭建一套 Git 服务，则可以使用服务器 hook。如果使用了 GitHub、Bitbucket 等云端平台，那么只能使用 webhook 来完成脚本。<br>
-webhook 本质上属于服务器 hook，因为发送通知的方式是网络请求，因此得名。使用 webhook 的步骤如下：<br>
-1.设置用于接收请求的 URL。<br>
-2.服务器收到 push、pull request、merge、tag 等操作时，会将相应信息发送给步骤 1 里的 URL。<br>
-3.URL 对应的程序收到网络请求后，执行自动部署、邮件通知等操作。</p>
-<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588347043167.png" alt="" loading="lazy"></figure>
-<h1 id="二-部署-webhook">二、部署 webhook</h1>
-<p>部署webhook有很多方式，本文仅讲解使用github-webhook工具和在nginx+php环境下部署webhook的两种方式</p>
-<h2 id="一github-webhook工具">（一）github-webhook工具</h2>
-<h3 id="github-webhook-文档">github-webhook 文档</h3>
-<ul>
-<li>更多详情文档 https://github.com/yezihack/github-webhook</li>
+<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
+</code></pre>
+<h2 id="2建立pppoe拨号">2.建立pppoe拨号</h2>
+<pre><code>/interface pppoe-client add name=pppoe-CT max-mtu=1480 max-mru=1480 interface=CT user=xxxxxxxxxx password=xxxxxxxxxx add-default-route=no disable=no
+</code></pre>
+</li>
 </ul>
-<h3 id="使用github-webhook">使用github-webhook</h3>
-<h4 id="1go环境搭建">1.Go环境搭建</h4>
-<h5 id="安装sudo-curl-wget-git-vim">安装Sudo、Curl、Wget、Git、Vim</h5>
-<pre><code>apt update &amp;&amp; apt install sudo wget vim curl
+<p>/interface pppoe-client add name=pppoe-CMCC max-mtu=1480 max-mru=1480 interface=CMCC user=zzzzzzzzzz password=zzzzzzzzzz add-default-route=no disable=no</p>
+<pre><code>## 3.建立DHCP服务器
 </code></pre>
-<h5 id="1下载go并解压">(1)下载GO并解压</h5>
-<pre><code>curl -O https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
-tar xvf  go1.14.2.linux-amd64.tar.gz
-sudo chown -R root:root ./go
-sudo mv go /usr/local
+<p>/ip pool<br>
+add name=pool1 ranges=10.10.10.2-10.10.10.250<br>
+/ip dhcp-server<br>
+add name=dhcp_pool1 interface=bridge1 address-pool=pool1 disable=no</p>
+<pre><code>## 4.防火墙基础防护
 </code></pre>
-<p>注意：虽然/usr/local/go是官方推荐的位置，但有些用户可能更喜欢或需要不同的路径。</p>
-<h5 id="2设置go路径">(2)设置Go路径</h5>
-<p>设置Go的根值，告诉Go在哪里查找其文件：</p>
-<pre><code>vi ~/.profile
+<p>/ip firewall filter<br>
+add chain=input in-interface=pppoe-CT protocol=udp dst-port=53 action=drop<br>
+add chain=input in-interface=pppoe-CT protocol=tcp dst-port=53 action=drop<br>
+add chain=input in-interface=pppoe-CMCC protocol=udp dst-port=53 action=drop<br>
+add chain=input in-interface=pppoe-CMCC protocol=tcp dst-port=53 action=drop</p>
+<p>add chain=input connection-state=invalid action=drop comment=&quot;Drop Invalid connections&quot;<br>
+add chain=input connection-state=established action=accept comment=&quot;Allow Established connections&quot;<br>
+add chain=input protocol=icmp action=accept comment=&quot;Allow ICMP&quot;<br>
+add chain=input src-address=10.10.10.0/24 action=accept in-interface=bridge1<br>
+add chain=input action=drop comment=&quot;Drop everything else&quot;</p>
+<p>add chain=output action=accept comment=&quot;accept everything&quot;</p>
+<p>add chain=forward connection-state=invalid action=drop comment=&quot;Drop Invalid connections&quot;<br>
+add chain=forward connection-state=established action=accept comment=&quot;Allow Established connections&quot;<br>
+add chain=forward connection-state=related action=accept comment=&quot;allow related connections&quot;</p>
+<p>add chain=forward protocol=tcp action=jump jump-target=tcp<br>
+add chain=forward protocol=udp action=jump jump-target=udp<br>
+add chain=forward protocol=icmp action=jump jump-target=icmp</p>
+<pre><code>## 5.建立nat伪装与端口映射
 </code></pre>
-<p>在文件末尾添加以下行：</p>
-<pre><code>export GOPATH=$HOME/work
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+<p>/ip firewall nat<br>
+add chain=srcnat out-interface=pppoe-CT action=masquerade<br>
+add chain=srcnat out-interface=pppoe-CMCC action=masquerade</p>
+<pre><code>## 6.PCC宽带聚合
+### (1)导入国内运营商ip段
+下载文件 ros-dpbr-CT-CMCC.rsc，下载地址：https://raw.githubusercontent.com/jacyl4/ros-pbr-CT-CMCC/master/ros-dpbr-CT-CMCC.rsc
+导入winbox的Files里
+运行如下，把ip段导入ros firewall的address lists里，供下面标记时使用。（防止重复导入，前两行是删除现有的电信段与移动段）
 </code></pre>
-<p>如果为Go选择了不同的安装位置，则应将以下行添加到此文件中</p>
-<pre><code>export GOROOT=$HOME/go
-export GOPATH=$HOME/work
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+<p>/ip firewall address-list remove [find list=&quot;dpbr-CT&quot;]<br>
+/ip firewall address-list remove [find list=&quot;dpbr-CMCC&quot;]<br>
+/import ros-dpbr-CT-CMCC.rsc</p>
+<pre><code>### (2)排除内网通讯
 </code></pre>
-<p>注意：<code>export GOROOT=$HOME/go</code>在主目录中安装Go时所需的行<br>
-在Go安装到位并设置必要的环境路径后，让我们通过编写一个简短的程序来确认我们的设置是否有效</p>
-<pre><code>source ~/.profile
+<p>/ip firewall address-list<br>
+add address=10.10.10.0/24 list=local comment=local</p>
+<p>/ip firewall mangle<br>
+add chain=prerouting src-address-list=local dst-address-list=local action=accept comment=&quot;local&quot;</p>
+<pre><code>### (3)v2线路标记
+示例：
+-  111.111.111.111是BWH ip，注释名称BWG，走电信线路
+-  222.222.222.222是GCP ip，注释名称GCP，走移动线路
 </code></pre>
-<h4 id="2下载github-webhook工具">2.下载github-webhook工具</h4>
-<pre><code>wget http://img.sgfoot.com/github-webhook1.4.1.linux-amd64.tar.gz
+<p>/ip firewall address-list<br>
+add address=111.111.111.111 list=CTv2 comment=BWG<br>
+add address=222.222.222.222 list=CMv2 comment=GCP</p>
+<p>/ip firewall mangle<br>
+add chain=prerouting connection-mark=no-mark in-interface=bridge1 dst-address-list=CTv2 action=mark-connection new-connection-mark=CT_conn1 passthrough=yes comment=v2<br>
+add chain=prerouting connection-mark=no-mark in-interface=bridge1 dst-address-list=CMv2 action=mark-connection new-connection-mark=CMCC_conn1 passthrough=yes</p>
+<pre><code>### (4)PCC标记
+#### DNS traffic
 </code></pre>
-<h4 id="3运行github-webhook">3.运行github-webhook</h4>
-<h5 id="1安装">(1)安装</h5>
-<pre><code>tar -zxvf github-webhook1.4.1.linux-amd64.tar.gz
-cp github-webhook /usr/bin/
-chmod u+x /usr/bin/github-webhook
+<p>/ip firewall mangle<br>
+add chain=prerouting src-address=10.10.10.0/24  protocol=udp dst-port=53 action=mark-routing new-routing-mark=&quot;DNS traffic&quot; passthrough=no  comment=&quot;DNS traffic&quot;<br>
+add chain=prerouting src-address=10.10.10.0/24  protocol=tcp dst-port=53 action=mark-routing new-routing-mark=&quot;DNS traffic&quot; passthrough=no</p>
+<pre><code>#### local
 </code></pre>
-<h5 id="2运行">(2)运行</h5>
-<ul>
-<li>默认端口: 2020</li>
-<li>有效访问地址: http://ip:2020/web-hook</li>
-<li>-b 是shell脚本路径参数</li>
-<li>-s 是github webhook设置的密码</li>
-</ul>
-<pre><code># 非后台运行
-github-webhook -b [shell脚本路径] -s [github webhook设置的密码]
-
-# 后台运行
-nohup github-webhook -b [shell脚本路径] -s [github webhook设置的密码] &amp; 
-
-# 定向日志输出
-nohup github-webhook -b ~/webhook.sh -s sopsopsop &gt;&gt; ~/webhook.log 2&gt;&amp;1 &amp;
+<p>/ip firewall mangle<br>
+add chain=prerouting src-address-list=local dst-address-list=local action=accept comment=&quot;local&quot;</p>
+<pre><code>#### in
 </code></pre>
-<h5 id="3webhooksh">(3)webhook.sh</h5>
-<pre><code>#! /bin/bash
-SITE_PATH='/var/www/html'
-USER='www-data'
-USERGROUP='www-data'
-cd $SITE_PATH
-git reset --hard origin/master
-git clean -f
-git pull
-git checkout master
-chown -R $USER:$USERGROUP $SITE_PATH
+<p>/ip firewall mangle<br>
+add chain=prerouting in-interface=pppoe-CT connection-mark=no-mark action=mark-connection new-connection-mark=CT_conn comment=in<br>
+add chain=prerouting in-interface=pppoe-CMCC connection-mark=no-mark action=mark-connection new-connection-mark=CMCC_conn</p>
+<pre><code>#### PCC
 </code></pre>
-<p>赋予webhook.sh可执行权限</p>
-<pre><code>chmod +x webhook.sh
+<p>add chain=prerouting in-interface=bridge1 connection-mark=no-mark per-connection-classifier=both-addresses:2/0 dst-address-type=!local action=mark-connection new-connection-mark=CT_conn comment=PCC<br>
+add chain=prerouting in-interface=bridge1 connection-mark=no-mark per-connection-classifier=both-addresses:2/1 dst-address-type=!local action=mark-connection new-connection-mark=CMCC_conn</p>
+<pre><code>#### dynamic pbr
 </code></pre>
-<p>这样每次在客户端 push 代码，服务器会发请求给 github-webhook，github-webhook检查通过后，启动 <code>webhook.sh</code> 进行自动部署。</p>
-<h3 id="配置github-webhook">配置github webhook</h3>
-<ul>
-<li>填写你服务器的地址, http://ip:2020/web-hook</li>
-<li>设置的密码必须与服务器运行github-webhook -s 设置的密码一致<br>
-<img src="https://zeta.im/post-images/1588348742453.png" alt="" loading="lazy"><br>
-<img src="https://zeta.im/post-images/1588348750655.png" alt="" loading="lazy"></li>
-</ul>
-<h2 id="二nginxphp环境下部署webhook">（二）nginx+php环境下部署webhook</h2>
-<h3 id="环境">环境</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">域名</td>
-<td style="text-align:left">www.qq.com</td>
-</tr>
-<tr>
-<td style="text-align:left">接收请求的URL</td>
-<td style="text-align:left">https://www.qq.com/webhook.php</td>
-</tr>
-<tr>
-<td style="text-align:left">项目部署目录</td>
-<td style="text-align:left">/var/www/html</td>
-</tr>
-<tr>
-<td style="text-align:left">webhook.sh路径</td>
-<td style="text-align:left">~/webhook.sh</td>
-</tr>
-<tr>
-<td style="text-align:left">webhook.php</td>
-<td style="text-align:left">/var/www/html/webhook.php</td>
-</tr>
-<tr>
-<td style="text-align:left">环境</td>
-<td style="text-align:left">nginx php</td>
-</tr>
-<tr>
-<td style="text-align:left">用户组</td>
-<td style="text-align:left">www-data</td>
-</tr>
-</tbody>
-</table>
-<h3 id="git-config">Git config</h3>
-<p>Git 项目需要使用 SSH 地址，如 git@github.com:xxx/xxx.git 。如果之前采用了 HTTPS 链接，需要修改 .git/config 文件里的 url 字段：</p>
-<pre><code>vi .git/config
+<p>add chain=prerouting in-interface=bridge1 connection-mark=CT_conn action=mark-routing new-routing-mark=CT comment=&quot;dynamic pbr&quot;<br>
+add chain=prerouting in-interface=bridge1 connection-mark=CMCC_conn action=mark-routing new-routing-mark=CMCC</p>
+<pre><code>#### out
 </code></pre>
-<pre><code>[remote &quot;origin&quot;]
-    url = git@github.com:xxx/xxx.git
-    fetch = +refs/heads/*:refs/remotes/origin/*
+<p>add chain=output connection-mark=CT_conn action=mark-routing new-routing-mark=CT comment=out<br>
+add chain=output connection-mark=CMCC_conn action=mark-routing new-routing-mark=CMCC</p>
+<pre><code>## 7.设置路由
 </code></pre>
-<h3 id="部署-ssh-无密码登录">部署 SSH 无密码登录</h3>
-<p>首先需要生成 SSH key</p>
-<pre><code>sudo  -u www-data ssh-keygen -t rsa -C &quot;nginx&quot;
+<p>/ip route<br>
+add dst-address=0.0.0.0/0 gateway=pppoe-CT check-gateway=ping distance=1 routing-mark=CT<br>
+add dst-address=0.0.0.0/0 gateway=pppoe-CMCC check-gateway=ping distance=1 routing-mark=CMCC<br>
+add dst-address=0.0.0.0/0 gateway=pppoe-CT check-gateway=ping distance=1<br>
+add dst-address=0.0.0.0/0 gateway=pppoe-CMCC check-gateway=ping distance=2</p>
+<pre><code>
+# de_GWD安装
+- de_GWD(Debian Gateway&amp;DNS)专注旁路，运行于debian的一个完善套件，带界面，纯粹是为了追求更高效更极速，可以说一骑绝尘。
+- DNS去污染方式有别于以往各种，效率不是以往LEDE/梅林等兼容方案能比拟的。
+- 需要64位，支持普通amd64平台 以及 树莓派，香橙派 等 arm64 平台。
+Github项目地址：https://github.com/jacyl4/de_GWD
+## 1.部署
+提前给自己的vps kvm 小机 准备好域名。哪怕是免费的只要能给cloudflare托管就行。二级域名不行。脚本开始安装的时候，要制作证书的。
+![](https://zeta.im/post-images/1588397370468.webp)
+## 2.服务端
 </code></pre>
-<p>然后复制你的 public key，粘贴到项目的“SSH 公钥”设置里</p>
-<pre><code>cat /var/www/.ssh/id_rsa.pub
+<p>apt install -y wget<br>
+bash &lt;(wget --no-check-certificate -qO- https://raw.githubusercontent.com/jacyl4/de_GWD/master/server)</p>
+<pre><code>直接输出上面做好a记录的自己的域名。期间会自动生成uuid跟path。 脚本结束会打印出uuid跟path。
+在线生成UUID：https://www.uuidgenerator.net/
+## 3.客户端
+`Compatible Edition (amd64&amp;arm64)`
 </code></pre>
-<p>Github仓库中 <code>Settings -&gt; Deploy keys</code> 选择 Add deploy key<br>
-<img src="https://zeta.im/post-images/1588350517937.png" alt="" loading="lazy"><br>
-添加完毕后，可以运行 <code>ssh -T git@github.com</code> 来验证是否设置成功。首次运行时会看到一条 RSA key 指纹的连接确认信息，输入 yes 回车即可</p>
-<pre><code>Hi username! You've successfully authenticated, but GitHub does not
-provide shell access.
+<p>apt install -y wget<br>
+bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client)</p>
+<pre><code>`General Edition (amd64)`
 </code></pre>
-<h3 id="webhookphp">webhook.php</h3>
-<p>webhook.php 用来接收 webhook 请求，一般要做以下操作：</p>
-<ul>
-<li>监测请求来源合法性。检查方法：密码，AES等。</li>
-<li>检查是否为特定分支，如 master 分支。</li>
-<li>启动自动部署脚本，如完成拉取最新代码，重新设置目录权限等</li>
-</ul>
-<pre><code>&lt;?php
-$raw_data = file_get_contents(&quot;php://input&quot;);
-$pay_load = json_decode($raw_data,true);
-//监测请求来源合法性，
-if($pay_load['password'] != 'pass'){
-    exit('ok 400');
-}
-//检查是否为master分支
-if($pay_load[&quot;ref&quot;] != &quot;refs/heads/master&quot;){
-    exit('ok 401');
-}
-
-exec('sh ~/webhook.sh');
-</code></pre>
-<h3 id="webhooksh">webhook.sh</h3>
-<p>webhook.sh和github-webhook中脚本一样</p>
-<h1 id="三-声明">三、声明</h1>
-<p>本文所有内容，包括文字、图片等来源以下地址，版权归原作者所有。<br>
-1.百里江山的博客，《github-webhook工具实现github自动构建》，https://sgfoot.com/2020/04/24/github-webhook.html<br>
-2.David's world，《Git webhook 实现自动部署教程》，https://blog.text.wiki/2017/10/31/git-webhooks-for-php.html</p>
+<p>apt install -y wget<br>
+bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client_do)</p>
+<pre><code>![](https://zeta.im/post-images/1588397571132.webp)
+![](https://zeta.im/post-images/1588397577989.png)
+通常用第二个脚本，如果是armbian平台的话，才选第一个脚本。
+首次安装前，先维持上级路由的dhcp是普通状态，确保debian能正常获取ip联网。
+直接联网安装，不需要挂代理。
+选项2，可以用来强制重置pihole密码。
+装完后，关闭上级路由的DHCP服务，在web UI上开启de_GWD的DHCP服务。
+有公网ip的话，可以选项8安装wireguard组件。
+- 自动每四小时校时
+- 自动每天凌晨更新分流规则</code></pre>
 
             </div>
             <div class="post-footer">
@@ -821,7 +681,7 @@ exec('sh ~/webhook.sh');
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zeta.im/Automatic-deployment-with-webhook/" title="webhook 实现自动部署">https://zeta.im/Automatic-deployment-with-webhook/</a>
+      <a href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/" title="RouterOS电信移动聚合">https://zeta.im/Using-Routeros-PCC-CT-and-CM/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -830,27 +690,15 @@ exec('sh ~/webhook.sh');
   </ul>
   <div class="tags">
     
-      <a href="https://zeta.im/git/"># Git</a>
-    
-      <a href="https://zeta.im/webhook/"># Webhook</a>
-    
-      <a href="https://zeta.im/github/"># Github</a>
-    
-      <a href="https://zeta.im/IXfk_eLpt/"># Gridea</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">SFTP 安装与配置</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://zeta.im/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://zeta.im/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">SFTP 安装与配置</a>
+        <a class="nav-mobile-next" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
