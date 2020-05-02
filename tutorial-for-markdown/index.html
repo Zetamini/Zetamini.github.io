@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>Zeta</title>
+<title>Markdown 语法教程 | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1588423068994">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,6 +29,8 @@
 
 
 
+  <meta name="description" content="Markdown 语法教程" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -62,7 +64,7 @@
           
             
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/" target="_self">
@@ -138,8 +140,24 @@
     <div
       class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/images/avatar.png"/>
@@ -176,27 +194,307 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper  auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#1-%E6%96%9C%E4%BD%93%E5%92%8C%E7%B2%97%E4%BD%93">1. 斜体和粗体</a></li>
+<li><a href="#2-%E6%A0%87%E9%A2%98">2. 标题</a></li>
+<li><a href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98">一级标题</a>
+<ul>
+<li><a href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98">二级标题</a>
+<ul>
+<li><a href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98">三级标题</a>
+<ul>
+<li><a href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98">四级标题</a>
+<ul>
+<li><a href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98">五级标题</a>
+<ul>
+<li><a href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98">六级标题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E5%A4%96%E9%93%BE%E6%8E%A5">3. 外链接</a></li>
+<li><a href="#4-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8">4. 无序列表</a></li>
+<li><a href="#5-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8">5. 有序列表</a></li>
+<li><a href="#6-%E6%96%87%E5%AD%97%E5%BC%95%E7%94%A8">6. 文字引用</a></li>
+<li><a href="#7-%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81%E5%9D%97">7. 行内代码块</a></li>
+<li><a href="#8-%E4%BB%A3%E7%A0%81%E5%9D%97">8. 代码块</a></li>
+<li><a href="#9-%E6%8F%92%E5%85%A5%E5%9B%BE%E5%83%8F">9. 插入图像</a></li>
+<li><a href="#10-%E6%B5%8B%E8%AF%95">10. 测试</a></li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box pisces">
-          <section class="section bg-color posts-expand slide-down-in">
-            
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://zeta.im/tutorial-for-markdown/">
       Markdown 语法教程
@@ -221,12 +519,18 @@
       <span>311<span class="pc-show">字数</span></span>
     </span>
     
+    
+    
+    <span id="/tutorial-for-markdown/" data-flag-title="Markdown 语法教程" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span>浏览量：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
   </div>
 </header>
-      <div class="post-body">
-        
-        
-          <h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
+            <div class="post-body next-md-body" id="post_body">
+              <h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
 <p>使用 <code>*</code>和 <code>**</code>表示斜体和粗体。<br>
 示例：<br>
 这是 <em>斜体</em>，这是 <strong>粗体</strong></p>
@@ -253,501 +557,125 @@
 <li>无序列表项 二</li>
 <li>无序列表项 三</li>
 </ul>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/tutorial-for-markdown/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/play-with-docker/">
-      Docker常用基本命令
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-05-02</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>4分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>572<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <p>中文文档：<a href="https://www.runoob.com/docker/docker-command-manual.html">https://www.runoob.com/docker/docker-command-manual.html</a></p>
-<h1 id="install-docker-engine">INSTALL DOCKER ENGINE</h1>
-<blockquote>
-<p>Note: This procedure works for Debian on x86_64 / amd64, Debian ARM, or Raspbian.</p>
-</blockquote>
+<!-- more -->
+<h1 id="5-有序列表">5. 有序列表</h1>
+<p>使用数字和点表示有序列表<br>
+示例：</p>
 <ol>
-<li>Update the <code>apt</code> package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</li>
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
 </ol>
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+<h1 id="6-文字引用">6. 文字引用</h1>
+<p>使用 <code>&gt;</code> 表示文字引用<br>
+示例：</p>
+<blockquote>
+<p>野火烧不尽，春风吹又生。</p>
+</blockquote>
+<h1 id="7-行内代码块">7. 行内代码块</h1>
+<p>使用 <code>代码</code> 表示行内代码块<br>
+示例：<br>
+让我们聊聊 <code>html</code></p>
+<h1 id="8-代码块">8. 代码块</h1>
+<p>使用 四个缩进空格 或 ``` 表示代码块<br>
+示例：</p>
+<pre><code>    这是一个代码块，此行左侧有四个不可见的空格
+</code></pre>
+<h1 id="9-插入图像">9. 插入图像</h1>
+<p>使用 <code>![描述](图片链接地址)</code>插入图像<br>
+示例：<br>
+<img src="https://avatars3.githubusercontent.com/u/46315806?s=200&amp;v=4" alt="" loading="lazy"></p>
+<h1 id="10-测试">10. 测试</h1>
+<pre><code>function hello() {
+	var username = 'xiaoming';
+	var age = 18;
+	console.log('Hello World');
+}
+hello()
 </code></pre>
 
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/play-with-docker/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/Obtained-USA-TIN/">
-       ITIN (美国个人纳税识别号码) 境外申请攻略
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-05-02</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zeta.im/tin/">
-        <span>TIN</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>10分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>2566<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <p>本文适用于满足以下条件的读者:</p>
-<ul>
-<li>持有护照 (无需美国签证)</li>
-<li>非美国公民或永久居民, 且从未申请过 SSN</li>
-<li>可以收到国际信件 (中国居民可以使用美国邮件转运服务)</li>
-<li>可以用英语进行简单交流</li>
-</ul>
-<h1 id="itin-简介">ITIN 简介</h1>
-<p>ITIN (个人纳税识别号码) 是美国国税局 (IRS) 发放给没有资格申请 SSN 但有需要报税的人的识别号码. 该号码的格式为 9xx-xx-xxxx.</p>
-<p>除了用于识别纳税人身份, 在申请部分美国银行账户和信用卡时可以使用 ITIN 代替 SSN 进行身份认证. 基于现有的数据, ITIN 有以下用途.</p>
-<ul>
-<li>接受 ITIN 申请信用卡的银行: <code>American Express</code>, <code>Bank of America</code>, <code>Capital One</code>, <code>Chase</code>, <code>Citibank</code></li>
-<li>接受 ITIN 开设账户的银行:<code>Capital One</code>, <code>Discover</code></li>
-<li>其他服务: 注册 <code>Betterment</code> 投资账户, 开通 <code>PayPal</code> 余额功能</li>
-</ul>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/Obtained-USA-TIN/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">
-      RouterOS电信移动聚合
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-05-02</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1493<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <h1 id="前情提要">前情提要</h1>
-<ul>
-<li>购入3865U工控软路由一台，6口千兆。</li>
-<li>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</li>
-<li>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</li>
-</ul>
-<h1 id="routeros配置">RouterOS配置</h1>
-<h2 id="1准备工作">1.准备工作</h2>
-<ul>
-<li>直通网口2-6，网口1-lan1管理。</li>
-<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
-<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
-</ul>
-<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
-</code></pre>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/install-and-configure-for-sftp/">
-      SFTP 安装与配置
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-05-02</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zeta.im/sftp/">
-        <span>SFTP</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1249<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
-<h1 id="一-sftp-搭建">一、sftp 搭建</h1>
-<h2 id="1创建-sftp-组">1.创建 sftp 组</h2>
-<pre><code>groupadd sftp
-# -g 用户组； -d 指定家目录； -s 不登陆； -M 不创建家目录 
-useradd -g sftp -d /data/sftp/sftpuser -s /sbin/nologin sftpuser
-echo 123456 | passwd --stdin sftpuser
-</code></pre>
-<h2 id="2修改-sshd_config-配置">2.修改 sshd_config 配置</h2>
-<pre><code>vim /etc/ssh/sshd_config
-
-#Subsystem      sftp    /usr/libexec/openssh/sftp-server
-Subsystem sftp internal-sftp
-Match Group sftp
-ChrootDirectory /data/sftp/%u
-ForceCommand internal-sftp
-</code></pre>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/install-and-configure-for-sftp/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/Automatic-deployment-with-webhook/">
-      webhook 实现自动部署
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-05-01</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zeta.im/git/">
-        <span>Git</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/webhook/">
-        <span>Webhook</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/github/">
-        <span>Github</span>
-      </a>、
-      
-      
-      
-      <a href="https://zeta.im/IXfk_eLpt/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1732<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
-<h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
-<p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
-<h2 id="一本地-hook">（一）本地 hook</h2>
-<p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：</p>
-<pre><code>$ hooks git:(master) ls
-applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample
-commit-msg.sample         update.sample
-post-update.sample        pre-push.sample
-pre-applypatch.sample     pre-rebase.sample
-</code></pre>
-<p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
-本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
-<ul>
-<li>pre-commit<br>
-提交之前的代码检查，包括是否通过单元测试，静态代码分析</li>
-<li>prepare-commit-msg<br>
-提交信息之前，可用来生成默认的提交信息</li>
-<li>commit-msg<br>
-提交信息之后，可用来检查提交信息是否符合特定的格式</li>
-<li>post-commit<br>
-提交代码之后，一般用来通知代码已提交。</li>
-<li>post-checkout<br>
-checkout 代码之后，可用来设置工作目录、生成文档、生成静态资源等工作</li>
-<li>post-merge<br>
-合并代码之后，可用来保存 merge 操作中，git 没有保存的信息。</li>
-<li>pre-push<br>
-push 代码之前，可用来检查本次 push 的 commits 是否符合特定的标准。</li>
-</ul>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/Automatic-deployment-with-webhook/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/hello-gridea/">
-      Hello Gridea
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2018-12-12</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zeta.im/IXfk_eLpt/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>298<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://zeta.im/hello-gridea/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-  
-            
-            
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
+            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      zeta
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zeta.im/tutorial-for-markdown/" title="Markdown 语法教程">https://zeta.im/tutorial-for-markdown/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
   </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Docker常用基本命令" href="https://zeta.im/play-with-docker/">Docker常用基本命令</a>
+        <a class="nav-mobile-next" title="Docker常用基本命令" href="https://zeta.im/play-with-docker/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
 </div>
-          </section>
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('https://upimage.alexhchu.com/2020/04/21/47eda59424daa.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'Jn0Tb1wlpGGI5uipQHHHqgDr-MdYXbMMI',
+    appKey: 'AS7hkQ9BKY0v5kQRHF8Kzv5M',
+    avatar: '',
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1930,7 +1858,6 @@ exec(&#39;sh ~/webhook.sh&#39;);
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-02T09:59:12.783Z</updated>
+    <updated>2020-05-02T12:37:55.016Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -10,6 +10,69 @@
     <logo>https://zeta.im/images/avatar.png</logo>
     <icon>https://zeta.im/favicon.ico</icon>
     <rights>All rights reserved 2020, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown 语法教程]]></title>
+        <id>https://zeta.im/tutorial-for-markdown/</id>
+        <link href="https://zeta.im/tutorial-for-markdown/">
+        </link>
+        <updated>2020-05-02T10:04:44.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
+<p>使用 <code>*</code>和 <code>**</code>表示斜体和粗体。<br>
+示例：<br>
+这是 <em>斜体</em>，这是 <strong>粗体</strong></p>
+<h1 id="2-标题">2. 标题</h1>
+<p>使用 #加空格表示一级标题，同理，##加空格表示二级标题，以此类推<br>
+示例：</p>
+<blockquote>
+<h1 id="一级标题">一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<h4 id="四级标题">四级标题</h4>
+<h5 id="五级标题">五级标题</h5>
+<h6 id="六级标题">六级标题</h6>
+</blockquote>
+<h1 id="3-外链接">3. 外链接</h1>
+<p>使用 <code>[描述](链接地址)</code>为文字增加外链接<br>
+示例：<br>
+这是去往 <a href="https://zeta.im/">Zeta</a> 主页 的链接</p>
+<h1 id="4-无序列表">4. 无序列表</h1>
+<p>使用 <code>-</code>表示无序列表<br>
+示例：</p>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
+<p>使用 <code>*</code>和 <code>**</code>表示斜体和粗体。<br>
+示例：<br>
+这是 <em>斜体</em>，这是 <strong>粗体</strong></p>
+<h1 id="2-标题">2. 标题</h1>
+<p>使用 #加空格表示一级标题，同理，##加空格表示二级标题，以此类推<br>
+示例：</p>
+<blockquote>
+<h1 id="一级标题">一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<h4 id="四级标题">四级标题</h4>
+<h5 id="五级标题">五级标题</h5>
+<h6 id="六级标题">六级标题</h6>
+</blockquote>
+<h1 id="3-外链接">3. 外链接</h1>
+<p>使用 <code>[描述](链接地址)</code>为文字增加外链接<br>
+示例：<br>
+这是去往 <a href="https://zeta.im/">Zeta</a> 主页 的链接</p>
+<h1 id="4-无序列表">4. 无序列表</h1>
+<p>使用 <code>-</code>表示无序列表<br>
+示例：</p>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Docker常用基本命令]]></title>
         <id>https://zeta.im/play-with-docker/</id>
