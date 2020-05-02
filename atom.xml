@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-02T05:34:00.333Z</updated>
+    <updated>2020-05-02T05:35:00.062Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -16,6 +16,50 @@
         <link href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">
         </link>
         <updated>2020-05-02T03:08:53.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="前情提要">前情提要</h1>
+<ul>
+<li>
+<p>购入3865U工控软路由一台，6口千兆。</p>
+</li>
+<li>
+<p>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</p>
+</li>
+<li>
+<p>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</p>
+<h1 id="routeros配置">RouterOS配置</h1>
+<h2 id="1准备工作">1.准备工作</h2>
+<ul>
+<li>直通网口2-6，网口1-lan1管理。</li>
+<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
+<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
+</ul>
+<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
+</code></pre>
+</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="前情提要">前情提要</h1>
+<ul>
+<li>
+<p>购入3865U工控软路由一台，6口千兆。</p>
+</li>
+<li>
+<p>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</p>
+</li>
+<li>
+<p>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</p>
+<h1 id="routeros配置">RouterOS配置</h1>
+<h2 id="1准备工作">1.准备工作</h2>
+<ul>
+<li>直通网口2-6，网口1-lan1管理。</li>
+<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
+<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
+</ul>
+<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
+</code></pre>
+</li>
+</ul>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[SFTP 安装与配置]]></title>
