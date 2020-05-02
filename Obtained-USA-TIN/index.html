@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>RouterOS电信移动聚合 | Zeta</title>
+<title> ITIN (美国个人纳税识别号码) 境外申请攻略 | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1588406591778">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="RouterOS电信移动聚合" />
-  <meta name="keywords" content="" />
+  <meta name="description" content=" ITIN (美国个人纳税识别号码) 境外申请攻略" />
+  <meta name="keywords" content="TIN" />
 </head>
 
 <body>
@@ -200,40 +200,42 @@
   <div class="toc-wrapper  auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81">前情提要</a></li>
-<li><a href="#routeros%E9%85%8D%E7%BD%AE">RouterOS配置</a>
+<li><a href="#itin-%E7%AE%80%E4%BB%8B">ITIN 简介</a></li>
+<li><a href="#itin-%E7%94%B3%E8%AF%B7%E6%96%B9%E6%B3%95">ITIN 申请方法</a>
 <ul>
-<li><a href="#1%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1.准备工作</a></li>
-<li><a href="#2%E5%BB%BA%E7%AB%8Bpppoe%E6%8B%A8%E5%8F%B7">2.建立pppoe拨号</a></li>
-<li><a href="#3%E5%BB%BA%E7%AB%8Bdhcp%E6%9C%8D%E5%8A%A1%E5%99%A8">3.建立DHCP服务器</a></li>
-<li><a href="#4%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA%E7%A1%80%E9%98%B2%E6%8A%A4">4.防火墙基础防护</a></li>
-<li><a href="#5%E5%BB%BA%E7%AB%8Bnat%E4%BC%AA%E8%A3%85%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84">5.建立nat伪装与端口映射</a></li>
-<li><a href="#6pcc%E5%AE%BD%E5%B8%A6%E8%81%9A%E5%90%88">6.PCC宽带聚合</a>
-<ul>
-<li><a href="#1%E5%AF%BC%E5%85%A5%E5%9B%BD%E5%86%85%E8%BF%90%E8%90%A5%E5%95%86ip%E6%AE%B5">(1)导入国内运营商ip段</a></li>
-<li><a href="#2%E6%8E%92%E9%99%A4%E5%86%85%E7%BD%91%E9%80%9A%E8%AE%AF">(2)排除内网通讯</a></li>
-<li><a href="#3v2%E7%BA%BF%E8%B7%AF%E6%A0%87%E8%AE%B0">(3)v2线路标记</a></li>
-<li><a href="#4pcc%E6%A0%87%E8%AE%B0">(4)PCC标记</a>
-<ul>
-<li><a href="#dns-traffic">DNS traffic</a></li>
-<li><a href="#in">in</a></li>
-<li><a href="#pcc">PCC</a></li>
-<li><a href="#dynamic-pbr">dynamic pbr</a></li>
-<li><a href="#out">out</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-1-amazon-kdp-%E8%AF%81%E6%98%8E%E4%BF%A1">方法 1: Amazon KDP 证明信</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-2-amazon-kdp-%E6%94%B6%E5%85%A5%E6%8A%A5%E7%A8%8E">方法 2: Amazon KDP 收入报税</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-3-%E7%BE%8E%E8%82%A1%E5%88%B8%E5%95%86-%E6%8A%95%E8%B5%84%E6%8A%A5%E7%A8%8E">方法 3: 美股券商 投资报税</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-4-%E8%B5%8C%E5%8D%9A%E6%94%B6%E5%85%A5%E6%8A%A5%E7%A8%8E">方法 4: 赌博收入报税</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-5-irs-%E6%8E%88%E6%9D%83%E4%BB%A3%E7%90%86%E4%BA%BA">方法 5: IRS 授权代理人</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#7%E8%AE%BE%E7%BD%AE%E8%B7%AF%E7%94%B1">7.设置路由</a></li>
-</ul>
-</li>
-<li><a href="#de_gwd%E5%AE%89%E8%A3%85">de_GWD安装</a>
+<li><a href="#%E6%8A%A4%E7%85%A7%E5%85%AC%E8%AF%81">护照公证</a>
 <ul>
-<li><a href="#1%E9%83%A8%E7%BD%B2">1.部署</a></li>
-<li><a href="#2%E6%9C%8D%E5%8A%A1%E7%AB%AF">2.服务端</a></li>
-<li><a href="#3%E5%AE%A2%E6%88%B7%E7%AB%AF">3.客户端</a></li>
+<li><a href="#%E9%A2%84%E7%BA%A6%E5%85%AC%E8%AF%81">预约公证</a></li>
+<li><a href="#%E5%85%AC%E8%AF%81%E6%B5%81%E7%A8%8B">公证流程</a></li>
 </ul>
 </li>
+<li><a href="#w-7-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E5%86%99">W-7 表格填写</a>
+<ul>
+<li><a href="#%E5%A1%AB%E5%86%99%E5%86%85%E5%AE%B9">填写内容</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-1-%E5%A1%AB%E5%86%99%E5%86%85%E5%AE%B9">方法 1 填写内容</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-2-%E6%96%B9%E6%B3%95-3-%E5%A1%AB%E5%86%99%E5%86%85%E5%AE%B9">方法 2, 方法 3 填写内容</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AF%84%E5%87%BA%E7%94%B3%E8%AF%B7">寄出申请</a>
+<ul>
+<li><a href="#%E6%9D%90%E6%96%99%E6%B8%85%E5%8D%95">材料清单</a>
+<ul>
+<li><a href="#%E5%BF%85%E5%A4%87%E6%96%87%E4%BB%B6">必备文件</a></li>
+<li><a href="#%E5%8F%AF%E9%80%89%E6%96%87%E4%BB%B6">可选文件</a></li>
+</ul>
+</li>
+<li><a href="#%E9%82%AE%E5%AF%84%E5%9C%B0%E5%9D%80">邮寄地址</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E7%8A%B6%E6%80%81">查询状态</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></li>
 </ul>
 
   </div>
@@ -499,8 +501,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">
-      RouterOS电信移动聚合
+    <a class="post-title-link" href="https://zeta.im/Obtained-USA-TIN/">
+       ITIN (美国个人纳税识别号码) 境外申请攻略
     </a>
   </h1>
   <div class="post-meta">
@@ -513,18 +515,31 @@
     </span>
     
     <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show">分类于</span>
+      
+      
+      <a href="https://zeta.im/tin/">
+        <span>TIN</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
+      <span>10分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1493<span class="pc-show">字数</span></span>
+      <span>2566<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/Using-Routeros-PCC-CT-and-CM/" data-flag-title="RouterOS电信移动聚合" class="meta-item pc-show leancloud_visitors">
+    <span id="/Obtained-USA-TIN/" data-flag-title=" ITIN (美国个人纳税识别号码) 境外申请攻略" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -533,157 +548,160 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h1 id="前情提要">前情提要</h1>
+              <p>本文适用于满足以下条件的读者:</p>
 <ul>
-<li>购入3865U工控软路由一台，6口千兆。</li>
-<li>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</li>
-<li>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</li>
+<li>持有护照 (无需美国签证)</li>
+<li>非美国公民或永久居民, 且从未申请过 SSN</li>
+<li>可以收到国际信件 (中国居民可以使用美国邮件转运服务)</li>
+<li>可以用英语进行简单交流</li>
 </ul>
-<h1 id="routeros配置">RouterOS配置</h1>
-<h2 id="1准备工作">1.准备工作</h2>
+<h1 id="itin-简介">ITIN 简介</h1>
+<p>ITIN (个人纳税识别号码) 是美国国税局 (IRS) 发放给没有资格申请 SSN 但有需要报税的人的识别号码. 该号码的格式为 9xx-xx-xxxx.</p>
+<p>除了用于识别纳税人身份, 在申请部分美国银行账户和信用卡时可以使用 ITIN 代替 SSN 进行身份认证. 基于现有的数据, ITIN 有以下用途.</p>
 <ul>
-<li>直通网口2-6，网口1-lan1管理。</li>
-<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
-<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
+<li>接受 ITIN 申请信用卡的银行: <code>American Express</code>, <code>Bank of America</code>, <code>Capital One</code>, <code>Chase</code>, <code>Citibank</code></li>
+<li>接受 ITIN 开设账户的银行:<code>Capital One</code>, <code>Discover</code></li>
+<li>其他服务: 注册 <code>Betterment</code> 投资账户, 开通 <code>PayPal</code> 余额功能</li>
 </ul>
-<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
-</code></pre>
-<!-- more -->
-<h2 id="2建立pppoe拨号">2.建立pppoe拨号</h2>
-<pre><code>/interface pppoe-client add name=pppoe-CT max-mtu=1480 max-mru=1480 interface=CT user=xxxxxxxxxx password=xxxxxxxxxx add-default-route=no disable=no
-/interface pppoe-client add name=pppoe-CMCC max-mtu=1480 max-mru=1480 interface=CMCC user=zzzzzzzzzz password=zzzzzzzzzz add-default-route=no disable=no
-</code></pre>
-<h2 id="3建立dhcp服务器">3.建立DHCP服务器</h2>
-<pre><code>/ip pool
-add name=pool1 ranges=10.10.10.2-10.10.10.250
-/ip dhcp-server
-add name=dhcp_pool1 interface=bridge1 address-pool=pool1 disable=no
-</code></pre>
-<h2 id="4防火墙基础防护">4.防火墙基础防护</h2>
-<pre><code>/ip firewall filter
-add chain=input in-interface=pppoe-CT protocol=udp dst-port=53 action=drop
-add chain=input in-interface=pppoe-CT protocol=tcp dst-port=53 action=drop
-add chain=input in-interface=pppoe-CMCC protocol=udp dst-port=53 action=drop
-add chain=input in-interface=pppoe-CMCC protocol=tcp dst-port=53 action=drop
-
-add chain=input connection-state=invalid action=drop comment=&quot;Drop Invalid connections&quot;
-add chain=input connection-state=established action=accept comment=&quot;Allow Established connections&quot;
-add chain=input protocol=icmp action=accept comment=&quot;Allow ICMP&quot;
-add chain=input src-address=10.10.10.0/24 action=accept in-interface=bridge1
-add chain=input action=drop comment=&quot;Drop everything else&quot;
-
-add chain=output action=accept comment=&quot;accept everything&quot;
-
-add chain=forward connection-state=invalid action=drop comment=&quot;Drop Invalid connections&quot;
-add chain=forward connection-state=established action=accept comment=&quot;Allow Established connections&quot;
-add chain=forward connection-state=related action=accept comment=&quot;allow related connections&quot;
-
-add chain=forward protocol=tcp action=jump jump-target=tcp
-add chain=forward protocol=udp action=jump jump-target=udp
-add chain=forward protocol=icmp action=jump jump-target=icmp
-</code></pre>
-<h2 id="5建立nat伪装与端口映射">5.建立nat伪装与端口映射</h2>
-<pre><code>/ip firewall nat
-add chain=srcnat out-interface=pppoe-CT action=masquerade
-add chain=srcnat out-interface=pppoe-CMCC action=masquerade
-</code></pre>
-<h2 id="6pcc宽带聚合">6.PCC宽带聚合</h2>
-<h3 id="1导入国内运营商ip段">(1)导入国内运营商ip段</h3>
-<p>下载文件 ros-dpbr-CT-CMCC.rsc，下载地址：https://raw.githubusercontent.com/jacyl4/ros-pbr-CT-CMCC/master/ros-dpbr-CT-CMCC.rsc<br>
-导入winbox的Files里<br>
-运行如下，把ip段导入ros firewall的address lists里，供下面标记时使用。（防止重复导入，前两行是删除现有的电信段与移动段）</p>
-<pre><code>/ip firewall address-list remove [find list=&quot;dpbr-CT&quot;]
-/ip firewall address-list remove [find list=&quot;dpbr-CMCC&quot;]
-/import ros-dpbr-CT-CMCC.rsc
-</code></pre>
-<h3 id="2排除内网通讯">(2)排除内网通讯</h3>
-<pre><code>/ip firewall address-list
-add address=10.10.10.0/24 list=local comment=local
-
-/ip firewall mangle
-add chain=prerouting src-address-list=local dst-address-list=local action=accept comment=&quot;local&quot;
-</code></pre>
-<h3 id="3v2线路标记">(3)v2线路标记</h3>
-<p>示例：</p>
+<h1 id="itin-申请方法">ITIN 申请方法</h1>
+<h2 id="方法-1-amazon-kdp-证明信">方法 1: Amazon KDP 证明信</h2>
+<p>如果所在国家与美国签订过税收协定, 可使用此方法申请 ITIN. 此方法适用于中国, 加拿大, 澳大利亚等国家. 可在此查看全部税收协定. 此方法可在任何时间申请, 不需要等到报税季.</p>
+<p>根据税收协定, 以上国家公民在美国产生的版税收入可以享受预扣税额减免, 而获取税收协定的利益是 ITIN 的用途之一, 所以 IRS 允许以此理由进行申请. 为了获得版税收入, 此方法将在 Amazon Kindle Direct Publishing 上出版一本电子书, 并且按 IRS 的要求向客服索要一封证明信.</p>
+<p>此方法成功率较低, 有很大概率被 IRS 拒绝申请, 建议使用其他方法获取 ITIN.</p>
 <ul>
-<li>111.111.111.111是BWH ip，注释名称BWG，走电信线路</li>
-<li>222.222.222.222是GCP ip，注释名称GCP，走移动线路</li>
+<li>注册 <a href="https://kdp.amazon.com">Amazon KDP</a>, 填写准确的个人信息.</li>
+<li>进行 Tax Interview (税务面试), 填写 W-8 BEN 表格, 在 <code>Tax Identification Number</code> 一栏不要选择<code>I have a US TIN</code>和<code>I have a Non-US TIN</code>, 直接选<code>I could not/have not obtained TIN from my local authorities because of other reasons.</code></li>
+<li>正确完成税务面试后, KDP 会提示 30％ 的收入会被扣留. (Applicable withholding rate: 30%)</li>
+<li>此时可尝试邮件或电话联系客服索要证明信, 模版见下方.</li>
 </ul>
-<pre><code>/ip firewall address-list
-add address=111.111.111.111 list=CTv2 comment=BWG
-add address=222.222.222.222 list=CMv2 comment=GCP
-
-/ip firewall mangle
-add chain=prerouting connection-mark=no-mark in-interface=bridge1 dst-address-list=CTv2 action=mark-connection new-connection-mark=CT_conn1 passthrough=yes comment=v2
-add chain=prerouting connection-mark=no-mark in-interface=bridge1 dst-address-list=CMv2 action=mark-connection new-connection-mark=CMCC_conn1 passthrough=yes
-</code></pre>
-<h3 id="4pcc标记">(4)PCC标记</h3>
-<h4 id="dns-traffic">DNS traffic</h4>
-<pre><code>/ip firewall mangle
-add chain=prerouting src-address=10.10.10.0/24  protocol=udp dst-port=53 action=mark-routing new-routing-mark=&quot;DNS traffic&quot; passthrough=no  comment=&quot;DNS traffic&quot;
-add chain=prerouting src-address=10.10.10.0/24  protocol=tcp dst-port=53 action=mark-routing new-routing-mark=&quot;DNS traffic&quot; passthrough=no 
-</code></pre>
-<h4 id="in">in</h4>
-<pre><code>/ip firewall mangle
-add chain=prerouting in-interface=pppoe-CT connection-mark=no-mark action=mark-connection new-connection-mark=CT_conn comment=in
-add chain=prerouting in-interface=pppoe-CMCC connection-mark=no-mark action=mark-connection new-connection-mark=CMCC_conn
-</code></pre>
-<h4 id="pcc">PCC</h4>
-<pre><code>add chain=prerouting in-interface=bridge1 connection-mark=no-mark per-connection-classifier=both-addresses:2/0 dst-address-type=!local action=mark-connection new-connection-mark=CT_conn comment=PCC
-add chain=prerouting in-interface=bridge1 connection-mark=no-mark per-connection-classifier=both-addresses:2/1 dst-address-type=!local action=mark-connection new-connection-mark=CMCC_conn
-</code></pre>
-<h4 id="dynamic-pbr">dynamic pbr</h4>
-<pre><code>add chain=prerouting in-interface=bridge1 connection-mark=CT_conn action=mark-routing new-routing-mark=CT comment=&quot;dynamic pbr&quot;
-add chain=prerouting in-interface=bridge1 connection-mark=CMCC_conn action=mark-routing new-routing-mark=CMCC
-</code></pre>
-<h4 id="out">out</h4>
-<pre><code>add chain=output connection-mark=CT_conn action=mark-routing new-routing-mark=CT comment=out
-add chain=output connection-mark=CMCC_conn action=mark-routing new-routing-mark=CMCC
-</code></pre>
-<h2 id="7设置路由">7.设置路由</h2>
-<pre><code>/ip route
-add dst-address=0.0.0.0/0 gateway=pppoe-CT check-gateway=ping distance=1 routing-mark=CT
-add dst-address=0.0.0.0/0 gateway=pppoe-CMCC check-gateway=ping distance=1 routing-mark=CMCC
-add dst-address=0.0.0.0/0 gateway=pppoe-CT check-gateway=ping distance=1
-add dst-address=0.0.0.0/0 gateway=pppoe-CMCC check-gateway=ping distance=2
-</code></pre>
-<h1 id="de_gwd安装">de_GWD安装</h1>
+<blockquote>
+<p>Dear Sir or Madam,<br>
+I am a resident of <Country> and I plan to publish books on Amazon KDP. According to IRS I am entitled to tax treaty benefits and would like to apply for an ITIN.<br>
+Could you please provide me a hand-signed letter from Amazon KDP, written on Amazon KDP letterhead stating that I am a nonresident alien required to get an ITIN to claim tax treaty benefit?<br>
+I would appreciate if you could mail the letter to my mailing address provided in my profile. My legal name is <code>&lt;Name&gt;</code> and date of birth is <code>&lt;Date of birth&gt;</code>. Thank you for your help and I look forward to your reply.<br>
+Best regards<br>
+<code>&lt;Name&gt;</code><br>
+Amazon KDP 证明信模版</p>
+</blockquote>
 <ul>
-<li>de_GWD(Debian Gateway&amp;DNS)专注旁路，运行于debian的一个完善套件，带界面，纯粹是为了追求更高效更极速，可以说一骑绝尘。</li>
-<li>DNS去污染方式有别于以往各种，效率不是以往LEDE/梅林等兼容方案能比拟的。</li>
-<li>需要64位，支持普通amd64平台 以及 树莓派，香橙派 等 arm64 平台。<br>
-<a href="https://github.com/jacyl4/de_GWD">Github项目de_GWD</a></li>
+<li>发完邮件后会收到来自 KDP 客服的回信, 告知已经将证明信的申请转发给税务团队. 如果申请成功, 两个工作日左右会收到来自 1099@amazon.com 的回信, 告知信件已经寄出到账户资料上的地址.</li>
+<li>信件通过 USPS First Class 从西雅图寄出, 大约一个月内寄到. 若没有收到, 可以联系客服重新寄送. 如果居住地址收不到国际信件, 可以在注册 KDP 账户时使用美国转运服务的地址.</li>
+<li>如果税务团队以没有收入为理由拒绝出具证明, 可以出版一本任意内容的电子书, 让朋友帮忙购买. 等收入显示在 KDP 账户后再尝试申请.</li>
 </ul>
-<h2 id="1部署">1.部署</h2>
-<p>提前给自己的vps kvm 小机 准备好域名。哪怕是免费的只要能给cloudflare托管就行。二级域名不行。脚本开始安装的时候，要制作证书的。<br>
-<img src="https://zeta.im/post-images/1588397370468.webp" alt="" loading="lazy"></p>
-<h2 id="2服务端">2.服务端</h2>
-<pre><code>apt install -y wget
-bash &lt;(wget --no-check-certificate -qO- https://raw.githubusercontent.com/jacyl4/de_GWD/master/server)
-</code></pre>
-<p>直接输出上面做好a记录的自己的域名。期间会自动生成uuid跟path。 脚本结束会打印出uuid跟path。<br>
-在线生成UUID：<a href="https://www.uuidgenerator.net">https://www.uuidgenerator.net</a></p>
-<h2 id="3客户端">3.客户端</h2>
-<p><code>Compatible Edition (amd64&amp;arm64)</code></p>
-<pre><code>apt install -y wget
-bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client)
-</code></pre>
-<p><code>General Edition (amd64)</code></p>
-<pre><code>apt install -y wget
-bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client_do)
-</code></pre>
-<p><img src="https://zeta.im/post-images/1588397571132.webp" alt="" loading="lazy"><br>
-<img src="https://zeta.im/post-images/1588397577989.png" alt="" loading="lazy"><br>
-通常用第二个脚本，如果是armbian平台的话，才选第一个脚本。<br>
-首次安装前，先维持上级路由的dhcp是普通状态，确保debian能正常获取ip联网。<br>
-直接联网安装，不需要挂代理。<br>
-选项2，可以用来强制重置pihole密码。<br>
-装完后，关闭上级路由的DHCP服务，在web UI上开启de_GWD的DHCP服务。<br>
-有公网ip的话，可以选项8安装wireguard组件。</p>
+<h2 id="方法-2-amazon-kdp-收入报税">方法 2: Amazon KDP 收入报税</h2>
+<p>当 Amazon KDP 账户年收入超过 $0.49 时, KDP 将会在第二年的 3 月 15 日为非美国税务居民发放电子版 1042-S 税表.</p>
+<ol>
+<li>在 <a href="https://taxcentral.amazon.com"><code>Amazon Tax Central</code></a>下载 1042-S 税表并打印</li>
+<li>在 <a href="https://www.irs.gov/pub/irs-pdf/f1040nr.pdf">IRS 官网</a>下载 <code>1040-NR</code> 税表并打印. 按照 IRS 说明 填写表格</li>
+<li>如果不会填写, 参考<code>ITIN</code>代理</li>
+</ol>
+<h2 id="方法-3-美股券商-投资报税">方法 3: 美股券商 投资报税</h2>
+<p>开通美国的美股券商账户, 进行股票交易, 取得股息分红. 券商会在第二年的 3 月 15 日非美国税务居民发放电子版 1042-S 税表. (或 1099-B 和 1099-DIV 税表.)</p>
+<p>注意此券商必须是美国本土券商, 例如 Charles Schwab 或 Fidelity. 境外券商不会发放相应税表. Webull 和 Firstrade 允许中国公民使用中国身份证开设账户.</p>
+<ol>
+<li>在券商账户下载 1042-S 税表或 1099-B 与 1099-DIV 税表并打印</li>
+<li>在 IRS 官网下载 1040-NR 税表并打印. 按照 IRS 说明 填写表格</li>
+<li>如果不会填写, 参考 ITIN 代理</li>
+</ol>
+<h2 id="方法-4-赌博收入报税">方法 4: 赌博收入报税</h2>
+<p>按照 IRS 的规定, 在美国的赌场产生的任何收入都需要报税. 即使收入没有达到赌场发税表的要求, 居民可以主动向 IRS 申报这笔收入. 该项规定同样适用于在线赌场. 这类收入属于 1040-NR 表格的 <code>Other Incomes</code>, 可以用于获取 ITIN.</p>
+<h2 id="方法-5-irs-授权代理人">方法 5: IRS 授权代理人</h2>
+<p>IRS 允许经过授权的代理人协助申请 ITIN 并提供验证护照服务, 并收取一定的服务费用. 可查看此列表联系所在地区的代理人.</p>
+<h1 id="护照公证">护照公证</h1>
+<p>在提交 ITIN 申请时, IRS 要求申请人提供证件的原件或公证件来证明外国身份. 由于 ITIN 申请需要两个月, 可以寄送公证件来避免原件丢失造成的损失.</p>
 <ul>
-<li>自动每四小时校时</li>
-<li>自动每天凌晨更新分流规则</li>
+<li>中国公民建议去当地美国使领馆进行护照公证. (参考本文教程)</li>
+<li>加拿大公民建议去当地护照局公证.</li>
+<li>其他国家公民请查询护照发放单位是否提供公证服务, 若不提供请去美国使领馆进行公证.</li>
 </ul>
+<h2 id="预约公证">预约公证</h2>
+<p>在 <a href="https://evisaforms.state.gov/Instructions/ACSSchedulingSystem.asp">公民处预约系统</a> 预约公证, 费用为每页 $50.</p>
+<ul>
+<li>选择国家和城市</li>
+<li>选择 Request notarial and other services not listed above</li>
+<li>选择预约时间 (应当在预约时间前 15 分钟进入使领馆)</li>
+<li>输入个人信息, 应与护照上的英文信息一致</li>
+<li>打印预约确认信</li>
+</ul>
+<h2 id="公证流程">公证流程</h2>
+<p>携带的物品: 预约确认信, 护照原件, 护照信息页彩色复印件, 信用卡 (不支持银联) 或 $50 现金.</p>
+<p>向警卫出示确认信, 无需排队即可进入使领馆. 通过安检并进入公民服务处后, 向工作人员说明自己要申请 ITIN 用于报税并缴纳费用, 很快可以拿到盖有钢印的公证件, 并标注 <code>For IRS Use Only</code> (仅供国税局使用).</p>
+<h1 id="w-7-表格填写">W-7 表格填写</h1>
+<p>W-7 表格是 ITIN 申请表, 在 IRS 官网下载<a href="https://www.irs.gov/pub/irs-pdf/fw7.pdf">表格</a>以及<a href="https://www.irs.gov/instructions/iw7">填写说明</a>.</p>
+<h2 id="填写内容">填写内容</h2>
+<ul>
+<li>右上角 <code>Application type</code> 勾选 <code>Apply for a new ITIN</code></li>
+<li><code>Name</code> 填写姓名</li>
+<li><code>Mailing Address</code>: 填写收件地址, 可以填写美国收件地址</li>
+<li><code>Foreign Address</code>: 填写外国居住地址, 即使跟收件地址相同也要再填写一遍</li>
+<li><code>Brith Information</code>: 填写生日, 出生国家, 出生省份或州, 性别</li>
+<li><code>Other Information</code><br>
+-- 6a: 国籍<br>
+-- 6b: 外国税务号码 (中国身份证号, 加拿大 SIN)<br>
+-- 6d: 证件信息, 勾选 <code>Passport</code>, 填写签发国家, 号码, 过期时间 (无需填写美国入境日期)<br>
+-- 6e: 勾选 <code>No/Don’t Know</code><br>
+-- 6c, 6f, 6g: 无需填写<br>
+-- <code>Sign Here</code>: 使用黑笔签名, 填写日期和电话号码 (中国公民可以在英文签名后面签上中文签名, 与护照签名一致)</li>
+</ul>
+<h2 id="方法-1-填写内容">方法 1 填写内容</h2>
+<ul>
+<li><code>Reason you’re submitting Form W-7</code> 选 a 与 h, h 的具体理由写 <code>Exception 1(d): Third-party withholding on passive income</code></li>
+<li><code>Enter treaty country</code> 写国籍, <code>treaty article number</code> 写税务条款号码<br>
+-- China: Article 11 (2)<br>
+-- Canada: Article XII (12)<br>
+-- 其他国家公民请查询所在国与美国签订的<a href="https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z">税收协定</a></li>
+</ul>
+<h2 id="方法-2-方法-3-填写内容">方法 2, 方法 3 填写内容</h2>
+<ul>
+<li><code>Reason you’re submitting Form W-7</code> 选 b</li>
+</ul>
+<h1 id="寄出申请">寄出申请</h1>
+<h2 id="材料清单">材料清单</h2>
+<h3 id="必备文件">必备文件</h3>
+<ul>
+<li>W-7 表格</li>
+<li>Amazon KDP 出具的 ITIN 证明信 (方法 1) 或税表 (方法 2, 方法 3)</li>
+<li>护照原件或公证件</li>
+</ul>
+<h3 id="可选文件">可选文件</h3>
+<ul>
+<li>预付费信封, 防止重要文件在回邮过程中丢失.</li>
+<li>与 Amazon KDP 客服的邮件往来截图, 证明申请的真实性. (适用于方法 1)</li>
+<li>一封说明信, 解释自己申请 ITIN 的详细理由.</li>
+</ul>
+<h2 id="邮寄地址">邮寄地址</h2>
+<p>将所有文件打包, 寄信件到以下地址:</p>
+<blockquote>
+<p>Internal Revenue Service<br>
+ITIN Operation<br>
+P.O. Box 149342<br>
+Austin, Texas 78714-9342<br>
+United States</p>
+</blockquote>
+<p>或寄快递到以下地址 (建议使用 IRS 认可的快递服务):</p>
+<blockquote>
+<p>Internal Revenue Service<br>
+ITIN Operation, Mail Stop 6090-AUSC<br>
+3651 S. Interregional, Hwy 35<br>
+Austin, Texas 78741-0000<br>
+United States</p>
+</blockquote>
+<p>收件人联系电话填写 <code>1-800-829-1040</code> 即可, 可以查询快递跟踪状态, 签收后则代表 IRS 已经准备处理 ITIN 申请. 申请成功后, IRS 会用两个普通信件寄回 ITIN 申请回执与申请材料 (护照公证件等文件), W-7 表格不会寄回. 如果担心回执寄丢, 可以在申请材料中附带一个预付费快递信封, 供 IRS 使用.</p>
+<h2 id="查询状态">查询状态</h2>
+<p>查询申请状态可以拨打以下两个号码:</p>
+<ul>
+<li>1-800-908-9982</li>
+<li>1-267-941-1000<br>
+ITIN 的申请时间通常为 6-8 周, 建议在第 4 周后尝试打电话. 客服需要验证姓名, 生日, 国籍等信息. 如果客服说无法查到档案, 可能是 IRS 还没有处理申请材料. 如果申请通过, 客服会念出 ITIN 号码.</li>
+</ul>
+<h1 id="常见问题">常见问题</h1>
+<p><strong>取得 ITIN 后是否需要向美国交税?</strong></p>
+<p>不需要. 取得 ITIN 不代表成为美国税务居民.</p>
+<p><strong>ITIN 的有效期是多久?</strong></p>
+<p>根据 IRS 规定, 连续三年没有报税的 ITIN 自动失效, 需要重新申请. 重新申请后, ITIN 号码不会变化.</p>
+<p><strong>注册 Amazon KDP 时填写 W-8 BEN 表格是否会影响申请?</strong></p>
+<p>填写表格时不输入纳税人识别号, 并且选择 <code>I could not/have not obtained TIN from my local authorities because of other reasons</code>, 就不会影响申请.</p>
+<p>本文转载自移居者<a href="https://emigrator.org/zh/us-itin-zh/">《ITIN (美国个人纳税识别号码) 境外申请攻略》</a></p>
 
             </div>
             <div class="post-footer">
@@ -694,7 +712,7 @@ bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client_do
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/" title="RouterOS电信移动聚合">https://zeta.im/Using-Routeros-PCC-CT-and-CM/</a>
+      <a href="https://zeta.im/Obtained-USA-TIN/" title=" ITIN (美国个人纳税识别号码) 境外申请攻略">https://zeta.im/Obtained-USA-TIN/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -703,19 +721,17 @@ bash &lt;(wget --no-check-certificate -qO- http://xznat.seso.icu:10290/client_do
   </ul>
   <div class="tags">
     
+      <a href="https://zeta.im/tin/"># TIN</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title=" ITIN (美国个人纳税识别号码) 境外申请攻略" href="https://zeta.im/Obtained-USA-TIN/"> ITIN (美国个人纳税识别号码) 境外申请攻略</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title=" ITIN (美国个人纳税识别号码) 境外申请攻略" href="https://zeta.im/Obtained-USA-TIN/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">SFTP 安装与配置</a>
-        <a class="nav-mobile-next" title="SFTP 安装与配置" href="https://zeta.im/install-and-configure-for-sftp/">下一篇</a>
+        <a class="nav-pc-next" title="RouterOS电信移动聚合" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">RouterOS电信移动聚合</a>
+        <a class="nav-mobile-next" title="RouterOS电信移动聚合" href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

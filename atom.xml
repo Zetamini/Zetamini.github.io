@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-02T07:35:36.568Z</updated>
+    <updated>2020-05-02T08:03:15.850Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://zeta.im/images/avatar.png</logo>
     <icon>https://zeta.im/favicon.ico</icon>
     <rights>All rights reserved 2020, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[ ITIN (美国个人纳税识别号码) 境外申请攻略]]></title>
+        <id>https://zeta.im/Obtained-USA-TIN/</id>
+        <link href="https://zeta.im/Obtained-USA-TIN/">
+        </link>
+        <updated>2020-05-02T07:37:02.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[RouterOS电信移动聚合]]></title>
         <id>https://zeta.im/Using-Routeros-PCC-CT-and-CM/</id>
