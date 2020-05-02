@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-02T08:03:15.850Z</updated>
+    <updated>2020-05-02T08:04:45.978Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -16,6 +16,38 @@
         <link href="https://zeta.im/Obtained-USA-TIN/">
         </link>
         <updated>2020-05-02T07:37:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文适用于满足以下条件的读者:</p>
+<ul>
+<li>持有护照 (无需美国签证)</li>
+<li>非美国公民或永久居民, 且从未申请过 SSN</li>
+<li>可以收到国际信件 (中国居民可以使用美国邮件转运服务)</li>
+<li>可以用英语进行简单交流</li>
+</ul>
+<h1 id="itin-简介">ITIN 简介</h1>
+<p>ITIN (个人纳税识别号码) 是美国国税局 (IRS) 发放给没有资格申请 SSN 但有需要报税的人的识别号码. 该号码的格式为 9xx-xx-xxxx.</p>
+<p>除了用于识别纳税人身份, 在申请部分美国银行账户和信用卡时可以使用 ITIN 代替 SSN 进行身份认证. 基于现有的数据, ITIN 有以下用途.</p>
+<ul>
+<li>接受 ITIN 申请信用卡的银行: <code>American Express</code>, <code>Bank of America</code>, <code>Capital One</code>, <code>Chase</code>, <code>Citibank</code></li>
+<li>接受 ITIN 开设账户的银行:<code>Capital One</code>, <code>Discover</code></li>
+<li>其他服务: 注册 <code>Betterment</code> 投资账户, 开通 <code>PayPal</code> 余额功能</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文适用于满足以下条件的读者:</p>
+<ul>
+<li>持有护照 (无需美国签证)</li>
+<li>非美国公民或永久居民, 且从未申请过 SSN</li>
+<li>可以收到国际信件 (中国居民可以使用美国邮件转运服务)</li>
+<li>可以用英语进行简单交流</li>
+</ul>
+<h1 id="itin-简介">ITIN 简介</h1>
+<p>ITIN (个人纳税识别号码) 是美国国税局 (IRS) 发放给没有资格申请 SSN 但有需要报税的人的识别号码. 该号码的格式为 9xx-xx-xxxx.</p>
+<p>除了用于识别纳税人身份, 在申请部分美国银行账户和信用卡时可以使用 ITIN 代替 SSN 进行身份认证. 基于现有的数据, ITIN 有以下用途.</p>
+<ul>
+<li>接受 ITIN 申请信用卡的银行: <code>American Express</code>, <code>Bank of America</code>, <code>Capital One</code>, <code>Chase</code>, <code>Citibank</code></li>
+<li>接受 ITIN 开设账户的银行:<code>Capital One</code>, <code>Discover</code></li>
+<li>其他服务: 注册 <code>Betterment</code> 投资账户, 开通 <code>PayPal</code> 余额功能</li>
+</ul>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[RouterOS电信移动聚合]]></title>
