@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zeta.im</id>
     <title>Zeta</title>
-    <updated>2020-05-02T02:08:42.156Z</updated>
+    <updated>2020-05-02T02:29:30.803Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zeta.im"/>
     <link rel="self" href="https://zeta.im/atom.xml"/>
@@ -10,6 +10,49 @@
     <logo>https://zeta.im/images/avatar.png</logo>
     <icon>https://zeta.im/favicon.ico</icon>
     <rights>All rights reserved 2020, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[SFTP 安装与配置]]></title>
+        <id>https://zeta.im/install-and-configure-for-sftp/</id>
+        <link href="https://zeta.im/install-and-configure-for-sftp/">
+        </link>
+        <updated>2020-05-02T02:13:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
+<h1 id="一-sftp-搭建">一、sftp 搭建</h1>
+<h2 id="1创建-sftp-组">1.创建 sftp 组</h2>
+<pre><code>groupadd sftp
+# -g 用户组； -d 指定家目录； -s 不登陆； -M 不创建家目录 
+useradd -g sftp -d /data/sftp/sftpuser -s /sbin/nologin sftpuser
+echo 123456 | passwd --stdin sftpuser
+</code></pre>
+<h2 id="2修改-sshd_config-配置">2.修改 sshd_config 配置</h2>
+<pre><code>vim /etc/ssh/sshd_config
+
+#Subsystem      sftp    /usr/libexec/openssh/sftp-server
+Subsystem sftp internal-sftp
+Match Group sftp
+ChrootDirectory /data/sftp/%u
+ForceCommand internal-sftp
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
+<h1 id="一-sftp-搭建">一、sftp 搭建</h1>
+<h2 id="1创建-sftp-组">1.创建 sftp 组</h2>
+<pre><code>groupadd sftp
+# -g 用户组； -d 指定家目录； -s 不登陆； -M 不创建家目录 
+useradd -g sftp -d /data/sftp/sftpuser -s /sbin/nologin sftpuser
+echo 123456 | passwd --stdin sftpuser
+</code></pre>
+<h2 id="2修改-sshd_config-配置">2.修改 sshd_config 配置</h2>
+<pre><code>vim /etc/ssh/sshd_config
+
+#Subsystem      sftp    /usr/libexec/openssh/sftp-server
+Subsystem sftp internal-sftp
+Match Group sftp
+ChrootDirectory /data/sftp/%u
+ForceCommand internal-sftp
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[webhook 实现自动部署]]></title>
         <id>https://zeta.im/Automatic-deployment-with-webhook/</id>
