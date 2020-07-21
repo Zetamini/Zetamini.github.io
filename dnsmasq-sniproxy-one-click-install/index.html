@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>关于 | Zeta</title>
+<title>Dnsmasq SNIproxy One-click Install | Zeta</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595342754729">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
@@ -29,7 +29,7 @@
 
 
 
-  <meta name="description" content="关于" />
+  <meta name="description" content="Dnsmasq SNIproxy One-click Install" />
   <meta name="keywords" content="" />
 </head>
 
@@ -154,14 +154,14 @@
   <div class="toc-wrapper auto-number no_compress"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
-</ul>
-</li>
+<li><a href="#%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E">脚本说明：</a></li>
+<li><a href="#%E8%84%9A%E6%9C%AC%E7%94%A8%E6%B3%95">脚本用法：</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90">快速安装（推荐）：</a></li>
+<li><a href="#%E6%99%AE%E9%80%9A%E5%AE%89%E8%A3%85">普通安装：</a></li>
+<li><a href="#%E5%8D%B8%E8%BD%BD%E6%96%B9%E6%B3%95">卸载方法：</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法：</a></li>
+<li><a href="#%E8%B0%83%E8%AF%95%E6%8E%92%E9%94%99">调试排错：</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80">项目地址：</a></li>
 </ul>
 
   </div>
@@ -427,8 +427,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zetaxx.com/about/">
-      关于
+    <a class="post-title-link" href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/">
+      Dnsmasq SNIproxy One-click Install
     </a>
   </h1>
   <div class="post-meta">
@@ -436,23 +436,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-01-25</span>
+      <span>2020-07-17</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>31<span class="pc-show">字数</span></span>
+      <span>600<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/about/" data-flag-title="关于" class="meta-item pc-show leancloud_visitors">
+    <span id="/dnsmasq-sniproxy-one-click-install/" data-flag-title="Dnsmasq SNIproxy One-click Install" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -461,13 +461,60 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <h1 id="脚本说明">脚本说明：</h1>
+<ul>
+<li>原理简述：使用Dnsmasq的DNS将网站解析劫持到SNI proxy反向代理的页面上。</li>
+<li>用途：让无法观看流媒体的VPS可以观看（前提：VPS中要有一个是能观看流媒体的）。</li>
+<li>特性：脚本默认解锁Netflix Hulu HBO等，如需增删流媒体域名请编辑文件<code>/etc/dnsmasq.d/custom_netflix.conf和/etc/sniproxy.conf</code></li>
+<li>脚本支持系统：CentOS6+, Debian8+, Ubuntu16+<br>
+-- CentOS6/7/8， Debian8/9/10, Ubuntu16/18 已测试成功<br>
+-- 理论上不限虚拟化类型，如有问题请反馈<br>
+-- 如果脚本最后显示的IP和实际公网IP不相符，请修改一下文件<code>/etc/sniproxy.conf</code>中的IP地址</li>
+</ul>
+<!-- more -->
+<h1 id="脚本用法">脚本用法：</h1>
+<pre><code>bash dnsmasq_sniproxy.sh [-h] [-i] [-f] [-id] [-is] [-fs] [-u] [-ud] [-us]
+  -h , --help                       显示帮助信息
+  -i , --install                      安装 Dnsmasq + SNI Proxy
+  -f , --fastinstall                快速安装 Dnsmasq + SNI Proxy
+  -id, --installdnsmasq      仅安装 Dnsmasq
+  -is, --installsniproxy        仅安装 SNI Proxy
+  -fs, --fastinstallsniproxy 快速安装 SNI Proxy
+  -u , --uninstall                卸载 Dnsmasq + SNI Proxy
+  -ud, --undnsmasq          卸载 Dnsmasq
+  -us, --unsniproxy           卸载 SNI Proxy
+</code></pre>
+<h1 id="快速安装推荐">快速安装（推荐）：</h1>
+<pre><code>wget --no-check-certificate -O dnsmasq_sniproxy.sh https://raw.githubusercontent.com/myxuchangbin/dnsmasq_sniproxy_install/master/dnsmasq_sniproxy.sh &amp;&amp; bash dnsmasq_sniproxy.sh -f
+</code></pre>
+<h1 id="普通安装">普通安装：</h1>
+<pre><code>wget --no-check-certificate -O dnsmasq_sniproxy.sh https://raw.githubusercontent.com/myxuchangbin/dnsmasq_sniproxy_install/master/dnsmasq_sniproxy.sh &amp;&amp; bash dnsmasq_sniproxy.sh -i
+</code></pre>
+<h1 id="卸载方法">卸载方法：</h1>
+<pre><code>wget --no-check-certificate -O dnsmasq_sniproxy.sh https://raw.githubusercontent.com/myxuchangbin/dnsmasq_sniproxy_install/master/dnsmasq_sniproxy.sh &amp;&amp; bash dnsmasq_sniproxy.sh -u
+</code></pre>
+<h1 id="使用方法">使用方法：</h1>
+<p>将代理VPS的DNS地址修改为这个主机的IP就可以了，如果不能用，记得只保留一个DNS地址试一下。<br>
+防止滥用，建议不要随意公布IP地址，或使用防火墙做好限制工作。</p>
+<h1 id="调试排错">调试排错：</h1>
+<ul>
+<li>
+<p>确认sniproxy有效运行<br>
+查看sni状态：<code>systemctl status sniproxy</code><br>
+如果sni不在运行，检查一下是否有其他服务占用80,443端口，以防端口冲突，先将其他服务更改一下监听端口，查看端口监听：<code>netstat -tlunp|grep 443</code></p>
+</li>
+<li>
+<p>确认防火墙放行80,443,53<br>
+调试可直接关闭防火墙 <code>systemctl stop firewalld.service</code><br>
+阿里云/谷歌云/AWS等运营商安全组端口同样需要放行 可通过其他服务器 <code>telnet vpsip 53</code> 以及<code>telnet vpsip 443</code>进行测试</p>
+</li>
+<li>
+<p>解析域名<br>
+尝试用其他服务器配置完毕dns后，解析域名：<code>nslookup netflix.com</code>判断IP是否是NETFLIX代理机器IP 如果不存在nslookup命令，CENTOS安装：<code>yum install -y bind-utils</code>, DEBIAN安装：<code>apt-get -y install dnsutils</code></p>
+</li>
+</ul>
+<h1 id="项目地址">项目地址：</h1>
+<p><a href="https://github.com/myxuchangbin/dnsmasq_sniproxy_install">https://github.com/myxuchangbin/dnsmasq_sniproxy_install</a></p>
 
             </div>
             <div class="post-footer">
@@ -478,7 +525,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zetaxx.com/about/" title="关于">https://zetaxx.com/about/</a>
+      <a href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/" title="Dnsmasq SNIproxy One-click Install">https://zetaxx.com/dnsmasq-sniproxy-one-click-install/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -493,6 +540,10 @@
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="VPS DD debian 系统" href="https://zetaxx.com/vps-dd-debian-system/">VPS DD debian 系统</a>
+        <a class="nav-mobile-next" title="VPS DD debian 系统" href="https://zetaxx.com/vps-dd-debian-system/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

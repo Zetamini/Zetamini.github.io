@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zeta.im</id>
+    <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2020-05-04T13:43:29.276Z</updated>
+    <updated>2020-07-21T14:48:36.147Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zeta.im"/>
-    <link rel="self" href="https://zeta.im/atom.xml"/>
+    <link rel="alternate" href="https://zetaxx.com"/>
+    <link rel="self" href="https://zetaxx.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://zeta.im/images/avatar.png</logo>
-    <icon>https://zeta.im/favicon.ico</icon>
+    <logo>https://zetaxx.com/images/avatar.png</logo>
+    <icon>https://zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2020, Zeta</rights>
     <entry>
+        <title type="html"><![CDATA[Dnsmasq SNIproxy One-click Install]]></title>
+        <id>https://zetaxx.com/dnsmasq-sniproxy-one-click-install/</id>
+        <link href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/">
+        </link>
+        <updated>2020-07-17T11:50:12.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="脚本说明">脚本说明：</h1>
+<ul>
+<li>原理简述：使用Dnsmasq的DNS将网站解析劫持到SNI proxy反向代理的页面上。</li>
+<li>用途：让无法观看流媒体的VPS可以观看（前提：VPS中要有一个是能观看流媒体的）。</li>
+<li>特性：脚本默认解锁Netflix Hulu HBO等，如需增删流媒体域名请编辑文件<code>/etc/dnsmasq.d/custom_netflix.conf和/etc/sniproxy.conf</code></li>
+<li>脚本支持系统：CentOS6+, Debian8+, Ubuntu16+<br>
+-- CentOS6/7/8， Debian8/9/10, Ubuntu16/18 已测试成功<br>
+-- 理论上不限虚拟化类型，如有问题请反馈<br>
+-- 如果脚本最后显示的IP和实际公网IP不相符，请修改一下文件<code>/etc/sniproxy.conf</code>中的IP地址</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="脚本说明">脚本说明：</h1>
+<ul>
+<li>原理简述：使用Dnsmasq的DNS将网站解析劫持到SNI proxy反向代理的页面上。</li>
+<li>用途：让无法观看流媒体的VPS可以观看（前提：VPS中要有一个是能观看流媒体的）。</li>
+<li>特性：脚本默认解锁Netflix Hulu HBO等，如需增删流媒体域名请编辑文件<code>/etc/dnsmasq.d/custom_netflix.conf和/etc/sniproxy.conf</code></li>
+<li>脚本支持系统：CentOS6+, Debian8+, Ubuntu16+<br>
+-- CentOS6/7/8， Debian8/9/10, Ubuntu16/18 已测试成功<br>
+-- 理论上不限虚拟化类型，如有问题请反馈<br>
+-- 如果脚本最后显示的IP和实际公网IP不相符，请修改一下文件<code>/etc/sniproxy.conf</code>中的IP地址</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[VPS DD debian 系统]]></title>
+        <id>https://zetaxx.com/vps-dd-debian-system/</id>
+        <link href="https://zetaxx.com/vps-dd-debian-system/">
+        </link>
+        <updated>2020-07-16T13:07:32.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="一-查看虚拟机的ip跟其上级ip">一、查看虚拟机的ip跟其上级ip</h1>
+<pre><code>ip route show
+</code></pre>
+<p>把查到的ip填入最下面的dd命令里。</p>
+<h1 id="二-安装dd运行所需的依赖">二、安装DD运行所需的依赖</h1>
+<h2 id="当前系统为centos时">当前系统为centos时</h2>
+<pre><code>yum install -y xz openssl gawk file
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="一-查看虚拟机的ip跟其上级ip">一、查看虚拟机的ip跟其上级ip</h1>
+<pre><code>ip route show
+</code></pre>
+<p>把查到的ip填入最下面的dd命令里。</p>
+<h1 id="二-安装dd运行所需的依赖">二、安装DD运行所需的依赖</h1>
+<h2 id="当前系统为centos时">当前系统为centos时</h2>
+<pre><code>yum install -y xz openssl gawk file
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[ios 解锁网易音乐]]></title>
-        <id>https://zeta.im/unlock-netease-music-for-ios/</id>
-        <link href="https://zeta.im/unlock-netease-music-for-ios/">
+        <id>https://zetaxx.com/unlock-netease-music-for-ios/</id>
+        <link href="https://zetaxx.com/unlock-netease-music-for-ios/">
         </link>
         <updated>2020-05-02T12:45:09.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588423610141.png" alt="" loading="lazy"></figure>
@@ -23,8 +77,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Markdown 语法教程]]></title>
-        <id>https://zeta.im/tutorial-for-markdown/</id>
-        <link href="https://zeta.im/tutorial-for-markdown/">
+        <id>https://zetaxx.com/tutorial-for-markdown/</id>
+        <link href="https://zetaxx.com/tutorial-for-markdown/">
         </link>
         <updated>2020-05-02T10:04:44.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
@@ -86,8 +140,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Docker常用基本命令]]></title>
-        <id>https://zeta.im/play-with-docker/</id>
-        <link href="https://zeta.im/play-with-docker/">
+        <id>https://zetaxx.com/play-with-docker/</id>
+        <link href="https://zetaxx.com/play-with-docker/">
         </link>
         <updated>2020-05-02T09:31:00.000Z</updated>
         <summary type="html"><![CDATA[<p>中文文档：<a href="https://www.runoob.com/docker/docker-command-manual.html">https://www.runoob.com/docker/docker-command-manual.html</a></p>
@@ -117,8 +171,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[ ITIN (美国个人纳税识别号码) 境外申请攻略]]></title>
-        <id>https://zeta.im/Obtained-USA-TIN/</id>
-        <link href="https://zeta.im/Obtained-USA-TIN/">
+        <id>https://zetaxx.com/Obtained-USA-TIN/</id>
+        <link href="https://zetaxx.com/Obtained-USA-TIN/">
         </link>
         <updated>2020-05-02T07:37:02.000Z</updated>
         <summary type="html"><![CDATA[<p>本文适用于满足以下条件的读者:</p>
@@ -156,8 +210,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[RouterOS电信移动聚合]]></title>
-        <id>https://zeta.im/Using-Routeros-PCC-CT-and-CM/</id>
-        <link href="https://zeta.im/Using-Routeros-PCC-CT-and-CM/">
+        <id>https://zetaxx.com/Using-Routeros-PCC-CT-and-CM/</id>
+        <link href="https://zetaxx.com/Using-Routeros-PCC-CT-and-CM/">
         </link>
         <updated>2020-05-02T03:08:53.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="前情提要">前情提要</h1>
@@ -195,8 +249,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[SFTP 安装与配置]]></title>
-        <id>https://zeta.im/install-and-configure-for-sftp/</id>
-        <link href="https://zeta.im/install-and-configure-for-sftp/">
+        <id>https://zetaxx.com/install-and-configure-for-sftp/</id>
+        <link href="https://zetaxx.com/install-and-configure-for-sftp/">
         </link>
         <updated>2020-05-02T02:13:51.000Z</updated>
         <summary type="html"><![CDATA[<p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
@@ -238,8 +292,8 @@ ForceCommand internal-sftp
     </entry>
     <entry>
         <title type="html"><![CDATA[webhook 实现自动部署]]></title>
-        <id>https://zeta.im/Automatic-deployment-with-webhook/</id>
-        <link href="https://zeta.im/Automatic-deployment-with-webhook/">
+        <id>https://zetaxx.com/Automatic-deployment-with-webhook/</id>
+        <link href="https://zetaxx.com/Automatic-deployment-with-webhook/">
         </link>
         <updated>2020-05-01T14:26:33.000Z</updated>
         <summary type="html"><![CDATA[<p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
@@ -305,8 +359,8 @@ push 代码之前，可用来检查本次 push 的 commits 是否符合特定的
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://zeta.im/hello-gridea/</id>
-        <link href="https://zeta.im/hello-gridea/">
+        <id>https://zetaxx.com/hello-gridea/</id>
+        <link href="https://zetaxx.com/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
