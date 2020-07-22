@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>关于 | Zeta</title>
+<title>解决Debian 10 /etc/rc.local 开机启动问题 | Zeta</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595426916825">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
@@ -29,7 +29,7 @@
 
 
 
-  <meta name="description" content="关于" />
+  <meta name="description" content="解决Debian 10 /etc/rc.local 开机启动问题" />
   <meta name="keywords" content="" />
 </head>
 
@@ -156,10 +156,12 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">查看服务配置文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81">查看服务状态</a></li>
+<li><a href="#%E5%A2%9E%E5%8A%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">增加配置文件</a></li>
+<li><a href="#%E8%B5%8B%E4%BA%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90">赋予配置文件权限</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8-rc-local-%E6%9C%8D%E5%8A%A1">启动 rc-local 服务</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81-2">查看服务状态</a></li>
 </ul>
 </li>
 </ul>
@@ -427,8 +429,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zetaxx.com/about/">
-      关于
+    <a class="post-title-link" href="https://zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/">
+      解决Debian 10 /etc/rc.local 开机启动问题
     </a>
   </h1>
   <div class="post-meta">
@@ -436,23 +438,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-01-25</span>
+      <span>2020-07-22</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>31<span class="pc-show">字数</span></span>
+      <span>585<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/about/" data-flag-title="关于" class="meta-item pc-show leancloud_visitors">
+    <span id="/solves-Debian-10-the-startup-problem-of-rc-local/" data-flag-title="解决Debian 10 /etc/rc.local 开机启动问题" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -461,13 +463,89 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>由于某些软件没有开机自动启动的服务，很多时候需要手工添加，一般我们都是推荐添加命令到<code>/etc/rc.local</code>文件，但是 <code>Debian 10</code> 默认不带 <code>/etc/rc.local</code>文件，而 <code>rc.local</code>服务却还是自带的。</p>
+<h2 id="查看服务配置文件">查看服务配置文件</h2>
+<pre><code>[root@debian /root]#  cat /lib/systemd/system/rc.local.service
+</code></pre>
+<p>显示：</p>
+<pre><code>#   SPDX-License-Identifier: LGPL-2.1+
+# 
+#   This file is part of systemd.
+# 
+#   systemd is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU Lesser General Public License as published by
+#   the Free Software Foundation; either version 2.1 of the License, or
+#   (at your option) any later version.
+
+#  This unit gets pulled automatically into multi-user.target by
+#  systemd-rc-local-generator if /etc/rc.local is executable.
+[Unit]
+Description=/etc/rc.local Compatibility
+Documentation=man:systemd-rc-local-generator(8)
+ConditionFileIsExecutable=/etc/rc.local
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+RemainAfterExit=yes
+GuessMainPID=no
+</code></pre>
+<h2 id="查看服务状态">查看服务状态</h2>
+<p>默认情况下这个服务还是关闭的状态</p>
+<pre><code>[root@debian /root]#  systemctl status rc-local
+</code></pre>
+<p>显示：</p>
+<pre><code>● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; static; vendor preset: enabled)
+   Drop-In: /usr/lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: inactive (dead)
+   Docs: man:systemd-rc-local-generator(8)
+</code></pre>
+<h2 id="增加配置文件">增加配置文件</h2>
+<p>为了解决这个问题，我们需要手工添加一个 <code>/etc/rc.local</code>文件</p>
+<pre><code>cat &lt;&lt;EOF &gt;/etc/rc.local
+# !/bin/sh -e
+# 
+#  rc.local
+# 
+#  This script is executed at the end of each multiuser runlevel.
+#  Make sure that the script will &quot;exit 0&quot; on success or any other
+#  value on error.
+# 
+#  In order to enable or disable this script just change the execution
+#  bits.
+# 
+#  By default this script does nothing.
+
+exit 0
+EOF
+</code></pre>
+<h2 id="赋予配置文件权限">赋予配置文件权限</h2>
+<pre><code>chmod +x /etc/rc.local
+</code></pre>
+<h2 id="启动-rc-local-服务">启动 rc-local 服务</h2>
+<pre><code>systemctl start rc-local
+</code></pre>
+<h2 id="查看服务状态-2">查看服务状态</h2>
+<pre><code>systemctl status rc-local
+</code></pre>
+<p>显示：</p>
+<pre><code>● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; static; vendor preset: enabled)
+  Drop-In: /usr/lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: active (exited) since Tue 2020-03-17 10:04:27 CST; 9s ago
+     Docs: man:systemd-rc-local-generator(8)
+  Process: 18500 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
+
+3月 17 10:04:27 debian systemd[1]: Starting /etc/rc.local Compatibility...
+3月 17 10:04:27 debian systemd[1]: Started /etc/rc.local Compatibility.
+</code></pre>
+<p>现在你可以把需要开机启动的命令添加到 <code>/etc/rc.local</code>文件，丢在 <code>exit 0</code> 前面即可，并尝试重启以后试试是否生效。</p>
+<p>本文转载自樵子的博客，原文地址：https://www.aikiki.top/hexo/2020/03/17/Debian-10-%E8%A7%A3%E5%86%B3--etc-rc.local-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98/</p>
 
             </div>
             <div class="post-footer">
@@ -478,7 +556,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zetaxx.com/about/" title="关于">https://zetaxx.com/about/</a>
+      <a href="https://zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/" title="解决Debian 10 /etc/rc.local 开机启动问题">https://zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -493,6 +571,10 @@
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Dnsmasq SNIproxy One-click Install" href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/">Dnsmasq SNIproxy One-click Install</a>
+        <a class="nav-mobile-next" title="Dnsmasq SNIproxy One-click Install" href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
