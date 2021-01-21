@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>ios 解锁网易音乐 | Zeta</title>
+<title>Debian10 安装 DenyHosts | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1611208994667">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,7 +29,7 @@
 
 
 
-  <meta name="description" content="ios 解锁网易音乐" />
+  <meta name="description" content="Debian10 安装 DenyHosts" />
   <meta name="keywords" content="" />
 </head>
 
@@ -172,9 +172,12 @@
   <div class="toc-wrapper  no_compress"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6">第一步安装证书</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86">第二步配置代理</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86%E5%8D%B3%E5%8F%AF">第三步开启代理即可</a></li>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87python%E5%B7%A5%E5%85%B7">安装前准备python工具</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85denyhosts">安装DenyHosts</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E4%BF%AE%E6%AD%A3">参数修正</a></li>
+<li><a href="#%E8%BF%90%E8%A1%8C">运行</a></li>
+<li><a href="#%E6%A3%80%E6%9F%A5">检查</a></li>
 </ul>
 
   </div>
@@ -440,8 +443,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zetaxx.com/unlock-netease-music-for-ios/">
-      ios 解锁网易音乐
+    <a class="post-title-link" href="https://zetaxx.com/install-denyhosts-on-debian-10/">
+      Debian10 安装 DenyHosts
     </a>
   </h1>
   <div class="post-meta">
@@ -449,23 +452,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-05-02</span>
+      <span>2021-01-21</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>162<span class="pc-show">字数</span></span>
+      <span>328<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/unlock-netease-music-for-ios/" data-flag-title="ios 解锁网易音乐" class="meta-item pc-show leancloud_visitors">
+    <span id="/install-denyhosts-on-debian-10/" data-flag-title="Debian10 安装 DenyHosts" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -474,26 +477,51 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <figure data-type="image" tabindex="1"><img src="https://zetaxx.com/post-images/1588423610141.png" alt="" loading="lazy"></figure>
-<!-- more -->
-<h1 id="第一步安装证书">第一步安装证书</h1>
-<p>使用原生浏览器访问以下网址，安装证书：<br>
-<a href="https://raw.githubusercontent.com/nondanee/UnblockNeteaseMusic/master/ca.crt">https://raw.githubusercontent.com/nondanee/UnblockNeteaseMusic/master/ca.crt</a></p>
-<ul>
-<li>设置 &gt; 描述文件 &gt; 安装配置描述文件</li>
-<li>设置 &gt; 通用 &gt; 关于本机 &gt; 证书信任设置<br>
-<img src="https://zetaxx.com/post-images/1588423701963.png" alt="" loading="lazy"></li>
-</ul>
-<h1 id="第二步配置代理">第二步配置代理</h1>
-<p>添加代理（网上找或者自己搭建 <a href="https://github.com/nondanee/UnblockNeteaseMusic">https://github.com/nondanee/UnblockNeteaseMusic</a> ）<br>
-找到配置 点击<code>本地文件 -&gt; default.conf -&gt; 编辑配置</code><br>
-添加两条规则 选项选择你刚刚添加的节点</p>
-<pre><code>USER-AGENT: NeteaseMusic*
-DOMAIN-SUFFIX: music.163.com
+              <h1 id="介绍">介绍</h1>
+<p>DenyHosts是由Phil Schwartz开发并由许多开发人员维护的实用程序，旨在阻止sshd（ssh服务器）暴力攻击。最新版DenyHosts-3.1已支持Debian10，但只有Python3下面使用。</p>
+<h1 id="安装前准备python工具">安装前准备python工具</h1>
+<pre><code># apt install git python3-pip
 </code></pre>
-<h1 id="第三步开启代理即可">第三步开启代理即可</h1>
-<figure data-type="image" tabindex="2"><img src="https://zetaxx.com/post-images/1588423816524.png" alt="" loading="lazy"></figure>
-<p>本文转载自老周快救我的<a href="https://zxx.im/tech/ios%E8%A7%A3%E9%94%81%E7%BD%91%E6%98%93%E9%9F%B3%E4%B9%90">《ios 解锁网易音乐》</a></p>
+<h1 id="安装denyhosts">安装DenyHosts</h1>
+<p>为了方便以后卸载，加上了（--record log）参数，也可以省略。</p>
+<pre><code># git clone https://github.com/denyhosts/denyhosts.git
+# cd denyhosts
+# python3 setup.py install --record log
+</code></pre>
+<p>以下是安装时部分输出结果：</p>
+<pre><code>running install_scripts
+copying build/scripts-3.7/denyhosts.py -&gt; /usr/local/bin
+copying build/scripts-3.7/daemon-control-dist -&gt; /usr/local/bin
+changing mode of /usr/local/bin/denyhosts.py to 755
+changing mode of /usr/local/bin/daemon-control-dist to 755
+running install_data
+copying denyhosts.conf -&gt; /etc
+copying denyhosts.8 -&gt; /usr/share/man/man8
+running install_egg_info
+Writing /usr/local/lib/python3.7/dist-packages/DenyHosts-3.1.2.egg-info
+writing list of installed files to 'log'
+</code></pre>
+<p>从输出信息可以看到安装后文件的路径。</p>
+<h1 id="参数修正">参数修正</h1>
+<pre><code># cd /usr/local/bin
+# ln -s daemon-control-dist daemon-control
+# vim daemon-control
+</code></pre>
+<p>修改18，22行如下:</p>
+<pre><code> 18 DENYHOSTS_BIN = &quot;/usr/local/bin/denyhosts.py&quot;
+ 19 DENYHOSTS_LOCK = &quot;/run/denyhosts.pid&quot;
+ 20 DENYHOSTS_CFG = &quot;/etc/denyhosts.conf&quot;
+ 21
+ 22 PYTHON_BIN = &quot;/usr/bin/env python3&quot;
+</code></pre>
+<h1 id="运行">运行</h1>
+<pre><code># daemon-control start --noemail
+</code></pre>
+<h1 id="检查">检查</h1>
+<pre><code># ps -aux | grep denyhosts
+root       808  0.0  0.3  29220 13304 ?        S    15:21   0:00 python3 /usr/local/bin/denyhosts.py --daemon --config=/etc/denyhosts.conf
+root       810  0.0  0.0   3084   880 pts/0    S+   15:21   0:00 grep denyhosts
+</code></pre>
 
             </div>
             <div class="post-footer">
@@ -504,7 +532,7 @@ DOMAIN-SUFFIX: music.163.com
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zetaxx.com/unlock-netease-music-for-ios/" title="ios 解锁网易音乐">https://zetaxx.com/unlock-netease-music-for-ios/</a>
+      <a href="https://zetaxx.com/install-denyhosts-on-debian-10/" title="Debian10 安装 DenyHosts">https://zetaxx.com/install-denyhosts-on-debian-10/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -517,15 +545,11 @@ DOMAIN-SUFFIX: music.163.com
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="VPS DD debian 系统" href="https://zetaxx.com/vps-dd-debian-system/">VPS DD debian 系统</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="VPS DD debian 系统" href="https://zetaxx.com/vps-dd-debian-system/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Markdown 语法教程" href="https://zetaxx.com/tutorial-for-markdown/">Markdown 语法教程</a>
-        <a class="nav-mobile-next" title="Markdown 语法教程" href="https://zetaxx.com/tutorial-for-markdown/">下一篇</a>
+        <a class="nav-pc-next" title="Linux安装KMS激活服务一键脚本" href="https://zetaxx.com/one-key-install-kms-service/">Linux安装KMS激活服务一键脚本</a>
+        <a class="nav-mobile-next" title="Linux安装KMS激活服务一键脚本" href="https://zetaxx.com/one-key-install-kms-service/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

@@ -2,14 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2020-08-09T09:28:22.880Z</updated>
+    <updated>2021-01-21T06:03:17.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://zetaxx.com/images/avatar.png</logo>
     <icon>https://zetaxx.com/favicon.ico</icon>
-    <rights>All rights reserved 2020, Zeta</rights>
+    <rights>All rights reserved 2021, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[Debian10 安装 DenyHosts]]></title>
+        <id>https://zetaxx.com/install-denyhosts-on-debian-10/</id>
+        <link href="https://zetaxx.com/install-denyhosts-on-debian-10/">
+        </link>
+        <updated>2021-01-21T05:53:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linux安装KMS激活服务一键脚本]]></title>
         <id>https://zetaxx.com/one-key-install-kms-service/</id>
@@ -278,49 +285,6 @@
 <li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
 </ul>
 <pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SFTP 安装与配置]]></title>
-        <id>https://zetaxx.com/install-and-configure-for-sftp/</id>
-        <link href="https://zetaxx.com/install-and-configure-for-sftp/">
-        </link>
-        <updated>2020-05-02T02:13:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
-<h1 id="一-sftp-搭建">一、sftp 搭建</h1>
-<h2 id="1创建-sftp-组">1.创建 sftp 组</h2>
-<pre><code>groupadd sftp
-# -g 用户组； -d 指定家目录； -s 不登陆； -M 不创建家目录 
-useradd -g sftp -d /data/sftp/sftpuser -s /sbin/nologin sftpuser
-echo 123456 | passwd --stdin sftpuser
-</code></pre>
-<h2 id="2修改-sshd_config-配置">2.修改 sshd_config 配置</h2>
-<pre><code>vim /etc/ssh/sshd_config
-
-#Subsystem      sftp    /usr/libexec/openssh/sftp-server
-Subsystem sftp internal-sftp
-Match Group sftp
-ChrootDirectory /data/sftp/%u
-ForceCommand internal-sftp
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<p>sftp 是 Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的加密方法。SFTP 为 SSH 的一部分，由于这种传输方式使用了加密/解密技术，所以传输效率比普通的 FTP 要低得多，如果您对网络安全性要求更高时，可以使用 SFTP 代替 FTP。</p>
-<h1 id="一-sftp-搭建">一、sftp 搭建</h1>
-<h2 id="1创建-sftp-组">1.创建 sftp 组</h2>
-<pre><code>groupadd sftp
-# -g 用户组； -d 指定家目录； -s 不登陆； -M 不创建家目录 
-useradd -g sftp -d /data/sftp/sftpuser -s /sbin/nologin sftpuser
-echo 123456 | passwd --stdin sftpuser
-</code></pre>
-<h2 id="2修改-sshd_config-配置">2.修改 sshd_config 配置</h2>
-<pre><code>vim /etc/ssh/sshd_config
-
-#Subsystem      sftp    /usr/libexec/openssh/sftp-server
-Subsystem sftp internal-sftp
-Match Group sftp
-ChrootDirectory /data/sftp/%u
-ForceCommand internal-sftp
 </code></pre>
 ]]></content>
     </entry>
