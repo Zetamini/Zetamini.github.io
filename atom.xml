@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-01-21T06:03:17.484Z</updated>
+    <updated>2021-01-21T06:13:31.572Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -16,6 +16,30 @@
         <link href="https://zetaxx.com/install-denyhosts-on-debian-10/">
         </link>
         <updated>2021-01-21T05:53:55.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="介绍">介绍</h1>
+<p>DenyHosts是由Phil Schwartz开发并由许多开发人员维护的实用程序，旨在阻止sshd（ssh服务器）暴力攻击。最新版DenyHosts-3.1已支持Debian10，但只有Python3下面使用。</p>
+<h1 id="安装前准备python工具">安装前准备python工具</h1>
+<pre><code># apt install git python3-pip
+</code></pre>
+<h1 id="安装denyhosts">安装DenyHosts</h1>
+<p>为了方便以后卸载，加上了（--record log）参数，也可以省略。</p>
+<pre><code># git clone https://github.com/denyhosts/denyhosts.git
+# cd denyhosts
+# python3 setup.py install --record log
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="介绍">介绍</h1>
+<p>DenyHosts是由Phil Schwartz开发并由许多开发人员维护的实用程序，旨在阻止sshd（ssh服务器）暴力攻击。最新版DenyHosts-3.1已支持Debian10，但只有Python3下面使用。</p>
+<h1 id="安装前准备python工具">安装前准备python工具</h1>
+<pre><code># apt install git python3-pip
+</code></pre>
+<h1 id="安装denyhosts">安装DenyHosts</h1>
+<p>为了方便以后卸载，加上了（--record log）参数，也可以省略。</p>
+<pre><code># git clone https://github.com/denyhosts/denyhosts.git
+# cd denyhosts
+# python3 setup.py install --record log
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Linux安装KMS激活服务一键脚本]]></title>
