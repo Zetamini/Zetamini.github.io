@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-01-21T06:13:31.572Z</updated>
+    <updated>2021-01-30T16:32:49.962Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://zetaxx.com/images/avatar.png</logo>
     <icon>https://zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[Debian10中启用SSH和网络配置]]></title>
+        <id>https://zetaxx.com/ssh-and-network-setting-on-debian/</id>
+        <link href="https://zetaxx.com/ssh-and-network-setting-on-debian/">
+        </link>
+        <updated>2021-01-30T15:46:49.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Debian10 安装 DenyHosts]]></title>
         <id>https://zetaxx.com/install-denyhosts-on-debian-10/</id>
@@ -271,45 +278,6 @@
 <li>接受 ITIN 开设账户的银行:<code>Capital One</code>, <code>Discover</code></li>
 <li>其他服务: 注册 <code>Betterment</code> 投资账户, 开通 <code>PayPal</code> 余额功能</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[RouterOS电信移动聚合]]></title>
-        <id>https://zetaxx.com/Using-Routeros-PCC-CT-and-CM/</id>
-        <link href="https://zetaxx.com/Using-Routeros-PCC-CT-and-CM/">
-        </link>
-        <updated>2020-05-02T03:08:53.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="前情提要">前情提要</h1>
-<ul>
-<li>购入3865U工控软路由一台，6口千兆。</li>
-<li>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</li>
-<li>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</li>
-</ul>
-<h1 id="routeros配置">RouterOS配置</h1>
-<h2 id="1准备工作">1.准备工作</h2>
-<ul>
-<li>直通网口2-6，网口1-lan1管理。</li>
-<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
-<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
-</ul>
-<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="前情提要">前情提要</h1>
-<ul>
-<li>购入3865U工控软路由一台，6口千兆。</li>
-<li>底层ESXI；虚拟机RouterOS，负责拨号、聚合；虚拟机de_GWD，负责网关、DNS、DHCP、V2、Pi-hole去广告。</li>
-<li>Qiang外VPS三台，GCP、ali-SG、bwh-CN2-GIA，负载均衡。</li>
-</ul>
-<h1 id="routeros配置">RouterOS配置</h1>
-<h2 id="1准备工作">1.准备工作</h2>
-<ul>
-<li>直通网口2-6，网口1-lan1管理。</li>
-<li>查清ros里的网口顺序；电信插eth6口，修改为CT；移动插eth5口，修改为CMCC；其余eth1-4口，分别修改为lan1-4，将4口桥接，桥接接口名为bridge1。</li>
-<li>给bridge1分配个ip，比如10.10.10.3，就是ros地址。</li>
-</ul>
-<pre><code>/ip address add address=10.10.10.3/24 interface=bridge1
-</code></pre>
 ]]></content>
     </entry>
 </feed>
