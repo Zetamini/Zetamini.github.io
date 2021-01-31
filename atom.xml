@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-01-31T09:51:07.586Z</updated>
+    <updated>2021-01-31T09:51:44.522Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -16,6 +16,42 @@
         <link href="https://zetaxx.com/Install-Docker-Engine-on-Debian/">
         </link>
         <updated>2021-01-31T09:39:46.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
+<h2 id="uninstall-old-versions">Uninstall old versions</h2>
+<pre><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<p>The contents of <code>/var/lib/docker/</code>, including images, containers, volumes, and networks, are preserved. The Docker Engine package is now called <code>docker-ce</code></p>
+<h1 id="installation-methods">Installation methods</h1>
+<h2 id="install-using-the-repository">Install using the repository</h2>
+<h3 id="set-up-the-repository">SET UP THE REPOSITORY</h3>
+<h4 id="update-the-apt-package-index-and-install-packages-to-allow-apt-to-use-a-repository-over-https">Update the apt package index and install packages to allow apt to use a repository over HTTPS:</h4>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
+<h2 id="uninstall-old-versions">Uninstall old versions</h2>
+<pre><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<p>The contents of <code>/var/lib/docker/</code>, including images, containers, volumes, and networks, are preserved. The Docker Engine package is now called <code>docker-ce</code></p>
+<h1 id="installation-methods">Installation methods</h1>
+<h2 id="install-using-the-repository">Install using the repository</h2>
+<h3 id="set-up-the-repository">SET UP THE REPOSITORY</h3>
+<h4 id="update-the-apt-package-index-and-install-packages-to-allow-apt-to-use-a-repository-over-https">Update the apt package index and install packages to allow apt to use a repository over HTTPS:</h4>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Debian10中启用SSH和网络配置]]></title>
