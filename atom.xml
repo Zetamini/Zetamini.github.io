@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-01-30T16:32:49.962Z</updated>
+    <updated>2021-01-31T07:39:16.655Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -16,6 +16,44 @@
         <link href="https://zetaxx.com/ssh-and-network-setting-on-debian/">
         </link>
         <updated>2021-01-30T15:46:49.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="修改ssh">修改SSH</h1>
+<pre><code>nano /etc/ssh/sshd_config
+</code></pre>
+<p>修改#PermitRootLogin prohibit-password为</p>
+<pre><code>PermitRootLogin yes
+</code></pre>
+<h1 id="设置固定ip">设置固定ip</h1>
+<p>修改/etc/network/interfaces</p>
+<pre><code>auto eth0
+iface eth0 inet static
+address 10.10.10.11
+netmask 255.255.255.0
+gateway 10.10.10.1
+</code></pre>
+<h1 id="设置dns">设置DNS</h1>
+<p>修改/etc/resolv.conf</p>
+<pre><code>nameserver 10.10.10.1
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="修改ssh">修改SSH</h1>
+<pre><code>nano /etc/ssh/sshd_config
+</code></pre>
+<p>修改#PermitRootLogin prohibit-password为</p>
+<pre><code>PermitRootLogin yes
+</code></pre>
+<h1 id="设置固定ip">设置固定ip</h1>
+<p>修改/etc/network/interfaces</p>
+<pre><code>auto eth0
+iface eth0 inet static
+address 10.10.10.11
+netmask 255.255.255.0
+gateway 10.10.10.1
+</code></pre>
+<h1 id="设置dns">设置DNS</h1>
+<p>修改/etc/resolv.conf</p>
+<pre><code>nameserver 10.10.10.1
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Debian10 安装 DenyHosts]]></title>
