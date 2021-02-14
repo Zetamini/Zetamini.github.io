@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>webhook 实现自动部署 | Zeta</title>
+<title>加速GitHub资源拉取 | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1613312542782">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="webhook 实现自动部署" />
-  <meta name="keywords" content="Git,Webhook,Github,Gridea" />
+  <meta name="description" content="加速GitHub资源拉取" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -172,50 +172,16 @@
   <div class="toc-wrapper  no_compress"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%80-%E4%BB%80%E4%B9%88%E6%98%AFgit-webhook">一、什么是Git webhook</a>
+<li><a href="#%E5%8A%A0%E9%80%9F%E5%9C%B0%E5%9D%80%E4%B8%80%E8%A7%88">加速地址一览</a></li>
+<li><a href="#%E5%8A%A0%E9%80%9F-clone">加速 clone</a>
 <ul>
-<li><a href="#%E4%B8%80%E6%9C%AC%E5%9C%B0-hook">（一）本地 hook</a></li>
-<li><a href="#%E4%BA%8C%E6%9C%8D%E5%8A%A1%E5%99%A8-hook">（二）服务器 hook</a></li>
-<li><a href="#%E4%B8%89webhook">（三）webhook</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E4%B8%80%E6%89%8B%E5%8A%A8%E6%9B%BF%E6%8D%A2%E5%9C%B0%E5%9D%80">方法一：手动替换地址</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E9%85%8D%E7%BD%AEgit%E8%87%AA%E5%8A%A8%E6%9B%BF%E6%8D%A2">方法二：配置git自动替换</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BA%8C-%E9%83%A8%E7%BD%B2-webhook">二、部署 webhook</a>
-<ul>
-<li><a href="#%E4%B8%80github-webhook%E5%B7%A5%E5%85%B7">（一）github-webhook工具</a>
-<ul>
-<li><a href="#github-webhook-%E6%96%87%E6%A1%A3">github-webhook 文档</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8github-webhook">使用github-webhook</a></li>
-<li><a href="#1go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><s>1.Go环境搭建</s></a><br>
-*
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85sudo-curl-wget-git-vim"><s>安装Sudo、Curl、Wget、Git、Vim</s></a></li>
-<li><a href="#1%E4%B8%8B%E8%BD%BDgo%E5%B9%B6%E8%A7%A3%E5%8E%8B"><s>(1)下载GO并解压</s></a></li>
-<li><a href="#2%E8%AE%BE%E7%BD%AEgo%E8%B7%AF%E5%BE%84"><s>(2)设置Go路径</s></a></li>
-<li><a href="#2%E4%B8%8B%E8%BD%BDgithub-webhook%E5%B7%A5%E5%85%B7">2.下载github-webhook工具</a></li>
-<li><a href="#3%E8%BF%90%E8%A1%8Cgithub-webhook">3.运行github-webhook</a>
-<ul>
-<li><a href="#1%E5%AE%89%E8%A3%85">(1)安装</a></li>
-<li><a href="#2%E8%BF%90%E8%A1%8C">(2)运行</a></li>
-<li><a href="#3webhooksh">(3)webhook.sh</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E9%85%8D%E7%BD%AEgithub-webhook">配置github webhook</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8Cnginxphp%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2webhook">（二）nginx+php环境下部署webhook</a>
-<ul>
-<li><a href="#%E7%8E%AF%E5%A2%83">环境</a></li>
-<li><a href="#git-config">Git config</a></li>
-<li><a href="#%E9%83%A8%E7%BD%B2-ssh-%E6%97%A0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95">部署 SSH 无密码登录</a></li>
-<li><a href="#webhookphp">webhook.php</a></li>
-<li><a href="#webhooksh">webhook.sh</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E4%B8%89-%E5%A3%B0%E6%98%8E">三、声明</a></li>
+<li><a href="#%E5%8A%A0%E9%80%9F-release">加速 release</a></li>
+<li><a href="#%E5%8A%A0%E9%80%9F-raw">加速 raw</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
 </ul>
 
   </div>
@@ -481,8 +447,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zetaxx.com/Automatic-deployment-with-webhook/">
-      webhook 实现自动部署
+    <a class="post-title-link" href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">
+      加速GitHub资源拉取
     </a>
   </h1>
   <div class="post-meta">
@@ -490,54 +456,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-05-01</span>
+      <span>2021-02-14</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://zetaxx.com/tag/git/">
-        <span>Git</span>
-      </a>、
-      
-      
-      
-      <a href="https://zetaxx.com/tag/webhook/">
-        <span>Webhook</span>
-      </a>、
-      
-      
-      
-      <a href="https://zetaxx.com/tag/github/">
-        <span>Github</span>
-      </a>、
-      
-      
-      
-      <a href="https://zetaxx.com/tag/IXfk_eLpt/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1732<span class="pc-show">字数</span></span>
+      <span>415<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/Automatic-deployment-with-webhook/" data-flag-title="webhook 实现自动部署" class="meta-item pc-show leancloud_visitors">
+    <span id="/accelerate-to-pull-resources-from-github/" data-flag-title="加速GitHub资源拉取" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -546,227 +481,59 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>Git Hook(钩子) 是 Git 在代码提交、推送、合并等工作流程中引入的事件触发器，其中最常用的场景是代码检查，持续集成，自动部署等，本文主要讲解利用webhook 实现自动部署的两种方式。</p>
-<h1 id="一-什么是git-webhook">一、什么是Git webhook</h1>
-<p>Git 的 hook 分为本地仓库 hook 和服务器仓库 hook。</p>
-<h2 id="一本地-hook">（一）本地 hook</h2>
-<p>本地 hook 通常在代码的 .git/hooks 目录下，如下所示：</p>
-<pre><code>$ hooks git:(master) ls
-applypatch-msg.sample     pre-commit.sample             prepare-commit-msg.sample
-commit-msg.sample         update.sample
-post-update.sample        pre-push.sample
-pre-applypatch.sample     pre-rebase.sample
-</code></pre>
-<p>默认情况下，这些脚本不会生效。使用时，只需将 <code>.sample</code> 后缀去掉，然后赋予脚本执行权限即可。<br>
-本地 hook 主要用于代码静态分析、REVIEW、代码规范、命名规范等。</p>
+              <p>本文主要介绍在不进行多余网络配置的情况下，直接使用提供了 github 国内镜像服务的网站进行 github 各种资源拉取加速，在这里向各位提供 github 国内镜像服务的大佬们致敬。</p>
+<h1 id="加速地址一览">加速地址一览</h1>
 <ul>
-<li>pre-commit<br>
-提交之前的代码检查，包括是否通过单元测试，静态代码分析</li>
-<li>prepare-commit-msg<br>
-提交信息之前，可用来生成默认的提交信息</li>
-<li>commit-msg<br>
-提交信息之后，可用来检查提交信息是否符合特定的格式</li>
-<li>post-commit<br>
-提交代码之后，一般用来通知代码已提交。</li>
-<li>post-checkout<br>
-checkout 代码之后，可用来设置工作目录、生成文档、生成静态资源等工作</li>
-<li>post-merge<br>
-合并代码之后，可用来保存 merge 操作中，git 没有保存的信息。</li>
-<li>pre-push<br>
-push 代码之前，可用来检查本次 push 的 commits 是否符合特定的标准。</li>
+<li>fastgit.org：https://doc.fastgit.org/</li>
+<li>cnpmjs.org：https://github.com.cnpmjs.org/</li>
+<li>gitclone.com：https://gitclone.com/</li>
+<li>gitee：https://gitee.com/mirrors</li>
+<li>GitHub 文件加速：https://gh.api.99988866.xyz/</li>
+<li>Github 仓库加速：https://github.zhlh6.cn/</li>
+<li>Github 仓库加速：http://toolwa.com/github/</li>
 </ul>
+<h1 id="加速-clone">加速 clone</h1>
+<h2 id="方法一手动替换地址">方法一：手动替换地址</h2>
+<pre><code>#原地址
+$ git clone https://github.com/kubernetes/kubernetes.git
+#改为
+$ git clone https://github.com.cnpmjs.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://hub.fastgit.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://gitclone.com/github.com/kubernetes/kubernetes.git
+</code></pre>
 <!-- more -->
-<h2 id="二服务器-hook">（二）服务器 hook</h2>
-<p>服务器 hook 指代码传输到服务器时，在服务器端所做的一系列操作。</p>
+<h2 id="方法二配置git自动替换">方法二：配置git自动替换</h2>
+<pre><code>$ git config --global url.&quot;https://hub.fastgit.org&quot;.insteadOf https://github.com
+# 测试
+$ git clone https://github.com/kubernetes/kubernetes.git
+# 查看git配置信息
+$ git config --global --list
+# 取消设置
+$ git config --global --unset url.https://github.com/.insteadof
+</code></pre>
+<h1 id="加速-release">加速 release</h1>
+<pre><code># 原地址
+wget https://github.com/goharbor/harbor/releases/download/v2.0.2/harbor-offline-installer-v2.0.2.tgz
+# 加速下载方法一
+wget https://download.fastgit.org/goharbor/harbor/releases/download/v2.0.2/harbor-offline-installer-v2.0.2.tgz
+# 加速下载方法二
+wget https://hub.fastgit.org/goharbor/harbor/releases/download/v2.0.2/harbor-offline-installer-v2.0.2.tgz
+</code></pre>
+<h1 id="加速-raw">加速 raw</h1>
+<pre><code># 原地址
+$ wget https://raw.githubusercontent.com/kubernetes/kubernetes/master/README.md
+# 加速下载方法一
+$ wget https://raw.staticdn.net/kubernetes/kubernetes/master/README.md
+# 加速下载方法二
+$ wget https://raw.fastgit.org/kubernetes/kubernetes/master/README.md
+</code></pre>
+<h1 id="参考文献">参考文献</h1>
 <ul>
-<li>pre-receive<br>
-处理 push 操作之前，可以检查本次 push 的 commits 和文件是否符合特定的标准。</li>
-<li>update<br>
-update 与 pre-receive 操作类似，不同的是 pre-receive 只执行一次，而 update 可能执行多次。</li>
-<li>post-receive<br>
-整个提交过程完成之后，可用于更新其它服务或通知用户，比如发邮件告诉开发人员已提交代码，通知持续集成 (Continuous Integration) 服务器部署代码</li>
+<li>Github 国内 mirror 加速：https://blog.csdn.net/networken/article/details/105122778</li>
+<li>git clone 加速，只需 1 秒就可提升几十倍速度，亲测有效：https://blog.csdn.net/u013066730/article/details/107164870</li>
 </ul>
-<h2 id="三webhook">（三）webhook</h2>
-<p>如果 Git 服务部署在自己的服务器上，如用 GitLab 搭建一套 Git 服务，则可以使用服务器 hook。如果使用了 GitHub、Bitbucket 等云端平台，那么只能使用 webhook 来完成脚本。<br>
-webhook 本质上属于服务器 hook，因为发送通知的方式是网络请求，因此得名。使用 webhook 的步骤如下：</p>
-<ol>
-<li>设置用于接收请求的 URL。</li>
-<li>服务器收到 push、pull request、merge、tag 等操作时，会将相应信息发送给步骤 1 里的 URL。</li>
-<li>URL 对应的程序收到网络请求后，执行自动部署、邮件通知等操作。</li>
-</ol>
-<figure data-type="image" tabindex="1"><img src="https://zetaxx.com/post-images/1588347043167.png" alt="" loading="lazy"></figure>
-<h1 id="二-部署-webhook">二、部署 webhook</h1>
-<p>部署webhook有很多方式，本文仅讲解使用github-webhook工具和在nginx+php环境下部署webhook的两种方式</p>
-<h2 id="一github-webhook工具">（一）github-webhook工具</h2>
-<h3 id="github-webhook-文档">github-webhook 文档</h3>
-<ul>
-<li>更多详情文档 <a href="https://github.com/yezihack/github-webhook">https://github.com/yezihack/github-webhook</a></li>
-</ul>
-<h3 id="使用github-webhook">使用github-webhook</h3>
-<h3 id="1go环境搭建"><s>1.Go环境搭建</s></h3>
-<h5 id="安装sudo-curl-wget-git-vim"><s>安装Sudo、Curl、Wget、Git、Vim</s></h5>
-<pre><code>apt update &amp;&amp; apt install sudo wget vim curl
-</code></pre>
-<h5 id="1下载go并解压"><s>(1)下载GO并解压</s></h5>
-<pre><code>curl -O https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
-tar xvf  go1.14.2.linux-amd64.tar.gz
-sudo chown -R root:root ./go
-sudo mv go /usr/local
-</code></pre>
-<p><s>注意：虽然/usr/local/go是官方推荐的位置，但有些用户可能更喜欢或需要不同的路径。</s></p>
-<h5 id="2设置go路径"><s>(2)设置Go路径</s></h5>
-<p><s>设置Go的根值，告诉Go在哪里查找其文件：</s></p>
-<pre><code>vi ~/.profile
-</code></pre>
-<p><s>在文件末尾添加以下行：</s></p>
-<pre><code>export GOPATH=$HOME/work
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-</code></pre>
-<p><s>如果为Go选择了不同的安装位置，则应将以下行添加到此文件中</s></p>
-<pre><code>export GOROOT=$HOME/go
-export GOPATH=$HOME/work
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-</code></pre>
-<p><s>注意：<code>export GOROOT=$HOME/go</code>在主目录中安装Go时所需的行<br>
-在Go安装到位并设置必要的环境路径后，让我们通过编写一个简短的程序来确认我们的设置是否有效</s></p>
-<pre><code>source ~/.profile
-</code></pre>
-<h4 id="2下载github-webhook工具">2.下载github-webhook工具</h4>
-<pre><code>wget http://img.sgfoot.com/github-webhook1.4.1.linux-amd64.tar.gz
-</code></pre>
-<h4 id="3运行github-webhook">3.运行github-webhook</h4>
-<h5 id="1安装">(1)安装</h5>
-<pre><code>tar -zxvf github-webhook1.4.1.linux-amd64.tar.gz
-cp github-webhook /usr/bin/
-chmod u+x /usr/bin/github-webhook
-</code></pre>
-<h5 id="2运行">(2)运行</h5>
-<ul>
-<li>默认端口: 2020</li>
-<li>有效访问地址: http://ip:2020/web-hook</li>
-<li>-b 是shell脚本路径参数</li>
-<li>-s 是github webhook设置的密码</li>
-</ul>
-<pre><code># 非后台运行
-github-webhook -b [shell脚本路径] -s [github webhook设置的密码]
-
-# 后台运行
-nohup github-webhook -b [shell脚本路径] -s [github webhook设置的密码] &amp; 
-
-# 定向日志输出
-nohup github-webhook -b ~/webhook.sh -s sopsopsop &gt;&gt; ~/webhook.log 2&gt;&amp;1 &amp;
-</code></pre>
-<h5 id="3webhooksh">(3)webhook.sh</h5>
-<pre><code>#! /bin/bash
-SITE_PATH='/var/www/html'
-USER='www-data'
-USERGROUP='www-data'
-cd $SITE_PATH
-git reset --hard origin/master
-git clean -f
-git pull
-git checkout master
-chown -R $USER:$USERGROUP $SITE_PATH
-</code></pre>
-<p>赋予webhook.sh可执行权限</p>
-<pre><code>chmod +x webhook.sh
-</code></pre>
-<p>这样每次在客户端 push 代码，服务器会发请求给 github-webhook，github-webhook检查通过后，启动 <code>webhook.sh</code> 进行自动部署。</p>
-<h3 id="配置github-webhook">配置github webhook</h3>
-<ul>
-<li>填写你服务器的地址, http://ip:2020/web-hook</li>
-<li>设置的密码必须与服务器运行github-webhook -s 设置的密码一致<br>
-<img src="https://zetaxx.com/post-images/1588348742453.png" alt="" loading="lazy"><br>
-<img src="https://zetaxx.com/post-images/1588348750655.png" alt="" loading="lazy"></li>
-</ul>
-<h2 id="二nginxphp环境下部署webhook">（二）nginx+php环境下部署webhook</h2>
-<h3 id="环境">环境</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">域名</td>
-<td style="text-align:left">www.qq.com</td>
-</tr>
-<tr>
-<td style="text-align:left">接收请求的URL</td>
-<td style="text-align:left">https://www.qq.com/webhook.php</td>
-</tr>
-<tr>
-<td style="text-align:left">项目部署目录</td>
-<td style="text-align:left">/var/www/html</td>
-</tr>
-<tr>
-<td style="text-align:left">webhook.sh路径</td>
-<td style="text-align:left">~/webhook.sh</td>
-</tr>
-<tr>
-<td style="text-align:left">webhook.php</td>
-<td style="text-align:left">/var/www/html/webhook.php</td>
-</tr>
-<tr>
-<td style="text-align:left">环境</td>
-<td style="text-align:left">nginx php</td>
-</tr>
-<tr>
-<td style="text-align:left">用户组</td>
-<td style="text-align:left">www-data</td>
-</tr>
-</tbody>
-</table>
-<h3 id="git-config">Git config</h3>
-<p>Git 项目需要使用 SSH 地址，如 git@github.com:xxx/xxx.git 。如果之前采用了 HTTPS 链接，需要修改 .git/config 文件里的 url 字段：</p>
-<pre><code>vi .git/config
-</code></pre>
-<pre><code>[remote &quot;origin&quot;]
-    url = git@github.com:xxx/xxx.git
-    fetch = +refs/heads/*:refs/remotes/origin/*
-</code></pre>
-<h3 id="部署-ssh-无密码登录">部署 SSH 无密码登录</h3>
-<p>首先需要生成 SSH key</p>
-<pre><code>sudo  -u www-data ssh-keygen -t rsa -C &quot;nginx&quot;
-</code></pre>
-<p>然后复制你的 public key，粘贴到项目的“SSH 公钥”设置里</p>
-<pre><code>cat /var/www/.ssh/id_rsa.pub
-</code></pre>
-<p>Github仓库中 <code>Settings -&gt; Deploy keys</code> 选择 Add deploy key<br>
-<img src="https://zetaxx.com/post-images/1588350517937.png" alt="" loading="lazy"><br>
-添加完毕后，可以运行 <code>ssh -T git@github.com</code> 来验证是否设置成功。首次运行时会看到一条 RSA key 指纹的连接确认信息，输入 yes 回车即可</p>
-<pre><code>Hi username! You've successfully authenticated, but GitHub does not
-provide shell access.
-</code></pre>
-<h3 id="webhookphp">webhook.php</h3>
-<p>webhook.php 用来接收 webhook 请求，一般要做以下操作：</p>
-<ul>
-<li>监测请求来源合法性。检查方法：密码，AES等。</li>
-<li>检查是否为特定分支，如 master 分支。</li>
-<li>启动自动部署脚本，如完成拉取最新代码，重新设置目录权限等</li>
-</ul>
-<pre><code>&lt;?php
-$raw_data = file_get_contents(&quot;php://input&quot;);
-$pay_load = json_decode($raw_data,true);
-//监测请求来源合法性，
-if($pay_load['password'] != 'pass'){
-    exit('ok 400');
-}
-//检查是否为master分支
-if($pay_load[&quot;ref&quot;] != &quot;refs/heads/master&quot;){
-    exit('ok 401');
-}
-
-exec('sh ~/webhook.sh');
-</code></pre>
-<h3 id="webhooksh">webhook.sh</h3>
-<p>webhook.sh和github-webhook中脚本一样</p>
-<h1 id="三-声明">三、声明</h1>
-<p>本文所有内容，包括文字、图片等来源以下地址，版权归原作者所有。<br>
-1.百里江山的博客，<a href="https://sgfoot.com/2020/04/24/github-webhook.html">《github-webhook工具实现github自动构建》</a><br>
-2.David's world，<a href="https://blog.text.wiki/2017/10/31/git-webhooks-for-php.html">《Git webhook 实现自动部署教程》</a></p>
 
             </div>
             <div class="post-footer">
@@ -777,7 +544,7 @@ exec('sh ~/webhook.sh');
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zetaxx.com/Automatic-deployment-with-webhook/" title="webhook 实现自动部署">https://zetaxx.com/Automatic-deployment-with-webhook/</a>
+      <a href="https://zetaxx.com/accelerate-to-pull-resources-from-github/" title="加速GitHub资源拉取">https://zetaxx.com/accelerate-to-pull-resources-from-github/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -786,27 +553,15 @@ exec('sh ~/webhook.sh');
   </ul>
   <div class="tags">
     
-      <a href="https://zetaxx.com/tag/git/"># Git</a>
-    
-      <a href="https://zetaxx.com/tag/webhook/"># Webhook</a>
-    
-      <a href="https://zetaxx.com/tag/github/"># Github</a>
-    
-      <a href="https://zetaxx.com/tag/IXfk_eLpt/"># Gridea</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="SFTP 安装与配置" href="https://zetaxx.com/install-and-configure-for-sftp/">SFTP 安装与配置</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="SFTP 安装与配置" href="https://zetaxx.com/install-and-configure-for-sftp/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://zetaxx.com/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://zetaxx.com/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="Debian安装Docker" href="https://zetaxx.com/Install-Docker-Engine-on-Debian/">Debian安装Docker</a>
+        <a class="nav-mobile-next" title="Debian安装Docker" href="https://zetaxx.com/Install-Docker-Engine-on-Debian/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

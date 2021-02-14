@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-01-31T09:51:44.522Z</updated>
+    <updated>2021-02-14T14:22:30.840Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -10,6 +10,59 @@
     <logo>https://zetaxx.com/images/avatar.png</logo>
     <icon>https://zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[加速GitHub资源拉取]]></title>
+        <id>https://zetaxx.com/accelerate-to-pull-resources-from-github/</id>
+        <link href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">
+        </link>
+        <updated>2021-02-14T14:16:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文主要介绍在不进行多余网络配置的情况下，直接使用提供了 github 国内镜像服务的网站进行 github 各种资源拉取加速，在这里向各位提供 github 国内镜像服务的大佬们致敬。</p>
+<h1 id="加速地址一览">加速地址一览</h1>
+<ul>
+<li>fastgit.org：https://doc.fastgit.org/</li>
+<li>cnpmjs.org：https://github.com.cnpmjs.org/</li>
+<li>gitclone.com：https://gitclone.com/</li>
+<li>gitee：https://gitee.com/mirrors</li>
+<li>GitHub 文件加速：https://gh.api.99988866.xyz/</li>
+<li>Github 仓库加速：https://github.zhlh6.cn/</li>
+<li>Github 仓库加速：http://toolwa.com/github/</li>
+</ul>
+<h1 id="加速-clone">加速 clone</h1>
+<h2 id="方法一手动替换地址">方法一：手动替换地址</h2>
+<pre><code>#原地址
+$ git clone https://github.com/kubernetes/kubernetes.git
+#改为
+$ git clone https://github.com.cnpmjs.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://hub.fastgit.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://gitclone.com/github.com/kubernetes/kubernetes.git
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文主要介绍在不进行多余网络配置的情况下，直接使用提供了 github 国内镜像服务的网站进行 github 各种资源拉取加速，在这里向各位提供 github 国内镜像服务的大佬们致敬。</p>
+<h1 id="加速地址一览">加速地址一览</h1>
+<ul>
+<li>fastgit.org：https://doc.fastgit.org/</li>
+<li>cnpmjs.org：https://github.com.cnpmjs.org/</li>
+<li>gitclone.com：https://gitclone.com/</li>
+<li>gitee：https://gitee.com/mirrors</li>
+<li>GitHub 文件加速：https://gh.api.99988866.xyz/</li>
+<li>Github 仓库加速：https://github.zhlh6.cn/</li>
+<li>Github 仓库加速：http://toolwa.com/github/</li>
+</ul>
+<h1 id="加速-clone">加速 clone</h1>
+<h2 id="方法一手动替换地址">方法一：手动替换地址</h2>
+<pre><code>#原地址
+$ git clone https://github.com/kubernetes/kubernetes.git
+#改为
+$ git clone https://github.com.cnpmjs.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://hub.fastgit.org/kubernetes/kubernetes.git
+#或者
+$ git clone https://gitclone.com/github.com/kubernetes/kubernetes.git
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Debian安装Docker]]></title>
         <id>https://zetaxx.com/Install-Docker-Engine-on-Debian/</id>
@@ -289,37 +342,6 @@ gateway 10.10.10.1
 <li>无序列表项 二</li>
 <li>无序列表项 三</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Docker常用基本命令]]></title>
-        <id>https://zetaxx.com/play-with-docker/</id>
-        <link href="https://zetaxx.com/play-with-docker/">
-        </link>
-        <updated>2020-05-02T09:31:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>中文文档：<a href="https://www.runoob.com/docker/docker-command-manual.html">https://www.runoob.com/docker/docker-command-manual.html</a></p>
-<h1 id="install-docker-engine">INSTALL DOCKER ENGINE</h1>
-<blockquote>
-<p>Note: This procedure works for Debian on x86_64 / amd64, Debian ARM, or Raspbian.</p>
-</blockquote>
-<ol>
-<li>Update the <code>apt</code> package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</li>
-</ol>
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<p>中文文档：<a href="https://www.runoob.com/docker/docker-command-manual.html">https://www.runoob.com/docker/docker-command-manual.html</a></p>
-<h1 id="install-docker-engine">INSTALL DOCKER ENGINE</h1>
-<blockquote>
-<p>Note: This procedure works for Debian on x86_64 / amd64, Debian ARM, or Raspbian.</p>
-</blockquote>
-<ol>
-<li>Update the <code>apt</code> package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</li>
-</ol>
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
-</code></pre>
 ]]></content>
     </entry>
 </feed>
