@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-02-14T14:27:29.332Z</updated>
+    <updated>2021-02-18T07:07:14.870Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -10,6 +10,91 @@
     <logo>https://zetaxx.com/images/avatar.png</logo>
     <icon>https://zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[编译OpenWRT固件]]></title>
+        <id>https://zetaxx.com/make-config-openwrt/</id>
+        <link href="https://zetaxx.com/make-config-openwrt/">
+        </link>
+        <updated>2021-02-18T06:58:13.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
+<ul>
+<li>安装Ubuntu 18 LTS x64</li>
+<li>新建非root用户进行编译</li>
+<li>全局科学上网</li>
+<li>默认登陆IP 192.168.1.1, 密码 password</li>
+</ul>
+<h1 id="开始编译">开始编译</h1>
+<pre><code>sudo apt-get update
+</code></pre>
+<pre><code>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+</code></pre>
+<pre><code>git clone https://github.com/coolsnowwolf/lede
+</code></pre>
+<pre><code>cd lede
+</code></pre>
+<pre><code>./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+</code></pre>
+<pre><code>make -j8 download V=s 下#载dl库
+</code></pre>
+<pre><code>make -j1 V=s #-j1 后面是线程数。第一次编译推荐用单线程
+</code></pre>
+<h1 id="二次编译">二次编译</h1>
+<pre><code>cd lede
+git pull
+./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
+make defconfig
+make -j8 download
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<h2 id="重新配置">重新配置</h2>
+<pre><code>rm -rf ./tmp &amp;&amp; rm -rf .config
+make menuconfig
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<p>编译完成后输出路径：/lede/bin/targets</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
+<ul>
+<li>安装Ubuntu 18 LTS x64</li>
+<li>新建非root用户进行编译</li>
+<li>全局科学上网</li>
+<li>默认登陆IP 192.168.1.1, 密码 password</li>
+</ul>
+<h1 id="开始编译">开始编译</h1>
+<pre><code>sudo apt-get update
+</code></pre>
+<pre><code>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+</code></pre>
+<pre><code>git clone https://github.com/coolsnowwolf/lede
+</code></pre>
+<pre><code>cd lede
+</code></pre>
+<pre><code>./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+</code></pre>
+<pre><code>make -j8 download V=s 下#载dl库
+</code></pre>
+<pre><code>make -j1 V=s #-j1 后面是线程数。第一次编译推荐用单线程
+</code></pre>
+<h1 id="二次编译">二次编译</h1>
+<pre><code>cd lede
+git pull
+./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
+make defconfig
+make -j8 download
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<h2 id="重新配置">重新配置</h2>
+<pre><code>rm -rf ./tmp &amp;&amp; rm -rf .config
+make menuconfig
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<p>编译完成后输出路径：/lede/bin/targets</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[加速GitHub资源拉取]]></title>
         <id>https://zetaxx.com/accelerate-to-pull-resources-from-github/</id>
@@ -279,69 +364,6 @@ gateway 10.10.10.1
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588423610141.png" alt="" loading="lazy"></figure>
 ]]></summary>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588423610141.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Markdown 语法教程]]></title>
-        <id>https://zetaxx.com/tutorial-for-markdown/</id>
-        <link href="https://zetaxx.com/tutorial-for-markdown/">
-        </link>
-        <updated>2020-05-02T10:04:44.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
-<p>使用 <code>*</code>和 <code>**</code>表示斜体和粗体。<br>
-示例：<br>
-这是 <em>斜体</em>，这是 <strong>粗体</strong></p>
-<h1 id="2-标题">2. 标题</h1>
-<p>使用 #加空格表示一级标题，同理，##加空格表示二级标题，以此类推<br>
-示例：</p>
-<blockquote>
-<h1 id="一级标题">一级标题</h1>
-<h2 id="二级标题">二级标题</h2>
-<h3 id="三级标题">三级标题</h3>
-<h4 id="四级标题">四级标题</h4>
-<h5 id="五级标题">五级标题</h5>
-<h6 id="六级标题">六级标题</h6>
-</blockquote>
-<h1 id="3-外链接">3. 外链接</h1>
-<p>使用 <code>[描述](链接地址)</code>为文字增加外链接<br>
-示例：<br>
-这是去往 <a href="https://zeta.im/">Zeta</a> 主页 的链接</p>
-<h1 id="4-无序列表">4. 无序列表</h1>
-<p>使用 <code>-</code>表示无序列表<br>
-示例：</p>
-<ul>
-<li>无序列表项 一</li>
-<li>无序列表项 二</li>
-<li>无序列表项 三</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="1-斜体和粗体">1. 斜体和粗体</h1>
-<p>使用 <code>*</code>和 <code>**</code>表示斜体和粗体。<br>
-示例：<br>
-这是 <em>斜体</em>，这是 <strong>粗体</strong></p>
-<h1 id="2-标题">2. 标题</h1>
-<p>使用 #加空格表示一级标题，同理，##加空格表示二级标题，以此类推<br>
-示例：</p>
-<blockquote>
-<h1 id="一级标题">一级标题</h1>
-<h2 id="二级标题">二级标题</h2>
-<h3 id="三级标题">三级标题</h3>
-<h4 id="四级标题">四级标题</h4>
-<h5 id="五级标题">五级标题</h5>
-<h6 id="六级标题">六级标题</h6>
-</blockquote>
-<h1 id="3-外链接">3. 外链接</h1>
-<p>使用 <code>[描述](链接地址)</code>为文字增加外链接<br>
-示例：<br>
-这是去往 <a href="https://zeta.im/">Zeta</a> 主页 的链接</p>
-<h1 id="4-无序列表">4. 无序列表</h1>
-<p>使用 <code>-</code>表示无序列表<br>
-示例：</p>
-<ul>
-<li>无序列表项 一</li>
-<li>无序列表项 二</li>
-<li>无序列表项 三</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

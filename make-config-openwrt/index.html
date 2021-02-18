@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>Zeta</title>
+<title>编译OpenWRT固件 | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1613632029919">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,6 +29,8 @@
 
 
 
+  <meta name="description" content="编译OpenWRT固件" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -136,157 +138,701 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/images/avatar.png"/>
-    <p class="site-author-name">zeta</p>
-    
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">9</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">9</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-  
-  
 
+<div class="sidebar">
   
-    <div class="sidebar-item right-motion sidebar-item-friends">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
       
-        <p class="friends-title"><i class="fa fa-ship"></i> 友情链接</p>
-      
-      <div class="friends-box">
+      <div class="sidebar-body pisces" id="sidebar_body">
         
-          <p>
-            <a href=""></a>
-          </p>
-        
-      </div>
-    </div>
-  
+          
+            <div style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper  no_compress"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
+<li><a href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91">开始编译</a></li>
+<li><a href="#%E4%BA%8C%E6%AC%A1%E7%BC%96%E8%AF%91">二次编译</a>
+<ul>
+<li><a href="#%E9%87%8D%E6%96%B0%E9%85%8D%E7%BD%AE">重新配置</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%BA%94%E7%94%A8">常用插件应用</a>
+<ul>
+<li><a href="#luci-applications-luci-app-accesscontrol-%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6luci-applications-luci-app-adbyby-plus-%E5%B9%BF%E5%91%8A%E5%B1%8F%E8%94%BD%E5%A4%A7%E5%B8%88plus-luci-applications-luci-app-arpbind-ipmac%E7%BB%91%E5%AE%9Aluci-applications-luci-app-autoreboot-%E6%94%AF%E6%8C%81%E8%AE%A1%E5%88%92%E9%87%8D%E5%90%AFluci-applications-luci-app-ddns-%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D-dns%E9%9B%86%E6%88%90%E9%98%BF%E9%87%8Cddns%E5%AE%A2%E6%88%B7%E7%AB%AFluci-applications-luci-app-filetransfer-%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8F%AFweb%E5%AE%89%E8%A3%85ipk%E5%8C%85luci-applications-luci-app-firewall-%E6%B7%BB%E5%8A%A0%E9%98%B2%E7%81%AB%E5%A2%99luci-applications-luci-app-frpc-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F-frpluci-applications-luci-app-ipsec-virtuald-virtual%E6%9C%8D%E5%8A%A1%E5%99%A8-ipsecluci-applications-luci-app-nlbwmon-%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD%E7%9B%91%E8%A7%86%E5%99%A8luci-applications-luci-app-ramfree-%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98luci-applications-luci-app-samba-%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%ABsambaluci-applications-luci-app-sfe-turbo-acc%E7%BD%91%E7%BB%9C%E5%8A%A0%E9%80%9F%E9%9B%86%E6%88%90flowbbrnatdns">LuCI ---&gt; Applications ---&gt; luci-app-accesscontrol  #访问时间控制<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adbyby-plus   #广告屏蔽大师Plus +<br>
+LuCI ---&gt; Applications ---&gt; luci-app-arpbind  #IP/MAC绑定<br>
+LuCI ---&gt; Applications ---&gt; luci-app-autoreboot  #支持计划重启<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ddns   #动态域名 DNS（集成阿里DDNS客户端）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-filetransfer  #文件传输（可web安装ipk包）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-firewall   #添加防火墙<br>
+LuCI ---&gt; Applications ---&gt; luci-app-frpc   #内网穿透 Frp<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ipsec-virtual<strong>d  #virtual</strong>服务器 IPSec<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nlbwmon   #网络带宽监视器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ramfree  #释放内存<br>
+LuCI ---&gt; Applications ---&gt; luci-app-samba   #网络共享（Samba）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-sfe  #Turbo ACC网络加速（集成FLOW,BBR,NAT,DNS...</a></li>
+<li><a href="#luci-applications-luci-app-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6-plus-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6%E6%89%93%E5%80%92%E7%BE%8E%E5%B8%9Dplusluci-app-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6-plus-include-xray-xray%E4%BB%A3%E7%90%86luci-app-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6-plus-include-socks-red2-socks-red2%E4%BB%A3%E7%90%86luci-app-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6-plus-include-trojan-go-trojan-go%E4%BB%A3%E7%90%86luci-app-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6-plus-include-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6r-server-%E8%BF%9D%E7%A6%81%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8">LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-plus   #违禁软件打倒美帝Plus+<br>
+luci-app-违禁软件-plus ---&gt; Include Xray  #Xray代理<br>
+luci-app-违禁软件-plus ---&gt; Include socks-red2  #socks-red2代理<br>
+luci-app-违禁软件-plus ---&gt; Include Trojan-go  #Trojan-go代理<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件R Server  #违禁软件服务器</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%A8%E9%83%A8%E6%8F%92%E4%BB%B6%E5%BA%94%E7%94%A8">全部插件应用</a></li>
+</ul>
 
+  </div>
+</div>
 
-</div>
-</div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          TIN
-          <small>标签</small>
-        </h2>
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
       </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://zetaxx.com/make-config-openwrt/">
+      编译OpenWRT固件
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2021-02-18</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>18分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>3561<span class="pc-show">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/make-config-openwrt/" data-flag-title="编译OpenWRT固件" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span>浏览量：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h1 id="准备工作">准备工作</h1>
+<ul>
+<li>安装Ubuntu 18 LTS x64</li>
+<li>新建非root用户进行编译</li>
+<li>全局科学上网</li>
+<li>默认登陆IP 192.168.1.1, 密码 password</li>
+</ul>
+<h1 id="开始编译">开始编译</h1>
+<pre><code>sudo apt-get update
+</code></pre>
+<pre><code>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+</code></pre>
+<pre><code>git clone https://github.com/coolsnowwolf/lede
+</code></pre>
+<pre><code>cd lede
+</code></pre>
+<pre><code>./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+</code></pre>
+<pre><code>make -j8 download V=s 下#载dl库
+</code></pre>
+<pre><code>make -j1 V=s #-j1 后面是线程数。第一次编译推荐用单线程
+</code></pre>
+<h1 id="二次编译">二次编译</h1>
+<pre><code>cd lede
+git pull
+./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
+make defconfig
+make -j8 download
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<h2 id="重新配置">重新配置</h2>
+<pre><code>rm -rf ./tmp &amp;&amp; rm -rf .config
+make menuconfig
+make -j$(($(nproc) + 1)) V=s
+</code></pre>
+<p>编译完成后输出路径：/lede/bin/targets</p>
+<!-- more -->
+<h1 id="常用插件应用">常用插件应用</h1>
+<h2 id="luci-applications-luci-app-accesscontrol-访问时间控制luci-applications-luci-app-adbyby-plus-广告屏蔽大师plus-luci-applications-luci-app-arpbind-ipmac绑定luci-applications-luci-app-autoreboot-支持计划重启luci-applications-luci-app-ddns-动态域名-dns集成阿里ddns客户端luci-applications-luci-app-filetransfer-文件传输可web安装ipk包luci-applications-luci-app-firewall-添加防火墙luci-applications-luci-app-frpc-内网穿透-frpluci-applications-luci-app-ipsec-virtuald-virtual服务器-ipsecluci-applications-luci-app-nlbwmon-网络带宽监视器luci-applications-luci-app-ramfree-释放内存luci-applications-luci-app-samba-网络共享sambaluci-applications-luci-app-sfe-turbo-acc网络加速集成flowbbrnatdns">LuCI ---&gt; Applications ---&gt; luci-app-accesscontrol  #访问时间控制<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adbyby-plus   #广告屏蔽大师Plus +<br>
+LuCI ---&gt; Applications ---&gt; luci-app-arpbind  #IP/MAC绑定<br>
+LuCI ---&gt; Applications ---&gt; luci-app-autoreboot  #支持计划重启<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ddns   #动态域名 DNS（集成阿里DDNS客户端）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-filetransfer  #文件传输（可web安装ipk包）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-firewall   #添加防火墙<br>
+LuCI ---&gt; Applications ---&gt; luci-app-frpc   #内网穿透 Frp<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ipsec-virtual<strong>d  #virtual</strong>服务器 IPSec<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nlbwmon   #网络带宽监视器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ramfree  #释放内存<br>
+LuCI ---&gt; Applications ---&gt; luci-app-samba   #网络共享（Samba）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-sfe  #Turbo ACC网络加速（集成FLOW,BBR,NAT,DNS...</h2>
+<h2 id="luci-applications-luci-app-违禁软件-plus-违禁软件打倒美帝plusluci-app-违禁软件-plus-include-xray-xray代理luci-app-违禁软件-plus-include-socks-red2-socks-red2代理luci-app-违禁软件-plus-include-trojan-go-trojan-go代理luci-app-违禁软件-plus-include-违禁软件r-server-违禁软件服务器">LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-plus   #违禁软件打倒美帝Plus+<br>
+luci-app-违禁软件-plus ---&gt; Include Xray  #Xray代理<br>
+luci-app-违禁软件-plus ---&gt; Include socks-red2  #socks-red2代理<br>
+luci-app-违禁软件-plus ---&gt; Include Trojan-go  #Trojan-go代理<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件R Server  #违禁软件服务器</h2>
+<p>LuCI ---&gt; Applications ---&gt; luci-app-unblockmusic  #解锁网易云灰色歌曲3合1新版本<br>
+LuCI ---&gt; Applications ---&gt; luci-app-upnp   #通用即插即用UPnP（端口自动转发）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-vlmcsd  #KMS服务器设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-vsftpd  #FTP服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-webadmin  #Web管理页面设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wifischedule  #WiFi 计划<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wirele违禁软件egdb  #WiFi无线<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wol   #WOL网络唤醒<br>
+LuCI ---&gt; Applications ---&gt; luci-app-xlnetacc  #迅雷快鸟<br>
+LuCI ---&gt; Applications ---&gt; luci-app-zerotier  #ZeroTier内网穿透</p>
+<h1 id="全部插件应用">全部插件应用</h1>
+<p>LuCI ---&gt; Applications ---&gt; luci-app-accesscontrol  #访问时间控制<br>
+LuCI ---&gt; Applications ---&gt; luci-app-acme  #ACME自动化证书管理环境（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adblock   #ADB广告过滤<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adbyby-plus  #广告屏蔽大师Plus +<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adbyby   #广告过滤大师（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adguardhome  #AdGuard home广告过滤（Li大内插件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-adkill   #广告过滤（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-advanced-reboot  #Linksys高级重启<br>
+LuCI ---&gt; Applications ---&gt; luci-app-advancedsetting  #系统高级设置（Li大内插件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ahcp  #Ad-Hoc配置协议(AHCP) ipv6 and 双栈 自动配置协议 !<br>
+LuCI ---&gt; Applications ---&gt; luci-app-airplay2   #Apple AirPlay2 无损音频接收服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-aliddns   #阿里DDNS客户端（丢弃，集成至ddns）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-amule  #aMule下载工具 !<br>
+LuCI ---&gt; Applications ---&gt; luci-app-aria2 # Aria2下载工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-arpbind  #IP/MAC绑定<br>
+LuCI ---&gt; Applications ---&gt; luci-app-asterisk  #支持Asterisk电话服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-attendedsysupgrade  #固件更新升级相关<br>
+LuCI ---&gt; Applications ---&gt; luci-app-autoreboot  #支持计划重启<br>
+LuCI ---&gt; Applications ---&gt; luci-app-baidupcs-web  #百度网盘管理<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bcp38  #BCP38网络入口过滤（不确定）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bird1-ipv4  #对Bird1-ipv4的支持<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bird1-ipv6  #对Bird1-ipv6的支持<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bird4   #Bird 4（未知）（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bird6   #Bird 6（未知）（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bmx6  #BMX6路由协议<br>
+LuCI ---&gt; Applications ---&gt; luci-app-bmx7  #BMX7路由协议（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-caldav  #联系人（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-cifs-mount   #CIFS/SMB挂载设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-cifsd  #CIFS/SMB网络共享<br>
+LuCI ---&gt; Applications ---&gt; luci-app-cjdns  #加密IPV6网络相关<br>
+LuCI ---&gt; Applications ---&gt; luci-app-clamav  #ClamAV杀毒软件<br>
+LuCI ---&gt; Applications ---&gt; luci-app-commands   #Shell命令模块<br>
+LuCI ---&gt; Applications ---&gt; luci-app-cshark   #CloudShark捕获工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ddns   #动态域名 DNS（集成阿里DDNS客户端）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-diag-core   #core诊断工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-diskman   #磁盘管理工具<br>
+luci-app-diskman ---&gt; Include btrfs-progs   #新型的写时复制 (COW)<br>
+luci-app-diskman ---&gt; Include lsblk   #lsblk命令 用于列出所有可用块设备的信息<br>
+luci-app-diskman ---&gt; Include mdadm   #mdadm命令 用于创建、管理、监控RAID设备的工具<br>
+luci-app-diskman ---&gt; Include kmod-md-raid456   #RAID 4,5,6 驱动程序模块（丢弃）<br>
+luci-app-diskman ---&gt; Include kmod-md-linear   #RAID 驱动程序模块（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-dnscrypt-proxy  #DNSCrypt解决DNS污染<br>
+LuCI ---&gt; Applications ---&gt; luci-app-dnsforwarder  #DNSForwarder防DNS污染<br>
+LuCI ---&gt; Applications ---&gt; luci-app-dnspod  #DNSPod动态域名解析（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-docker  #Docker容器(dockerman更名为docker)<br>
+LuCI ---&gt; Applications ---&gt; luci-app-dump1090  #民航无线频率（不确定）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-dynapoint  #DynaPoint（未知）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-e2guardian   #Web内容过滤器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-eqos  #依IP地址限速（Li大内插件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-familycloud   #家庭云盘<br>
+LuCI ---&gt; Applications ---&gt; luci-app-filetransfer  #文件传输（可web安装ipk包）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-firewall   #添加防火墙<br>
+LuCI ---&gt; Applications ---&gt; luci-app-flowoffload  #Turbo ACC网络加速（集成FLOW,BBR,NAT,DNS...<br>
+LuCI ---&gt; Applications ---&gt; luci-app-freifunk-diagnostics   #freifunk组件 诊断（未知）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-freifunk-policyrouting  #freifunk组件 策略路由（未知）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-freifunk-widgets  #freifunk组件 索引（未知）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-frpc   #内网穿透Frp客户端<br>
+LuCI ---&gt; Applications ---&gt; luci-app-frps   #内网穿透Frp服务端<br>
+LuCI ---&gt; Applications ---&gt; luci-app-fwknopd  #Firewall Knock Operator服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-guest-wifi   #WiFi访客网络<br>
+LuCI ---&gt; Applications ---&gt; luci-app-gfwlist   #GFW域名列表（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-gost  #隐蔽的https代理（Li大内插件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-haproxy-tcp   #HAProxy负载均衡-TCP<br>
+LuCI ---&gt; Applications ---&gt; luci-app-hd-idle  #硬盘休眠<br>
+LuCI ---&gt; Applications ---&gt; luci-app-hnet  #Homenet Status家庭网络控制协议<br>
+LuCI ---&gt; Applications ---&gt; luci-app-https-dns-proxy  #通过HTTPS代理为DNS提供Web UI<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ipsec-virtual<strong>d  #virtual</strong>服务器 IPSec<br>
+LuCI ---&gt; Applications ---&gt; luci-app-jd-dailybonus  #京东签到服务   *<br>
+LuCI ---&gt; Applications ---&gt; luci-app-kodexplorer  #KOD可道云私人网盘（与vnStat冲突 ! ）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-kooldns  #virtual<strong>服务器 ddns替代方案（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-koolproxy  #KP去广告（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-lxc   #LXC容器管理<br>
+LuCI ---&gt; Applications ---&gt; luci-app-meshwizard #网络设置向导<br>
+LuCI ---&gt; Applications ---&gt; luci-app-minidlna   #完全兼容DLNA / UPnP-AV客户端的服务器软件<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mjpg-streamer   #兼容Linux-UVC的摄像头程序<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mtwifi  #MTWiFi驱动的支持 （丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mmc-over-gpio   #添加SD卡操作界面（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-multiwan   #多拨虚拟网卡（丢弃，移至syncdial）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mwan   #MWAN负载均衡（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-music-remote-center   #PCHiFi 数字转盘遥控<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mwan3   #MWAN3负载均衡<br>
+LuCI ---&gt; Applications ---&gt; luci-app-mwan3helper   #MWAN3分流助手<br>
+LuCI ---&gt; Applications ---&gt; luci-app-n2n_v2   #N2N内网穿透 N2N v2 virtual</strong>服务<br>
+LuCI ---&gt; Applications ---&gt; luci-app-netdata  #Netdata实时监控（图形化）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nfs   #NFS网络共享<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nft-qos  #QOS流控 Nftables版<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ngrokc  #Ngrok 内网穿透（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nlbwmon   #网络带宽监视器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-noddos  #NodDOS Clients 阻止DDoS攻击<br>
+LuCI ---&gt; Applications ---&gt; luci-app-nps   #内网穿透nps<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ntpc   #NTP时间同步服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ocserv  #OpenConnect virtual<strong>服务<br>
+LuCI ---&gt; Applications ---&gt; luci-app-olsr  #OLSR配置和状态模块<br>
+LuCI ---&gt; Applications ---&gt; luci-app-olsr-services  #OLSR服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-olsr-viz   #OLSR可视化<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ocserv   #OpenConnect virtual</strong>服务（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-openclash  #OpenClash代理客户端（Li大内插件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-openvirtual**  #Openvirtual<strong>客户端<br>
+LuCI ---&gt; Applications ---&gt; luci-app-openvirtual</strong>-server  #易于使用的Openvirtual<strong>服务器 Web-UI<br>
+LuCI ---&gt; Applications ---&gt; luci-app-oscam   #OSCAM服务器（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-p910nd   #打印服务器模块<br>
+LuCI ---&gt; Applications ---&gt; luci-app-pagekitec   #Pagekitec内网穿透客户端<br>
+LuCI ---&gt; Applications ---&gt; luci-app-打倒美帝  #打倒美帝（Li大内插件）<br>
+Configuration ---&gt; Include 违禁软件  #SS代理<br>
+Configuration ---&gt; Include 违禁软件 Server  #SS服务器<br>
+Configuration ---&gt; Include 违禁软件R   #违禁软件代理<br>
+Configuration ---&gt; Include 违禁软件R Server  #违禁软件服务器<br>
+Configuration ---&gt; Include Xray  #Xray代理<br>
+Configuration ---&gt; Include 违禁软件  #违禁软件代理<br>
+Configuration ---&gt; Include Trojan_Plus  #Trojan_Plus代理<br>
+Configuration ---&gt; Include Trojan_GO  #Trojan_GO代理<br>
+Configuration ---&gt; Include Brook  #Brook代理<br>
+Configuration ---&gt; Include NaiveProxy  #NaiveProxy代理<br>
+Configuration ---&gt; Include Kcptun  #Kcptun加速<br>
+Configuration ---&gt; Include haproxy  #HAProxy  #HAProxy负载均衡<br>
+Configuration ---&gt; Include china-dns-NG  #防污染DNS服务<br>
+Configuration ---&gt; Include Https DNS Proxy(DoH)  #HttpsDNS服务（丢弃）<br>
+Configuration ---&gt; Include dns2socks  #DNS服务器<br>
+Configuration ---&gt; Include 违禁软件-plugin (违禁软件 plugin)  #SS 违禁软件插件<br>
+Configuration ---&gt; Include simple-obfs (违禁软件 plugin)  #simple-obfs简单混淆工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-polipo  #Polipo代理(是一个小型且快速的网页缓存代理)<br>
+LuCI ---&gt; Applications ---&gt; luci-app-pppoe-relay  #PPPoE NAT穿透 点对点协议（PPP）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-p p t p-server  #virtual</strong>服务器 p p t p（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-privoxy  #Privoxy网络代理(带过滤无缓存)<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ps3netsrv  #PS3 NET服务器（用于加载蓝光/游戏ISO/PKG）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-qbittorrent  #BT下载工具（qBittorrent）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-qos   #流量服务质量(QoS)流控<br>
+LuCI ---&gt; Applications ---&gt; luci-app-radicale   #CalDAV/CardDAV同步工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ramfree  #释放内存<br>
+LuCI ---&gt; Applications ---&gt; luci-app-rclone  #命令行云端同步工具<br>
+Include rclone-webui  #Rclone界面<br>
+Include rclone-ng (another webui)  #Rclone另一个界面<br>
+Include fuse-utils (mount cloud storage)  #fuse-utils（挂载云存储）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-rp-pppoe-server  #Roaring Penguin PPPoE Server 服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-samba   #网络共享（Samba）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-samba4   #网络共享（Samba4）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-sfe  #Turbo ACC网络加速（flowoffload二选一）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件   #SS打倒美帝（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-libes  #SS-libev服务端<br>
+LuCI ---&gt; Applications ---&gt; luci-app-shairplay  #支持AirPlay功能<br>
+LuCI ---&gt; Applications ---&gt; luci-app-siitwizard  #SIIT配置向导  SIIT-Wizzard<br>
+LuCI ---&gt; Applications ---&gt; luci-app-simple-adblock  #简单的广告拦截<br>
+LuCI ---&gt; Applications ---&gt; luci-app-smartdns  #SmartDNS本地服务器（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-softethervirtual**  #SoftEther virtual<strong>服务器  NAT穿透<br>
+LuCI ---&gt; Applications ---&gt; luci-app-splash  #Client-Splash是无线MESH网络的一个热点认证系统<br>
+LuCI ---&gt; Applications ---&gt; luci-app-sqm  #流量智能队列管理（QOS）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-squid   #Squid代理服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-plus   #违禁软件打倒美帝Plus+<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件 New Version  #新SS代理（丢弃）<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件 Simple-obfs Plugin  #simple-obfs简单混淆工具（丢弃）<br>
+luci-app-违禁软件-plus ---&gt; Include Xray  #Xray代理   *<br>
+luci-app-违禁软件-plus ---&gt; Include Trojan  #Trojan代理<br>
+luci-app-违禁软件-plus ---&gt; Include socks-red2  #socks-red2代理<br>
+luci-app-违禁软件-plus ---&gt; Include NaiveProxy  #NaiveProxy代理<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件  #违禁软件代理<br>
+luci-app-违禁软件-plus ---&gt; Include Trojan-go  #Trojan-go代理   *<br>
+luci-app-违禁软件-plus ---&gt; Include Kcptun  #Kcptun加速<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件 违禁软件 Plugin  #SS 违禁软件插件<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件R Server  #违禁软件服务器<br>
+luci-app-违禁软件-plus ---&gt; Include DNS2SOCKS  #DNS服务器（丢弃）<br>
+luci-app-违禁软件-plus ---&gt; Include 违禁软件R Socks and Tunnel（丢弃）<br>
+luci-app-违禁软件-plus ---&gt; Include Socks Server  #socks代理服务器（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-pro  #违禁软件-Pro（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件server-python  #违禁软件R Python服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-statistics  #流量监控工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-syncdial  #多拨虚拟网卡（原macvlan）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-tinyproxy  #Tinyproxy是 HTTP(S)代理服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-transmission   #BT下载工具<br>
+LuCI ---&gt; Applications ---&gt; luci-app-travelmate  #旅行路由器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-ttyd   #网页终端命令行<br>
+LuCI ---&gt; Applications ---&gt; luci-app-udpxy  #udpxy做组播服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-uhttpd  #uHTTPd Web服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-unblockmusic  #解锁网易云灰色歌曲3合1新版本<br>
+UnblockNeteaseMusic Golang Version  #Golang版本<br>
+UnblockNeteaseMusic NodeJS Version  #NodeJS版本<br>
+LuCI ---&gt; Applications ---&gt; luci-app-unblockneteasemusic-go  #解除网易云音乐（合并）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-unblockneteasemusic-mini  #解除网易云音乐（合并）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-unbound  #Unbound DNS解析器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-upnp   #通用即插即用UPnP（端口自动转发）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-usb-printer  #USB 打印服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-uugamebooster  #UU网游加速器   *<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-server   #违禁软件 服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-违禁软件-pro  #违禁软件透明代理（丢弃，集成违禁软件）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-verysync  #微力同步<br>
+LuCI ---&gt; Applications ---&gt; luci-app-vlmcsd  #KMS服务器设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-vnstat   #vnStat网络监控（图表）（与kodexplorer冲突 ! ）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-virtual</strong>bypass  #virtual** BypassWebUI  绕过virtual<strong>设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-vsftpd  #FTP服务器<br>
+LuCI ---&gt; Applications ---&gt; luci-app-watchcat  #断网检测功能与定时重启<br>
+LuCI ---&gt; Applications ---&gt; luci-app-webadmin  #Web管理页面设置<br>
+LuCI ---&gt; Applications ---&gt; luci-app-webshell  #网页命令行终端（丢弃）<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wifischedule  #WiFi 计划<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wireguard  #virtual</strong>服务器 WireGuard状态<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wirele违禁软件egdb  #WiFi无线<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wol   #WOL网络唤醒<br>
+LuCI ---&gt; Applications ---&gt; luci-app-wrtbwmon  #实时流量监测<br>
+LuCI ---&gt; Applications ---&gt; luci-app-xlnetacc  #迅雷快鸟<br>
+LuCI ---&gt; Applications ---&gt; luci-app-zerotier  #ZeroTier内网穿透</p>
+
+            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      zeta
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zetaxx.com/make-config-openwrt/" title="编译OpenWRT固件">https://zetaxx.com/make-config-openwrt/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
+    </div>
+    <div class="nav-next">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://zetaxx.com/Obtained-USA-TIN/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              05-02
-              <small> ITIN (美国个人纳税识别号码) 境外申请攻略</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+        <a class="nav-pc-next" title="加速GitHub资源拉取" href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">加速GitHub资源拉取</a>
+        <a class="nav-mobile-next" title="加速GitHub资源拉取" href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('https://upimage.alexhchu.com/2020/04/21/47eda59424daa.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'Jn0Tb1wlpGGI5uipQHHHqgDr-MdYXbMMI',
+    appKey: 'AS7hkQ9BKY0v5kQRHF8Kzv5M',
+    avatar: '',
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -456,6 +1002,36 @@
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -2173,7 +2749,6 @@ exec(&#39;sh ~/webhook.sh&#39;);
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>
