@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-02-18T07:07:14.870Z</updated>
+    <updated>2021-02-18T07:10:40.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -26,21 +26,27 @@
 <h1 id="开始编译">开始编译</h1>
 <pre><code>sudo apt-get update
 </code></pre>
+<h2 id="安装必要依赖">安装必要依赖</h2>
 <pre><code>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
 </code></pre>
+<h2 id="拉取仓库">拉取仓库</h2>
 <pre><code>git clone https://github.com/coolsnowwolf/lede
 </code></pre>
+<h2 id="进入lede目录">进入lede目录</h2>
 <pre><code>cd lede
 </code></pre>
+<h2 id="定制与编译">定制与编译</h2>
 <pre><code>./scripts/feeds update -a
 ./scripts/feeds install -a
 make menuconfig
 </code></pre>
+<h2 id="下载dl库">下载dl库</h2>
 <pre><code>make -j8 download V=s 下#载dl库
 </code></pre>
+<h2 id="编译固件">编译固件</h2>
 <pre><code>make -j1 V=s #-j1 后面是线程数。第一次编译推荐用单线程
 </code></pre>
-<h1 id="二次编译">二次编译</h1>
+<h2 id="二次编译">二次编译</h2>
 <pre><code>cd lede
 git pull
 ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
@@ -65,21 +71,27 @@ make -j$(($(nproc) + 1)) V=s
 <h1 id="开始编译">开始编译</h1>
 <pre><code>sudo apt-get update
 </code></pre>
+<h2 id="安装必要依赖">安装必要依赖</h2>
 <pre><code>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
 </code></pre>
+<h2 id="拉取仓库">拉取仓库</h2>
 <pre><code>git clone https://github.com/coolsnowwolf/lede
 </code></pre>
+<h2 id="进入lede目录">进入lede目录</h2>
 <pre><code>cd lede
 </code></pre>
+<h2 id="定制与编译">定制与编译</h2>
 <pre><code>./scripts/feeds update -a
 ./scripts/feeds install -a
 make menuconfig
 </code></pre>
+<h2 id="下载dl库">下载dl库</h2>
 <pre><code>make -j8 download V=s 下#载dl库
 </code></pre>
+<h2 id="编译固件">编译固件</h2>
 <pre><code>make -j1 V=s #-j1 后面是线程数。第一次编译推荐用单线程
 </code></pre>
-<h1 id="二次编译">二次编译</h1>
+<h2 id="二次编译">二次编译</h2>
 <pre><code>cd lede
 git pull
 ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
