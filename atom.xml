@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-02-26T03:57:59.013Z</updated>
+    <updated>2021-02-26T04:00:32.609Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -27,34 +27,37 @@
 tar xvf smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
 chmod +x ./smartdns/install
 ./smartdns/install -i
-
-## 配置
-### 配置文件
 </code></pre>
-<p>nano /etc/smartdns/smartdns.conf</p>
-<pre><code>### 修改smartdns的监听端口号
-&gt; 找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380 &lt;
-
-### 修改缓存大小
-&gt; 将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去 &lt;&gt;
-
-### 禁止查询解析IPv6
-&gt; 将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“
-
-### 添加UDP类型上游dns
-&gt; 添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。
-
-### 添加TLS类型的上游dns
-&gt; 添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1
-
-### 启动smartdns
+<h2 id="配置">配置</h2>
+<h3 id="配置文件">配置文件</h3>
+<pre><code>nano /etc/smartdns/smartdns.conf
 </code></pre>
-<p>systemctl start smartdns</p>
-<pre><code>
-### 将smartdns添加为开机自动启动
+<h3 id="修改smartdns的监听端口号">修改smartdns的监听端口号</h3>
+<blockquote>
+<p>找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380</p>
+</blockquote>
+<h3 id="修改缓存大小">修改缓存大小</h3>
+<blockquote>
+<p>将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去</p>
+</blockquote>
+<h3 id="禁止查询解析ipv6">禁止查询解析IPv6</h3>
+<blockquote>
+<p>将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“</p>
+</blockquote>
+<h3 id="添加udp类型上游dns">添加UDP类型上游dns</h3>
+<blockquote>
+<p>添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。</p>
+</blockquote>
+<h3 id="添加tls类型的上游dns">添加TLS类型的上游dns</h3>
+<blockquote>
+<p>添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1</p>
+</blockquote>
+<h3 id="启动smartdns">启动smartdns</h3>
+<pre><code>systemctl start smartdns
 </code></pre>
-<p>systemctl enable smartdns</p>
-<pre><code></code></pre>
+<h3 id="将smartdns添加为开机自动启动">将smartdns添加为开机自动启动</h3>
+<pre><code>systemctl enable smartdns
+</code></pre>
 ]]></summary>
         <content type="html"><![CDATA[<h1 id="实现的功能">实现的功能</h1>
 <p>smartdns负责智能解析出访问域名最快的IP地址，然后将这些信息储存进pihole中作为缓存。这样我们访问网站或其他地址就不用每次都需要解析了，而是直接从pihole中选择最优线路。</p>
@@ -67,34 +70,37 @@ chmod +x ./smartdns/install
 tar xvf smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
 chmod +x ./smartdns/install
 ./smartdns/install -i
-
-## 配置
-### 配置文件
 </code></pre>
-<p>nano /etc/smartdns/smartdns.conf</p>
-<pre><code>### 修改smartdns的监听端口号
-&gt; 找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380 &lt;
-
-### 修改缓存大小
-&gt; 将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去 &lt;&gt;
-
-### 禁止查询解析IPv6
-&gt; 将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“
-
-### 添加UDP类型上游dns
-&gt; 添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。
-
-### 添加TLS类型的上游dns
-&gt; 添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1
-
-### 启动smartdns
+<h2 id="配置">配置</h2>
+<h3 id="配置文件">配置文件</h3>
+<pre><code>nano /etc/smartdns/smartdns.conf
 </code></pre>
-<p>systemctl start smartdns</p>
-<pre><code>
-### 将smartdns添加为开机自动启动
+<h3 id="修改smartdns的监听端口号">修改smartdns的监听端口号</h3>
+<blockquote>
+<p>找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380</p>
+</blockquote>
+<h3 id="修改缓存大小">修改缓存大小</h3>
+<blockquote>
+<p>将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去</p>
+</blockquote>
+<h3 id="禁止查询解析ipv6">禁止查询解析IPv6</h3>
+<blockquote>
+<p>将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“</p>
+</blockquote>
+<h3 id="添加udp类型上游dns">添加UDP类型上游dns</h3>
+<blockquote>
+<p>添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。</p>
+</blockquote>
+<h3 id="添加tls类型的上游dns">添加TLS类型的上游dns</h3>
+<blockquote>
+<p>添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1</p>
+</blockquote>
+<h3 id="启动smartdns">启动smartdns</h3>
+<pre><code>systemctl start smartdns
 </code></pre>
-<p>systemctl enable smartdns</p>
-<pre><code></code></pre>
+<h3 id="将smartdns添加为开机自动启动">将smartdns添加为开机自动启动</h3>
+<pre><code>systemctl enable smartdns
+</code></pre>
 ]]></content>
     </entry>
     <entry>
