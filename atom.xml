@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-02-21T05:50:23.932Z</updated>
+    <updated>2021-02-26T03:53:59.172Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zetaxx.com"/>
     <link rel="self" href="https://zetaxx.com/atom.xml"/>
@@ -10,6 +10,93 @@
     <logo>https://zetaxx.com/images/avatar.png</logo>
     <icon>https://zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Zeta</rights>
+    <entry>
+        <title type="html"><![CDATA[“smartdns”+”pi-hole” 实现dns智能解析和缓存]]></title>
+        <id>https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/</id>
+        <link href="https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/">
+        </link>
+        <updated>2021-02-26T03:25:00.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="实现的功能">实现的功能</h1>
+<p>smartdns负责智能解析出访问域名最快的IP地址，然后将这些信息储存进pihole中作为缓存。这样我们访问网站或其他地址就不用每次都需要解析了，而是直接从pihole中选择最优线路。</p>
+<h1 id="配置debian">配置debian</h1>
+<pre><code>apt-get install wget vim curl
+</code></pre>
+<h1 id="安装配置smartdns">安装配置smartdns</h1>
+<h2 id="安装">安装</h2>
+<pre><code>wget https://github.com/pymumu/smartdns/releases/download/Release33/smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+tar xvf smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+chmod +x ./smartdns/install
+./smartdns/install -i
+
+## 配置
+### 配置文件
+</code></pre>
+<p>nano /etc/smartdns/smartdns.conf</p>
+<pre><code>### 修改smartdns的监听端口号
+&gt; 找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380
+
+### 修改缓存大小
+&gt; 将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去
+
+### 禁止查询解析IPv6
+&gt; 将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“
+
+### 添加UDP类型上游dns
+&gt; 添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。
+
+### 添加TLS类型的上游dns
+&gt; 添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1
+
+### 启动smartdns
+</code></pre>
+<p>systemctl start smartdns</p>
+<pre><code>
+### 将smartdns添加为开机自动启动
+</code></pre>
+<p>systemctl enable smartdns</p>
+<pre><code></code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="实现的功能">实现的功能</h1>
+<p>smartdns负责智能解析出访问域名最快的IP地址，然后将这些信息储存进pihole中作为缓存。这样我们访问网站或其他地址就不用每次都需要解析了，而是直接从pihole中选择最优线路。</p>
+<h1 id="配置debian">配置debian</h1>
+<pre><code>apt-get install wget vim curl
+</code></pre>
+<h1 id="安装配置smartdns">安装配置smartdns</h1>
+<h2 id="安装">安装</h2>
+<pre><code>wget https://github.com/pymumu/smartdns/releases/download/Release33/smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+tar xvf smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+chmod +x ./smartdns/install
+./smartdns/install -i
+
+## 配置
+### 配置文件
+</code></pre>
+<p>nano /etc/smartdns/smartdns.conf</p>
+<pre><code>### 修改smartdns的监听端口号
+&gt; 找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380
+
+### 修改缓存大小
+&gt; 将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去
+
+### 禁止查询解析IPv6
+&gt; 将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“
+
+### 添加UDP类型上游dns
+&gt; 添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。
+
+### 添加TLS类型的上游dns
+&gt; 添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1
+
+### 启动smartdns
+</code></pre>
+<p>systemctl start smartdns</p>
+<pre><code>
+### 将smartdns添加为开机自动启动
+</code></pre>
+<p>systemctl enable smartdns</p>
+<pre><code></code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[编译OpenWRT固件]]></title>
         <id>https://zetaxx.com/make-config-openwrt/</id>
@@ -375,17 +462,6 @@ gateway 10.10.10.1
 <h2 id="当前系统为centos时">当前系统为centos时</h2>
 <pre><code>yum install -y xz openssl gawk file
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ios 解锁网易音乐]]></title>
-        <id>https://zetaxx.com/unlock-netease-music-for-ios/</id>
-        <link href="https://zetaxx.com/unlock-netease-music-for-ios/">
-        </link>
-        <updated>2020-05-02T12:45:09.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588423610141.png" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zeta.im/post-images/1588423610141.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

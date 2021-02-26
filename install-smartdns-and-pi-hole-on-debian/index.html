@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>Debian安装Docker | Zeta</title>
+<title>“smartdns”+”pi-hole” 实现dns智能解析和缓存 | Zeta</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/favicon.ico?v=1614311635840">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zetamini/zetamini.github.io@master/media/css/pisces.css">
@@ -29,7 +29,7 @@
 
 
 
-  <meta name="description" content="Debian安装Docker" />
+  <meta name="description" content="“smartdns”+”pi-hole” 实现dns智能解析和缓存" />
   <meta name="keywords" content="" />
 </head>
 
@@ -176,44 +176,11 @@
   <div class="toc-wrapper  no_compress"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD">实现的功能</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEdebian">配置debian</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEsmartdns">安装配置smartdns</a>
 <ul>
-<li><a href="#uninstall-old-versions">Uninstall old versions</a></li>
-</ul>
-</li>
-<li><a href="#installation-methods">Installation methods</a>
-<ul>
-<li><a href="#install-using-the-repository">Install using the repository</a>
-<ul>
-<li><a href="#set-up-the-repository">SET UP THE REPOSITORY</a>
-<ul>
-<li><a href="#update-the-apt-package-index-and-install-packages-to-allow-apt-to-use-a-repository-over-https">Update the apt package index and install packages to allow apt to use a repository over HTTPS:</a></li>
-<li><a href="#add-dockers-official-gpg-key">Add Docker’s official GPG key:</a></li>
-<li><a href="#use-the-following-command-to-set-up-the-stable-repository-to-add-the-nightly-or-test-repository-add-the-word-nightly-or-test-or-both-after-the-word-stable-in-the-commands-below">Use the following command to set up the stable repository. To add the nightly or test repository, add the word nightly or test (or both) after the word stable in the commands below</a></li>
-</ul>
-</li>
-<li><a href="#install-docker-engine">INSTALL DOCKER ENGINE</a>
-<ul>
-<li><a href="#update-the-apt-package-index-and-install-the-latest-version-of-docker-engine-and-containerd-or-go-to-the-next-step-to-install-a-specific-version">Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</a></li>
-<li><a href="#to-install-a-specific-version-of-docker-engine-list-the-available-versions-in-the-repo-then-select-and-install">To install a specific version of Docker Engine, list the available versions in the repo, then select and install:</a>
-<ul>
-<li><a href="#list-the-versions-available-in-your-repo">List the versions available in your repo:</a></li>
-<li><a href="#install-a-specific-version-using-the-version-string-from-the-second-column-for-example-5180913-0debian-stretch">Install a specific version using the version string from the second column, for example, 5:18.09.1~3-0~debian-stretch</a></li>
-</ul>
-</li>
-<li><a href="#verify-that-docker-engine-is-installed-correctly-by-running-the-hello-world-image">Verify that Docker Engine is installed correctly by running the hello-world image.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#install-from-a-package">Install from a package</a>
-<ul>
-<li><a href="#go-to-httpsdownloaddockercomlinuxdebiandists-choose-your-debian-version-then-browse-to-poolstable-choose-amd64-armhf-or-arm64-and-download-the-deb-file-for-the-docker-version-you-want-to-install">Go to https://download.docker.com/linux/debian/dists/, choose your Debian version, then browse to pool/stable/, choose amd64, armhf, or arm64 and download the .deb file for the Docker version you want to install.</a></li>
-<li><a href="#install-docker-engine-changing-the-path-below-to-the-path-where-you-downloaded-the-docker-package">Install Docker Engine, changing the path below to the path where you downloaded the Docker package.</a></li>
-<li><a href="#verify-that-docker-engine-is-installed-correctly-by-running-the-hello-world-image-2">Verify that Docker Engine is installed correctly by running the hello-world image.</a></li>
-</ul>
-</li>
-<li><a href="#install-using-the-convenience-script">Install using the convenience script</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
 </ul>
 </li>
 </ul>
@@ -481,8 +448,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://zetaxx.com/Install-Docker-Engine-on-Debian/">
-      Debian安装Docker
+    <a class="post-title-link" href="https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/">
+      “smartdns”+”pi-hole” 实现dns智能解析和缓存
     </a>
   </h1>
   <div class="post-meta">
@@ -490,23 +457,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2021-01-31</span>
+      <span>2021-02-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>4分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>500<span class="pc-show">字数</span></span>
+      <span>450<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/Install-Docker-Engine-on-Debian/" data-flag-title="Debian安装Docker" class="meta-item pc-show leancloud_visitors">
+    <span id="/install-smartdns-and-pi-hole-on-debian/" data-flag-title="“smartdns”+”pi-hole” 实现dns智能解析和缓存" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -515,69 +482,58 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h1 id="准备工作">准备工作</h1>
-<h2 id="uninstall-old-versions">Uninstall old versions</h2>
-<pre><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc
+              <h1 id="实现的功能">实现的功能</h1>
+<p>smartdns负责智能解析出访问域名最快的IP地址，然后将这些信息储存进pihole中作为缓存。这样我们访问网站或其他地址就不用每次都需要解析了，而是直接从pihole中选择最优线路。</p>
+<h1 id="配置debian">配置debian</h1>
+<pre><code>apt-get install wget vim curl
 </code></pre>
-<p>The contents of <code>/var/lib/docker/</code>, including images, containers, volumes, and networks, are preserved. The Docker Engine package is now called <code>docker-ce</code></p>
-<h1 id="installation-methods">Installation methods</h1>
-<h2 id="install-using-the-repository">Install using the repository</h2>
-<h3 id="set-up-the-repository">SET UP THE REPOSITORY</h3>
-<h4 id="update-the-apt-package-index-and-install-packages-to-allow-apt-to-use-a-repository-over-https">Update the apt package index and install packages to allow apt to use a repository over HTTPS:</h4>
-<pre><code>$ sudo apt-get update
-$ sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-</code></pre>
-<!-- more -->
-<h4 id="add-dockers-official-gpg-key">Add Docker’s official GPG key:</h4>
-<pre><code>$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-</code></pre>
-<p>Verify that you now have the key with the fingerprint <code>9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88</code>, by searching for the last 8 characters of the fingerprint.</p>
-<h4 id="use-the-following-command-to-set-up-the-stable-repository-to-add-the-nightly-or-test-repository-add-the-word-nightly-or-test-or-both-after-the-word-stable-in-the-commands-below">Use the following command to set up the stable repository. To add the nightly or test repository, add the word nightly or test (or both) after the word stable in the commands below</h4>
-<pre><code>$ sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable&quot;
-</code></pre>
-<h3 id="install-docker-engine">INSTALL DOCKER ENGINE</h3>
-<h4 id="update-the-apt-package-index-and-install-the-latest-version-of-docker-engine-and-containerd-or-go-to-the-next-step-to-install-a-specific-version">Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</h4>
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
-</code></pre>
-<h4 id="to-install-a-specific-version-of-docker-engine-list-the-available-versions-in-the-repo-then-select-and-install">To install a specific version of Docker Engine, list the available versions in the repo, then select and install:</h4>
-<h5 id="list-the-versions-available-in-your-repo">List the versions available in your repo:</h5>
-<pre><code>$ apt-cache madison docker-ce
+<h1 id="安装配置smartdns">安装配置smartdns</h1>
+<h2 id="安装">安装</h2>
+<pre><code>wget https://github.com/pymumu/smartdns/releases/download/Release33/smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+tar xvf smartdns.1.2020.09.08-2235.x86_64-linux-all.tar.gz
+chmod +x ./smartdns/install
+./smartdns/install -i
 
-  docker-ce | 5:18.09.1~3-0~debian-stretch | https://download.docker.com/linux/debian stretch/stable amd64 Packages
-  docker-ce | 5:18.09.0~3-0~debian-stretch | https://download.docker.com/linux/debian stretch/stable amd64 Packages
-  docker-ce | 18.06.1~ce~3-0~debian        | https://download.docker.com/linux/debian stretch/stable amd64 Packages
-  docker-ce | 18.06.0~ce~3-0~debian        | https://download.docker.com/linux/debian stretch/stable amd64 Packages
-  ...
+## 配置
+### 配置文件
 </code></pre>
-<h5 id="install-a-specific-version-using-the-version-string-from-the-second-column-for-example-5180913-0debian-stretch">Install a specific version using the version string from the second column, for example, 5:18.09.1<sub>3-0</sub>debian-stretch</h5>
-<pre><code>$ sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io
-</code></pre>
-<h4 id="verify-that-docker-engine-is-installed-correctly-by-running-the-hello-world-image">Verify that Docker Engine is installed correctly by running the hello-world image.</h4>
-<pre><code>$ sudo docker run hello-world
-</code></pre>
-<h2 id="install-from-a-package">Install from a package</h2>
-<h3 id="go-to-httpsdownloaddockercomlinuxdebiandists-choose-your-debian-version-then-browse-to-poolstable-choose-amd64-armhf-or-arm64-and-download-the-deb-file-for-the-docker-version-you-want-to-install">Go to https://download.docker.com/linux/debian/dists/, choose your Debian version, then browse to pool/stable/, choose amd64, armhf, or arm64 and download the .deb file for the Docker version you want to install.</h3>
-<h3 id="install-docker-engine-changing-the-path-below-to-the-path-where-you-downloaded-the-docker-package">Install Docker Engine, changing the path below to the path where you downloaded the Docker package.</h3>
-<pre><code>$ sudo dpkg -i /path/to/package.deb
-</code></pre>
-<h3 id="verify-that-docker-engine-is-installed-correctly-by-running-the-hello-world-image-2">Verify that Docker Engine is installed correctly by running the hello-world image.</h3>
-<pre><code>$ sudo docker run hello-world
-</code></pre>
-<h2 id="install-using-the-convenience-script">Install using the convenience script</h2>
-<pre><code>$ curl -fsSL https://get.docker.com -o get-docker.sh
-$ sudo sh get-docker.sh
+<p>nano /etc/smartdns/smartdns.conf</p>
+<pre><code>### 修改smartdns的监听端口号
+&gt; 找到”bind [::]:53“，将53端口改为其他任意端口号，比如5380
 
-&lt;output truncated&gt;
+### 修改缓存大小
+&gt; 将缓存大小”cache-size 512“改为0，也就是”cache-size 0“，因为我们不需要smartdns的自带缓存，待会要将缓存设到pihole中去
+
+### 禁止查询解析IPv6
+&gt; 将”#force-AAAA-SOA [yes/no]“改为”force-AAAA-SOA yes“
+
+### 添加UDP类型上游dns
+&gt; 添加UDP类型上游dns，用于国内解析。前3条是我这里本地电信的DNS，可以替换成你们本地的（需要自行百度查找）。后3条是公共的dns。
+
+### 添加TLS类型的上游dns
+&gt; 添加TLS类型的上游dns，用于国外解析。我这里用的都是国外的公共dns，如8.8.8.8、8.8.4.4、1.1.1.1
+
+### 启动smartdns
 </code></pre>
+<p>systemctl start smartdns</p>
+<pre><code>
+### 将smartdns添加为开机自动启动
+</code></pre>
+<p>systemctl enable smartdns</p>
+<pre><code>
+&lt;!-- more --&gt;
+
+# 安装pi-hole
+</code></pre>
+<p>curl -sSL https://install.pi-hole.net | bash</p>
+<pre><code>## 修改pihole的密码
+</code></pre>
+<p>pihole -a -p</p>
+<pre><code>## debian的本地dns
+</code></pre>
+<p>cat /etc/resolv.conf</p>
+<pre><code>## 配置pi-hole
+&gt; 将smartdns设置为pihole的上游dns settings–》DNS–》google一行取消打勾–》Upstream DNS Servers–》custom1 IPv4 填入127.0.0.1#smartdns的端口 10053就是上面再smartdns中设置的监听端口。</code></pre>
 
             </div>
             <div class="post-footer">
@@ -588,7 +544,7 @@ $ sudo sh get-docker.sh
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zetaxx.com/Install-Docker-Engine-on-Debian/" title="Debian安装Docker">https://zetaxx.com/Install-Docker-Engine-on-Debian/</a>
+      <a href="https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/" title="“smartdns”+”pi-hole” 实现dns智能解析和缓存">https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -601,15 +557,11 @@ $ sudo sh get-docker.sh
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="加速GitHub资源拉取" href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">加速GitHub资源拉取</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="加速GitHub资源拉取" href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Debian10中启用SSH和网络配置" href="https://zetaxx.com/ssh-and-network-setting-on-debian/">Debian10中启用SSH和网络配置</a>
-        <a class="nav-mobile-next" title="Debian10中启用SSH和网络配置" href="https://zetaxx.com/ssh-and-network-setting-on-debian/">下一篇</a>
+        <a class="nav-pc-next" title="编译OpenWRT固件" href="https://zetaxx.com/make-config-openwrt/">编译OpenWRT固件</a>
+        <a class="nav-mobile-next" title="编译OpenWRT固件" href="https://zetaxx.com/make-config-openwrt/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
