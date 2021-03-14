@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zetaxx.com</id>
+    <id>https://blog.zetaxx.com</id>
     <title>Zeta</title>
-    <updated>2021-03-05T02:58:11.662Z</updated>
+    <updated>2021-03-14T13:24:59.158Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zetaxx.com"/>
-    <link rel="self" href="https://zetaxx.com/atom.xml"/>
+    <link rel="alternate" href="https://blog.zetaxx.com"/>
+    <link rel="self" href="https://blog.zetaxx.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://zetaxx.com/images/avatar.png</logo>
-    <icon>https://zetaxx.com/favicon.ico</icon>
+    <logo>https://blog.zetaxx.com/images/avatar.png</logo>
+    <icon>https://blog.zetaxx.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Zeta</rights>
     <entry>
         <title type="html"><![CDATA[“smartdns”+”pi-hole” 实现dns智能解析和缓存]]></title>
-        <id>https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/</id>
-        <link href="https://zetaxx.com/install-smartdns-and-pi-hole-on-debian/">
+        <id>https://blog.zetaxx.com/install-smartdns-and-pi-hole-on-debian/</id>
+        <link href="https://blog.zetaxx.com/install-smartdns-and-pi-hole-on-debian/">
         </link>
         <updated>2021-02-26T03:25:00.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="实现的功能">实现的功能</h1>
@@ -105,8 +105,8 @@ chmod +x ./smartdns/install
     </entry>
     <entry>
         <title type="html"><![CDATA[编译OpenWRT固件]]></title>
-        <id>https://zetaxx.com/make-config-openwrt/</id>
-        <link href="https://zetaxx.com/make-config-openwrt/">
+        <id>https://blog.zetaxx.com/make-config-openwrt/</id>
+        <link href="https://blog.zetaxx.com/make-config-openwrt/">
         </link>
         <updated>2021-02-18T06:58:13.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
@@ -212,8 +212,8 @@ make -j$(($(nproc) + 1)) V=s
     </entry>
     <entry>
         <title type="html"><![CDATA[加速GitHub资源拉取]]></title>
-        <id>https://zetaxx.com/accelerate-to-pull-resources-from-github/</id>
-        <link href="https://zetaxx.com/accelerate-to-pull-resources-from-github/">
+        <id>https://blog.zetaxx.com/accelerate-to-pull-resources-from-github/</id>
+        <link href="https://blog.zetaxx.com/accelerate-to-pull-resources-from-github/">
         </link>
         <updated>2021-02-14T14:16:13.000Z</updated>
         <summary type="html"><![CDATA[<p>本文主要介绍在不进行多余网络配置的情况下，直接使用提供了 github 国内镜像服务的网站进行 github 各种资源拉取加速，在这里向各位提供 github 国内镜像服务的大佬们致敬。</p>
@@ -265,8 +265,8 @@ $ git clone https://gitclone.com/github.com/kubernetes/kubernetes.git
     </entry>
     <entry>
         <title type="html"><![CDATA[Debian安装Docker]]></title>
-        <id>https://zetaxx.com/Install-Docker-Engine-on-Debian/</id>
-        <link href="https://zetaxx.com/Install-Docker-Engine-on-Debian/">
+        <id>https://blog.zetaxx.com/Install-Docker-Engine-on-Debian/</id>
+        <link href="https://blog.zetaxx.com/Install-Docker-Engine-on-Debian/">
         </link>
         <updated>2021-01-31T09:39:46.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="准备工作">准备工作</h1>
@@ -308,8 +308,8 @@ $ sudo apt-get install \
     </entry>
     <entry>
         <title type="html"><![CDATA[Debian10中启用SSH和网络配置]]></title>
-        <id>https://zetaxx.com/ssh-and-network-setting-on-debian/</id>
-        <link href="https://zetaxx.com/ssh-and-network-setting-on-debian/">
+        <id>https://blog.zetaxx.com/ssh-and-network-setting-on-debian/</id>
+        <link href="https://blog.zetaxx.com/ssh-and-network-setting-on-debian/">
         </link>
         <updated>2021-01-30T15:46:49.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="修改ssh">修改SSH</h1>
@@ -353,8 +353,8 @@ gateway 10.10.10.1
     </entry>
     <entry>
         <title type="html"><![CDATA[Debian10 安装 DenyHosts]]></title>
-        <id>https://zetaxx.com/install-denyhosts-on-debian-10/</id>
-        <link href="https://zetaxx.com/install-denyhosts-on-debian-10/">
+        <id>https://blog.zetaxx.com/install-denyhosts-on-debian-10/</id>
+        <link href="https://blog.zetaxx.com/install-denyhosts-on-debian-10/">
         </link>
         <updated>2021-01-21T05:53:55.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="介绍">介绍</h1>
@@ -384,8 +384,8 @@ gateway 10.10.10.1
     </entry>
     <entry>
         <title type="html"><![CDATA[Linux安装KMS激活服务一键脚本]]></title>
-        <id>https://zetaxx.com/one-key-install-kms-service/</id>
-        <link href="https://zetaxx.com/one-key-install-kms-service/">
+        <id>https://blog.zetaxx.com/one-key-install-kms-service/</id>
+        <link href="https://blog.zetaxx.com/one-key-install-kms-service/">
         </link>
         <updated>2020-08-09T09:18:18.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="介绍">介绍</h1>
@@ -407,8 +407,8 @@ gateway 10.10.10.1
     </entry>
     <entry>
         <title type="html"><![CDATA[解决Debian 10 /etc/rc.local 开机启动问题]]></title>
-        <id>https://zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/</id>
-        <link href="https://zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/">
+        <id>https://blog.zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/</id>
+        <link href="https://blog.zetaxx.com/solves-Debian-10-the-startup-problem-of-rc-local/">
         </link>
         <updated>2020-07-22T13:56:56.000Z</updated>
         <summary type="html"><![CDATA[<p>由于某些软件没有开机自动启动的服务，很多时候需要手工添加，一般我们都是推荐添加命令到<code>/etc/rc.local</code>文件，但是 <code>Debian 10</code> 默认不带 <code>/etc/rc.local</code>文件，而 <code>rc.local</code>服务却还是自带的。</p>
@@ -418,8 +418,8 @@ gateway 10.10.10.1
     </entry>
     <entry>
         <title type="html"><![CDATA[Dnsmasq SNIproxy One-click Install]]></title>
-        <id>https://zetaxx.com/dnsmasq-sniproxy-one-click-install/</id>
-        <link href="https://zetaxx.com/dnsmasq-sniproxy-one-click-install/">
+        <id>https://blog.zetaxx.com/dnsmasq-sniproxy-one-click-install/</id>
+        <link href="https://blog.zetaxx.com/dnsmasq-sniproxy-one-click-install/">
         </link>
         <updated>2020-07-17T11:50:12.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="脚本说明">脚本说明：</h1>
@@ -447,8 +447,8 @@ gateway 10.10.10.1
     </entry>
     <entry>
         <title type="html"><![CDATA[VPS DD debian 系统]]></title>
-        <id>https://zetaxx.com/vps-dd-debian-system/</id>
-        <link href="https://zetaxx.com/vps-dd-debian-system/">
+        <id>https://blog.zetaxx.com/vps-dd-debian-system/</id>
+        <link href="https://blog.zetaxx.com/vps-dd-debian-system/">
         </link>
         <updated>2020-07-16T13:07:32.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="一-查看虚拟机的ip跟其上级ip">一、查看虚拟机的ip跟其上级ip</h1>
